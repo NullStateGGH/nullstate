@@ -1,0 +1,57 @@
+---
+sidebar_position: 1
+---
+
+# Quickstart
+
+Deploy NullState in 30 seconds and run your first agent payment.
+
+## Docker
+
+```bash
+git clone https://github.com/nullstate/nullstate
+cd nullstate
+docker compose up -d
+```
+
+## Verify
+
+```bash
+curl -k https://localhost:8080/health
+```
+
+Response:
+```json
+{
+  "status": "ok",
+  "tasks": ...,
+  "balance": "0.46 USDC",
+  "ai_enhanced": true
+}
+```
+
+## Run the AP2 Demo
+
+```bash
+curl -k -X POST https://localhost:8080/mcp \
+  -H 'Content-Type: application/json' \
+  -d '{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"execute_ap2_handshake","arguments":{"caller_identity":"demo_agent"}}}'
+```
+
+## Without Docker (systemd)
+
+```bash
+cd /home/nullstate
+cp nullstate.service /etc/systemd/system/
+systemctl daemon-reload
+systemctl start nullstate-gateway.service
+systemctl start nullstate-mcp.service
+systemctl start nullstate.service
+```
+
+## Next Steps
+
+- [x402 Protocol](protocols/x402) — crypto micropayments
+- [AP2 Protocol](protocols/ap2) — enterprise mandates
+- [MCP Server](mcp-server/overview) — AI agent tools
+- [KYA Auth](protocols/kya) — agent identity

@@ -1,0 +1,63 @@
+{
+  "name": "nullstate-agent-workspace",
+  "displayName": "NullState Agent Workspace",
+  "description": "Sandboxed payment-enabled workspace for AI coding agents. Connect any agent to the NullState payment layer.",
+  "version": "0.1.0",
+  "publisher": "NullState",
+  "license": "MIT",
+  "repository": { "type": "git", "url": "https://github.com/nullstate/nullstate" },
+  "engines": { "vscode": "^1.98.0" },
+  "categories": ["Programming Languages", "Machine Learning", "Other"],
+  "keywords": ["ai-agents", "mcp", "payments", "agent-workspace", "sandbox"],
+  "icon": "icon.png",
+  "activationEvents": ["onStartupFinished"],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      { "command": "nullstate.openWorkspace", "title": "NullState: Open Agent Workspace" },
+      { "command": "nullstate.showLedger", "title": "NullState: Show Revenue Ledger" },
+      { "command": "nullstate.createTask", "title": "NullState: Create Task" },
+      { "command": "nullstate.connectMCP", "title": "NullState: Connect MCP Server" },
+      { "command": "nullstate.showWallet", "title": "NullState: Wallet & Balance" }
+    ],
+    "viewsContainers": {
+      "activitybar": [ { "id": "nullstate", "title": "NullState", "icon": "media/icon.svg" } ]
+    },
+    "views": {
+      "nullstate": [
+        { "id": "nullstate.workspace", "name": "Agent Workspace" },
+        { "id": "nullstate.tasks", "name": "Task Queue" },
+        { "id": "nullstate.ledger", "name": "Revenue Ledger" }
+      ]
+    },
+    "menus": {
+      "editor/context": [
+        { "command": "nullstate.createTask", "group": "nullstate" }
+      ]
+    },
+    "configuration": {
+      "title": "NullState",
+      "properties": {
+        "nullstate.gatewayUrl": { "type": "string", "default": "https://greensol.me/nullstate", "description": "NullState gateway URL" },
+        "nullstate.mcpProxyUrl": { "type": "string", "default": "https://greensol.me/nullstate/mcp", "description": "MCP proxy endpoint" },
+        "nullstate.agentIdentity": { "type": "string", "default": "", "description": "Agent identity for KYA auth" },
+        "nullstate.autoSettle": { "type": "boolean", "default": true, "description": "Auto-settle completed tasks" },
+        "nullstate.sandboxEnabled": { "type": "boolean", "default": true, "description": "Enable sandboxed terminal" }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "lint": "eslint src --ext ts"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "@types/vscode": "^1.98.0",
+    "typescript": "^5.5.0"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.0.0"
+  }
+}

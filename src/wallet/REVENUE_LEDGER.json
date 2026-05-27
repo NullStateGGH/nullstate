@@ -1,0 +1,3284 @@
+[
+  {
+    "task_id": "task_001",
+    "source": "https://api.github.com/search/repositories?q=mcp-server&sort=updated&per_page=20",
+    "keywords": [
+      "mcp-server"
+    ],
+    "weights": [
+      3
+    ],
+    "tier": "MARKET_READY",
+    "ai_scored": false,
+    "amount": 0.03,
+    "transaction_hash": "4d67b3816a7912c8190574704a3b4a1506182445f6794ede0922a21aa3dacfad",
+    "public_address": "f0114f786c3b5da3c97f3c3d214638e5dddc8208779782e5b6256e71a958ce79",
+    "payment_protocol": "x402",
+    "settlement_currency": "USDC",
+    "timestamp": "2026-05-26T13:28:31.989611+00:00"
+  },
+  {
+    "task_id": "task_002",
+    "source": "https://api.github.com/search/repositories?q=agentic+automation&sort=updated&per_page=20",
+    "keywords": [
+      "mcp-server"
+    ],
+    "weights": [
+      3
+    ],
+    "tier": "MARKET_READY",
+    "ai_scored": false,
+    "amount": 0.03,
+    "transaction_hash": "50fe592a3589378fe69a89c185b014abb771ffc53c4bc5d8f489e1f6f6c48d59",
+    "public_address": "f0114f786c3b5da3c97f3c3d214638e5dddc8208779782e5b6256e71a958ce79",
+    "payment_protocol": "x402",
+    "settlement_currency": "USDC",
+    "timestamp": "2026-05-26T13:28:32.171092+00:00"
+  },
+  {
+    "task_id": "task_003",
+    "source": "https://api.github.com/search/repositories?q=usdc+escrow+agent&sort=updated&per_page=20",
+    "keywords": [
+      "mcp-server"
+    ],
+    "weights": [
+      3
+    ],
+    "tier": "MARKET_READY",
+    "ai_scored": false,
+    "amount": 0.03,
+    "transaction_hash": "40039d5c4d5cace13a948ae9d087b7c67719487f02945a76df55c9fb8d466389",
+    "public_address": "f0114f786c3b5da3c97f3c3d214638e5dddc8208779782e5b6256e71a958ce79",
+    "payment_protocol": "x402",
+    "settlement_currency": "USDC",
+    "timestamp": "2026-05-26T13:28:32.315285+00:00"
+  },
+  {
+    "task_id": "task_004",
+    "source": "https://api.github.com/search/repositories?q=mcp+server+integration&sort=updated&per_page=20",
+    "keywords": [
+      "mcp-server"
+    ],
+    "weights": [
+      3
+    ],
+    "tier": "MARKET_READY",
+    "ai_scored": false,
+    "amount": 0.03,
+    "transaction_hash": "1e355116cb8388f4327f918df9f74ef9e3cd6d865135025fe8d33f8bd258d0a4",
+    "public_address": "f0114f786c3b5da3c97f3c3d214638e5dddc8208779782e5b6256e71a958ce79",
+    "payment_protocol": "x402",
+    "settlement_currency": "USDC",
+    "timestamp": "2026-05-26T13:28:32.445773+00:00"
+  },
+  {
+    "task_id": "task_005",
+    "source": "https://api.github.com/search/repositories?q=mcp-server&sort=updated&per_page=20",
+    "keywords": [
+      "mcp-server"
+    ],
+    "weights": [
+      3
+    ],
+    "tier": "MARKET_READY",
+    "ai_scored": false,
+    "amount": 0.03,
+    "transaction_hash": "1c1d5d7a7f9088475fc55541de2a8bf1493500cc56c392a0867f9bf5655e7a5f",
+    "public_address": "f0114f786c3b5da3c97f3c3d214638e5dddc8208779782e5b6256e71a958ce79",
+    "payment_protocol": "x402",
+    "settlement_currency": "USDC",
+    "timestamp": "2026-05-26T13:38:39.170588+00:00"
+  },
+  {
+    "task_id": "task_006",
+    "source": "https://api.github.com/search/repositories?q=agentic+automation&sort=updated&per_page=20",
+    "keywords": [
+      "mcp-server"
+    ],
+    "weights": [
+      3
+    ],
+    "tier": "MARKET_READY",
+    "ai_scored": false,
+    "amount": 0.03,
+    "transaction_hash": "a438f395b8301e5a91176395851c4d7fb6e37c378597f3c51e13e9f0c8d47373",
+    "public_address": "f0114f786c3b5da3c97f3c3d214638e5dddc8208779782e5b6256e71a958ce79",
+    "payment_protocol": "x402",
+    "settlement_currency": "USDC",
+    "timestamp": "2026-05-26T13:38:39.317244+00:00"
+  },
+  {
+    "task_id": "task_007",
+    "source": "https://api.github.com/search/repositories?q=usdc+escrow+agent&sort=updated&per_page=20",
+    "keywords": [
+      "mcp-server"
+    ],
+    "weights": [
+      3
+    ],
+    "tier": "MARKET_READY",
+    "ai_scored": false,
+    "amount": 0.03,
+    "transaction_hash": "267a805562506519b5d54dc5af4ac47dc7ce7fa8e4df7af4dfe79aa53bdca51a",
+    "public_address": "f0114f786c3b5da3c97f3c3d214638e5dddc8208779782e5b6256e71a958ce79",
+    "payment_protocol": "x402",
+    "settlement_currency": "USDC",
+    "timestamp": "2026-05-26T13:38:39.440936+00:00"
+  },
+  {
+    "task_id": "task_008",
+    "source": "https://api.github.com/search/repositories?q=mcp+server+integration&sort=updated&per_page=20",
+    "keywords": [
+      "mcp-server"
+    ],
+    "weights": [
+      3
+    ],
+    "tier": "MARKET_READY",
+    "ai_scored": false,
+    "amount": 0.03,
+    "transaction_hash": "3dd5588950765653134a05b6c64586852a5bffb60089cee13d33d843bb16e213",
+    "public_address": "f0114f786c3b5da3c97f3c3d214638e5dddc8208779782e5b6256e71a958ce79",
+    "payment_protocol": "x402",
+    "settlement_currency": "USDC",
+    "timestamp": "2026-05-26T13:38:39.574116+00:00"
+  },
+  {
+    "task_id": "task_009",
+    "source": "https://api.github.com/search/repositories?q=mcp-server&sort=updated&per_page=20",
+    "keywords": [
+      "mcp-server"
+    ],
+    "weights": [
+      3
+    ],
+    "tier": "MARKET_READY",
+    "ai_scored": false,
+    "amount": 0.03,
+    "transaction_hash": "7032fb2cfe8426ff95830ac71d88f6e0dc91a2a89fa4ab2b5b41413b0775f7b1",
+    "public_address": "f0114f786c3b5da3c97f3c3d214638e5dddc8208779782e5b6256e71a958ce79",
+    "payment_protocol": "x402",
+    "settlement_currency": "USDC",
+    "timestamp": "2026-05-26T13:48:47.026988+00:00"
+  },
+  {
+    "task_id": "task_010",
+    "source": "https://api.github.com/search/repositories?q=agentic+automation&sort=updated&per_page=20",
+    "keywords": [
+      "mcp-server"
+    ],
+    "weights": [
+      3
+    ],
+    "tier": "MARKET_READY",
+    "ai_scored": false,
+    "amount": 0.03,
+    "transaction_hash": "23e6788023d7eb5eccfa437ca1bfd124d05f6f83f63cecb56429e8e5d08238b4",
+    "public_address": "f0114f786c3b5da3c97f3c3d214638e5dddc8208779782e5b6256e71a958ce79",
+    "payment_protocol": "x402",
+    "settlement_currency": "USDC",
+    "timestamp": "2026-05-26T13:48:47.168901+00:00"
+  },
+  {
+    "task_id": "task_011",
+    "source": "https://api.github.com/search/repositories?q=x402+payment&sort=updated&per_page=20",
+    "keywords": [
+      "mcp-server"
+    ],
+    "weights": [
+      3
+    ],
+    "tier": "MARKET_READY",
+    "ai_scored": false,
+    "amount": 0.03,
+    "transaction_hash": "fd7777a1de4df6db3e1b27a3591e9908b0f8296cec54dc1c3c0f5ce7fd7a023d",
+    "public_address": "f0114f786c3b5da3c97f3c3d214638e5dddc8208779782e5b6256e71a958ce79",
+    "payment_protocol": "x402",
+    "settlement_currency": "USDC",
+    "timestamp": "2026-05-26T13:48:47.280750+00:00"
+  },
+  {
+    "task_id": "task_012",
+    "source": "https://api.github.com/search/repositories?q=usdc+escrow+agent&sort=updated&per_page=20",
+    "keywords": [
+      "mcp-server"
+    ],
+    "weights": [
+      3
+    ],
+    "tier": "MARKET_READY",
+    "ai_scored": false,
+    "amount": 0.03,
+    "transaction_hash": "5275d9606b8696c20c686bcb089103b6a5238728603affd69ceb7ab598ee164d",
+    "public_address": "f0114f786c3b5da3c97f3c3d214638e5dddc8208779782e5b6256e71a958ce79",
+    "payment_protocol": "x402",
+    "settlement_currency": "USDC",
+    "timestamp": "2026-05-26T13:48:47.412477+00:00"
+  },
+  {
+    "task_id": "task_013",
+    "source": "https://api.github.com/search/repositories?q=mcp+server+integration&sort=updated&per_page=20",
+    "keywords": [
+      "mcp-server"
+    ],
+    "weights": [
+      3
+    ],
+    "tier": "MARKET_READY",
+    "ai_scored": false,
+    "amount": 0.03,
+    "transaction_hash": "7d6a3f8e1d36df70b31844d073e387af487109b79b52fcc25ec3ddf776e20188",
+    "public_address": "f0114f786c3b5da3c97f3c3d214638e5dddc8208779782e5b6256e71a958ce79",
+    "payment_protocol": "x402",
+    "settlement_currency": "USDC",
+    "timestamp": "2026-05-26T13:48:47.548717+00:00"
+  },
+  {
+    "task_id": "task_014",
+    "source": "https://api.github.com/search/repositories?q=mcp-server&sort=updated&per_page=20",
+    "keywords": [
+      "mcp-server"
+    ],
+    "weights": [
+      3
+    ],
+    "tier": "MARKET_READY",
+    "ai_scored": false,
+    "amount": 0.03,
+    "transaction_hash": "4f656cd074ac2083eb85bbc49677ba746de90a98cb433f7695cc8de3eff1b050",
+    "public_address": "f0114f786c3b5da3c97f3c3d214638e5dddc8208779782e5b6256e71a958ce79",
+    "payment_protocol": "x402",
+    "settlement_currency": "USDC",
+    "timestamp": "2026-05-26T13:58:55.307115+00:00"
+  },
+  {
+    "task_id": "task_015",
+    "source": "https://api.github.com/search/repositories?q=agentic+automation&sort=updated&per_page=20",
+    "keywords": [
+      "mcp-server"
+    ],
+    "weights": [
+      3
+    ],
+    "tier": "MARKET_READY",
+    "ai_scored": false,
+    "amount": 0.03,
+    "transaction_hash": "7387c52829a4e966554b2b76fd97ca9637981ae9c0ab5e9fc92e829922550dfd",
+    "public_address": "f0114f786c3b5da3c97f3c3d214638e5dddc8208779782e5b6256e71a958ce79",
+    "payment_protocol": "x402",
+    "settlement_currency": "USDC",
+    "timestamp": "2026-05-26T13:58:55.441096+00:00"
+  },
+  {
+    "task_id": "task_016",
+    "source": "https://api.github.com/search/repositories?q=x402+payment&sort=updated&per_page=20",
+    "keywords": [
+      "mcp-server"
+    ],
+    "weights": [
+      3
+    ],
+    "tier": "MARKET_READY",
+    "ai_scored": false,
+    "amount": 0.03,
+    "transaction_hash": "958efaae9e33a1cbe1335f90b0862d693fe3a1c684764794e32898f86ef9045d",
+    "public_address": "f0114f786c3b5da3c97f3c3d214638e5dddc8208779782e5b6256e71a958ce79",
+    "payment_protocol": "x402",
+    "settlement_currency": "USDC",
+    "timestamp": "2026-05-26T13:58:55.571980+00:00"
+  },
+  {
+    "task_id": "task_017",
+    "source": "https://api.github.com/search/repositories?q=usdc+escrow+agent&sort=updated&per_page=20",
+    "keywords": [
+      "mcp-server"
+    ],
+    "weights": [
+      3
+    ],
+    "tier": "MARKET_READY",
+    "ai_scored": false,
+    "amount": 0.03,
+    "transaction_hash": "1b47186d11f9b4b1261115374ab7c06241ec4972954e558cbccc84481f06c758",
+    "public_address": "f0114f786c3b5da3c97f3c3d214638e5dddc8208779782e5b6256e71a958ce79",
+    "payment_protocol": "x402",
+    "settlement_currency": "USDC",
+    "timestamp": "2026-05-26T13:58:55.717696+00:00"
+  },
+  {
+    "task_id": "task_018",
+    "source": "https://api.github.com/search/repositories?q=mcp+server+integration&sort=updated&per_page=20",
+    "keywords": [
+      "mcp-server"
+    ],
+    "weights": [
+      3
+    ],
+    "tier": "MARKET_READY",
+    "ai_scored": false,
+    "amount": 0.03,
+    "transaction_hash": "7fb84a31cb582b126b568dfec71e3ec630a79dfdcbaf477aeed5eb4f00b5d480",
+    "public_address": "f0114f786c3b5da3c97f3c3d214638e5dddc8208779782e5b6256e71a958ce79",
+    "payment_protocol": "x402",
+    "settlement_currency": "USDC",
+    "timestamp": "2026-05-26T13:58:55.878194+00:00"
+  },
+  {
+    "task_id": "task_019",
+    "source": "https://api.github.com/search/repositories?q=mcp-server&sort=updated&per_page=20",
+    "keywords": [
+      "mcp-server"
+    ],
+    "weights": [
+      3
+    ],
+    "tier": "MARKET_READY",
+    "ai_scored": false,
+    "amount": 0.03,
+    "transaction_hash": "dedf98ac2cdd122e1f3ec467f293a5f42c86dff51036e17615dd4b87ed5a49d3",
+    "public_address": "f0114f786c3b5da3c97f3c3d214638e5dddc8208779782e5b6256e71a958ce79",
+    "payment_protocol": "x402",
+    "settlement_currency": "USDC",
+    "timestamp": "2026-05-26T14:09:03.949246+00:00"
+  },
+  {
+    "task_id": "task_020",
+    "source": "https://api.github.com/search/repositories?q=agentic+automation&sort=updated&per_page=20",
+    "keywords": [
+      "mcp-server"
+    ],
+    "weights": [
+      3
+    ],
+    "tier": "MARKET_READY",
+    "ai_scored": false,
+    "amount": 0.03,
+    "transaction_hash": "0e1507cc7fcd141b2128dce84838eced2b2322d6d4dc0c60d57e94ef9fc849f0",
+    "public_address": "f0114f786c3b5da3c97f3c3d214638e5dddc8208779782e5b6256e71a958ce79",
+    "payment_protocol": "x402",
+    "settlement_currency": "USDC",
+    "timestamp": "2026-05-26T14:09:04.126036+00:00"
+  },
+  {
+    "task_id": "task_021",
+    "source": "https://api.github.com/search/repositories?q=x402+payment&sort=updated&per_page=20",
+    "keywords": [
+      "mcp-server"
+    ],
+    "weights": [
+      3
+    ],
+    "tier": "MARKET_READY",
+    "ai_scored": false,
+    "amount": 0.03,
+    "transaction_hash": "8b021db54fece789789a54f70a87807e3c991e2af339b1fc99cf91d5adec85a9",
+    "public_address": "f0114f786c3b5da3c97f3c3d214638e5dddc8208779782e5b6256e71a958ce79",
+    "payment_protocol": "x402",
+    "settlement_currency": "USDC",
+    "timestamp": "2026-05-26T14:09:04.259702+00:00"
+  },
+  {
+    "task_id": "task_022",
+    "source": "https://api.github.com/search/repositories?q=usdc+escrow+agent&sort=updated&per_page=20",
+    "keywords": [
+      "mcp-server"
+    ],
+    "weights": [
+      3
+    ],
+    "tier": "MARKET_READY",
+    "ai_scored": false,
+    "amount": 0.03,
+    "transaction_hash": "dab4eae20986d1f5cf48013f9863fd7f8ad6ae21e42c93941ed959bc7f902630",
+    "public_address": "f0114f786c3b5da3c97f3c3d214638e5dddc8208779782e5b6256e71a958ce79",
+    "payment_protocol": "x402",
+    "settlement_currency": "USDC",
+    "timestamp": "2026-05-26T14:09:04.410482+00:00"
+  },
+  {
+    "task_id": "task_023",
+    "source": "https://api.github.com/search/repositories?q=mcp+server+integration&sort=updated&per_page=20",
+    "keywords": [
+      "mcp-server"
+    ],
+    "weights": [
+      3
+    ],
+    "tier": "MARKET_READY",
+    "ai_scored": false,
+    "amount": 0.03,
+    "transaction_hash": "94d67fce68e274166e66cd6dcde05860f143a60631cd3750e38dfe04d72c6fa8",
+    "public_address": "f0114f786c3b5da3c97f3c3d214638e5dddc8208779782e5b6256e71a958ce79",
+    "payment_protocol": "x402",
+    "settlement_currency": "USDC",
+    "timestamp": "2026-05-26T14:09:04.542062+00:00"
+  },
+  {
+    "task_id": "task_024",
+    "source": "https://api.github.com/search/repositories?q=mcp-server&sort=updated&per_page=20",
+    "keywords": [
+      "mcp-server"
+    ],
+    "weights": [
+      3
+    ],
+    "tier": "MARKET_READY",
+    "ai_scored": false,
+    "amount": 0.03,
+    "transaction_hash": "6aadec566d1ef8e76abf0c8baeed4a1858ab00352011849f5d3f36b96a4c0c67",
+    "public_address": "f0114f786c3b5da3c97f3c3d214638e5dddc8208779782e5b6256e71a958ce79",
+    "payment_protocol": "x402",
+    "settlement_currency": "USDC",
+    "timestamp": "2026-05-26T14:19:11.132788+00:00"
+  },
+  {
+    "task_id": "task_025",
+    "source": "https://api.github.com/search/repositories?q=agentic+automation&sort=updated&per_page=20",
+    "keywords": [
+      "mcp-server"
+    ],
+    "weights": [
+      3
+    ],
+    "tier": "MARKET_READY",
+    "ai_scored": false,
+    "amount": 0.03,
+    "transaction_hash": "6388c551f57079597a39a7c421b77241e701d9276a411a0a32621980388ec663",
+    "public_address": "f0114f786c3b5da3c97f3c3d214638e5dddc8208779782e5b6256e71a958ce79",
+    "payment_protocol": "x402",
+    "settlement_currency": "USDC",
+    "timestamp": "2026-05-26T14:19:11.253584+00:00"
+  },
+  {
+    "task_id": "task_026",
+    "source": "https://api.github.com/search/repositories?q=x402+payment&sort=updated&per_page=20",
+    "keywords": [
+      "mcp-server"
+    ],
+    "weights": [
+      3
+    ],
+    "tier": "MARKET_READY",
+    "ai_scored": false,
+    "amount": 0.03,
+    "transaction_hash": "3dd4450ef7d996cebc2d9f3b0791eada6d0bb1dac6a1501bed6b80031b76df41",
+    "public_address": "f0114f786c3b5da3c97f3c3d214638e5dddc8208779782e5b6256e71a958ce79",
+    "payment_protocol": "x402",
+    "settlement_currency": "USDC",
+    "timestamp": "2026-05-26T14:19:11.385364+00:00"
+  },
+  {
+    "task_id": "task_027",
+    "source": "https://api.github.com/search/repositories?q=usdc+escrow+agent&sort=updated&per_page=20",
+    "keywords": [
+      "mcp-server"
+    ],
+    "weights": [
+      3
+    ],
+    "tier": "MARKET_READY",
+    "ai_scored": false,
+    "amount": 0.03,
+    "transaction_hash": "4c22de5ebd7e4cf9da9f259d075c7710b9fd8633d4480c7578cb1b0a9339be26",
+    "public_address": "f0114f786c3b5da3c97f3c3d214638e5dddc8208779782e5b6256e71a958ce79",
+    "payment_protocol": "x402",
+    "settlement_currency": "USDC",
+    "timestamp": "2026-05-26T14:19:11.512609+00:00"
+  },
+  {
+    "task_id": "task_028",
+    "source": "https://api.github.com/search/repositories?q=mcp+server+integration&sort=updated&per_page=20",
+    "keywords": [
+      "mcp-server"
+    ],
+    "weights": [
+      3
+    ],
+    "tier": "MARKET_READY",
+    "ai_scored": false,
+    "amount": 0.03,
+    "transaction_hash": "331047b044c3723e9fc379fbee04420a3fa4d24939594371bd1d153714f5874a",
+    "public_address": "f0114f786c3b5da3c97f3c3d214638e5dddc8208779782e5b6256e71a958ce79",
+    "payment_protocol": "x402",
+    "settlement_currency": "USDC",
+    "timestamp": "2026-05-26T14:19:11.747082+00:00"
+  },
+  {
+    "task_id": "task_029",
+    "source": "https://api.github.com/search/repositories?q=agentic+automation&sort=updated&per_page=20",
+    "keywords": [
+      "mcp-server"
+    ],
+    "weights": [
+      3
+    ],
+    "tier": "MARKET_READY",
+    "ai_scored": false,
+    "amount": 0.03,
+    "transaction_hash": "627a59ba442a72f43eabdf9ab7ae99a5b8608fe555f6600b3fe7d99c819bc7f2",
+    "public_address": "f0114f786c3b5da3c97f3c3d214638e5dddc8208779782e5b6256e71a958ce79",
+    "payment_protocol": "x402",
+    "settlement_currency": "USDC",
+    "timestamp": "2026-05-26T14:29:18.944589+00:00"
+  },
+  {
+    "task_id": "task_030",
+    "source": "https://api.github.com/search/repositories?q=x402+payment&sort=updated&per_page=20",
+    "keywords": [
+      "mcp-server"
+    ],
+    "weights": [
+      3
+    ],
+    "tier": "MARKET_READY",
+    "ai_scored": false,
+    "amount": 0.03,
+    "transaction_hash": "80546a2b27cd7d25a6560178041a3c8a1b99c8d29323b9ae6da2ef49871f4c18",
+    "public_address": "f0114f786c3b5da3c97f3c3d214638e5dddc8208779782e5b6256e71a958ce79",
+    "payment_protocol": "x402",
+    "settlement_currency": "USDC",
+    "timestamp": "2026-05-26T14:29:19.102879+00:00"
+  },
+  {
+    "task_id": "task_031",
+    "source": "https://api.github.com/search/repositories?q=usdc+escrow+agent&sort=updated&per_page=20",
+    "keywords": [
+      "mcp-server"
+    ],
+    "weights": [
+      3
+    ],
+    "tier": "MARKET_READY",
+    "ai_scored": false,
+    "amount": 0.03,
+    "transaction_hash": "1c701ca31de7afcecdc02259a50a674a0cdc7a0319659a5c6909feb8af67d98b",
+    "public_address": "f0114f786c3b5da3c97f3c3d214638e5dddc8208779782e5b6256e71a958ce79",
+    "payment_protocol": "x402",
+    "settlement_currency": "USDC",
+    "timestamp": "2026-05-26T14:29:19.209600+00:00"
+  },
+  {
+    "task_id": "task_032",
+    "source": "https://api.github.com/search/repositories?q=mcp+server+integration&sort=updated&per_page=20",
+    "keywords": [
+      "mcp-server"
+    ],
+    "weights": [
+      3
+    ],
+    "tier": "MARKET_READY",
+    "ai_scored": false,
+    "amount": 0.03,
+    "transaction_hash": "c42a45e7b33364e2fc767ec7bddab3a95ef6974395619de69cb2b7686fb3c483",
+    "public_address": "f0114f786c3b5da3c97f3c3d214638e5dddc8208779782e5b6256e71a958ce79",
+    "payment_protocol": "x402",
+    "settlement_currency": "USDC",
+    "timestamp": "2026-05-26T14:29:19.320607+00:00"
+  },
+  {
+    "task_id": "task_033",
+    "source": "https://api.github.com/search/repositories?q=mcp-server&sort=updated&per_page=20",
+    "keywords": [
+      "mcp-server"
+    ],
+    "weights": [
+      3
+    ],
+    "tier": "MARKET_READY",
+    "ai_scored": false,
+    "amount": 0.03,
+    "transaction_hash": "59cc0b26572aa292276668f5b82100414f9abe1437a1e4db59ae74c8817abe56",
+    "public_address": "f0114f786c3b5da3c97f3c3d214638e5dddc8208779782e5b6256e71a958ce79",
+    "payment_protocol": "x402",
+    "settlement_currency": "USDC",
+    "timestamp": "2026-05-26T14:39:26.329378+00:00"
+  },
+  {
+    "task_id": "task_034",
+    "source": "https://api.github.com/search/repositories?q=agentic+automation&sort=updated&per_page=20",
+    "keywords": [
+      "mcp-server"
+    ],
+    "weights": [
+      3
+    ],
+    "tier": "MARKET_READY",
+    "ai_scored": false,
+    "amount": 0.03,
+    "transaction_hash": "81881482dd9cad72ba5384cae7b0247dfa523604c4fa57ebf4cab7c08e097fee",
+    "public_address": "f0114f786c3b5da3c97f3c3d214638e5dddc8208779782e5b6256e71a958ce79",
+    "payment_protocol": "x402",
+    "settlement_currency": "USDC",
+    "timestamp": "2026-05-26T14:39:26.468185+00:00"
+  },
+  {
+    "task_id": "task_035",
+    "source": "https://api.github.com/search/repositories?q=x402+payment&sort=updated&per_page=20",
+    "keywords": [
+      "mcp-server"
+    ],
+    "weights": [
+      3
+    ],
+    "tier": "MARKET_READY",
+    "ai_scored": false,
+    "amount": 0.03,
+    "transaction_hash": "2484f294d72a9a465f1cb34ea636ba52c31ecce1175055a412cdbc94ce18ca1a",
+    "public_address": "f0114f786c3b5da3c97f3c3d214638e5dddc8208779782e5b6256e71a958ce79",
+    "payment_protocol": "x402",
+    "settlement_currency": "USDC",
+    "timestamp": "2026-05-26T14:39:26.624156+00:00"
+  },
+  {
+    "task_id": "task_036",
+    "source": "https://api.github.com/search/repositories?q=usdc+escrow+agent&sort=updated&per_page=20",
+    "keywords": [
+      "mcp-server"
+    ],
+    "weights": [
+      3
+    ],
+    "tier": "MARKET_READY",
+    "ai_scored": false,
+    "amount": 0.03,
+    "transaction_hash": "d48deed79281f5ad9231991f7772c4ca3d7bf1c96c5c3db5d256494235592a75",
+    "public_address": "f0114f786c3b5da3c97f3c3d214638e5dddc8208779782e5b6256e71a958ce79",
+    "payment_protocol": "x402",
+    "settlement_currency": "USDC",
+    "timestamp": "2026-05-26T14:39:26.757585+00:00"
+  },
+  {
+    "task_id": "task_037",
+    "source": "https://api.github.com/search/repositories?q=mcp+server+integration&sort=updated&per_page=20",
+    "keywords": [
+      "mcp-server"
+    ],
+    "weights": [
+      3
+    ],
+    "tier": "MARKET_READY",
+    "ai_scored": false,
+    "amount": 0.03,
+    "transaction_hash": "8c7109d1ecf50229b1e59d3bd722c2af4e0cd1fa4e90560818106742050106f3",
+    "public_address": "f0114f786c3b5da3c97f3c3d214638e5dddc8208779782e5b6256e71a958ce79",
+    "payment_protocol": "x402",
+    "settlement_currency": "USDC",
+    "timestamp": "2026-05-26T14:39:26.909835+00:00"
+  },
+  {
+    "task_id": "task_038",
+    "source": "https://api.github.com/search/repositories?q=mcp-server&sort=updated&per_page=20",
+    "keywords": [
+      "mcp-server"
+    ],
+    "weights": [
+      3
+    ],
+    "tier": "MARKET_READY",
+    "ai_scored": false,
+    "amount": 0.03,
+    "transaction_hash": "21406836bb26271e7ed3940d83eecbba8612a30ff80ed05fe50e5ba09cc27062",
+    "public_address": "f0114f786c3b5da3c97f3c3d214638e5dddc8208779782e5b6256e71a958ce79",
+    "payment_protocol": "x402",
+    "settlement_currency": "USDC",
+    "timestamp": "2026-05-26T14:49:34.653704+00:00"
+  },
+  {
+    "task_id": "task_039",
+    "source": "https://api.github.com/search/repositories?q=agentic+automation&sort=updated&per_page=20",
+    "keywords": [
+      "mcp-server"
+    ],
+    "weights": [
+      3
+    ],
+    "tier": "MARKET_READY",
+    "ai_scored": false,
+    "amount": 0.03,
+    "transaction_hash": "ca7a8dc856f6b02e827f7ee822ae22c521a1215145bfe60a7a41d434da11a294",
+    "public_address": "f0114f786c3b5da3c97f3c3d214638e5dddc8208779782e5b6256e71a958ce79",
+    "payment_protocol": "x402",
+    "settlement_currency": "USDC",
+    "timestamp": "2026-05-26T14:49:34.793760+00:00"
+  },
+  {
+    "task_id": "task_040",
+    "source": "https://api.github.com/search/repositories?q=x402+payment&sort=updated&per_page=20",
+    "keywords": [
+      "mcp-server"
+    ],
+    "weights": [
+      3
+    ],
+    "tier": "MARKET_READY",
+    "ai_scored": false,
+    "amount": 0.03,
+    "transaction_hash": "c4b8557a29df7424001250cea0d3ccd0ea98b61f68e03a3eb1fe831a8538f713",
+    "public_address": "f0114f786c3b5da3c97f3c3d214638e5dddc8208779782e5b6256e71a958ce79",
+    "payment_protocol": "x402",
+    "settlement_currency": "USDC",
+    "timestamp": "2026-05-26T14:49:34.922366+00:00"
+  },
+  {
+    "task_id": "task_041",
+    "source": "https://api.github.com/search/repositories?q=usdc+escrow+agent&sort=updated&per_page=20",
+    "keywords": [
+      "mcp-server"
+    ],
+    "weights": [
+      3
+    ],
+    "tier": "MARKET_READY",
+    "ai_scored": false,
+    "amount": 0.03,
+    "transaction_hash": "a5382e3e6db897ddc136556e36acae9303869bb28fda17949259039830721b88",
+    "public_address": "f0114f786c3b5da3c97f3c3d214638e5dddc8208779782e5b6256e71a958ce79",
+    "payment_protocol": "x402",
+    "settlement_currency": "USDC",
+    "timestamp": "2026-05-26T14:49:35.114308+00:00"
+  },
+  {
+    "task_id": "task_042",
+    "source": "https://api.github.com/search/repositories?q=mcp+server+integration&sort=updated&per_page=20",
+    "keywords": [
+      "mcp-server"
+    ],
+    "weights": [
+      3
+    ],
+    "tier": "MARKET_READY",
+    "ai_scored": false,
+    "amount": 0.03,
+    "transaction_hash": "1697caedf74eb7374dec7233d342a1438b501fb51b40ac7b8fbce1164632581e",
+    "public_address": "f0114f786c3b5da3c97f3c3d214638e5dddc8208779782e5b6256e71a958ce79",
+    "payment_protocol": "x402",
+    "settlement_currency": "USDC",
+    "timestamp": "2026-05-26T14:49:35.256502+00:00"
+  },
+  {
+    "task_id": "task_043",
+    "source": "https://api.github.com/search/repositories?q=mcp-server&sort=updated&per_page=20",
+    "keywords": [
+      "mcp-server"
+    ],
+    "weights": [
+      3
+    ],
+    "tier": "MARKET_READY",
+    "ai_scored": false,
+    "amount": 0.03,
+    "transaction_hash": "f0ca6a471e6dd942bd359aa6d4f21328fa59aa90a2ef1c1172eb6c513393526a",
+    "public_address": "f0114f786c3b5da3c97f3c3d214638e5dddc8208779782e5b6256e71a958ce79",
+    "payment_protocol": "x402",
+    "settlement_currency": "USDC",
+    "timestamp": "2026-05-26T14:59:42.400500+00:00"
+  },
+  {
+    "task_id": "task_044",
+    "source": "https://api.github.com/search/repositories?q=agentic+automation&sort=updated&per_page=20",
+    "keywords": [
+      "mcp-server"
+    ],
+    "weights": [
+      3
+    ],
+    "tier": "MARKET_READY",
+    "ai_scored": false,
+    "amount": 0.03,
+    "transaction_hash": "691fcae49b929eada74f141f75163069bb2f4756d517da66d95af33a07e5bcee",
+    "public_address": "f0114f786c3b5da3c97f3c3d214638e5dddc8208779782e5b6256e71a958ce79",
+    "payment_protocol": "x402",
+    "settlement_currency": "USDC",
+    "timestamp": "2026-05-26T14:59:42.531817+00:00"
+  },
+  {
+    "task_id": "task_045",
+    "source": "https://api.github.com/search/repositories?q=x402+payment&sort=updated&per_page=20",
+    "keywords": [
+      "mcp-server"
+    ],
+    "weights": [
+      3
+    ],
+    "tier": "MARKET_READY",
+    "ai_scored": false,
+    "amount": 0.03,
+    "transaction_hash": "8f3bfd5f49bb9988d73883064ed7fd7533c99e9d08109a3df6c6bb38c79b954d",
+    "public_address": "f0114f786c3b5da3c97f3c3d214638e5dddc8208779782e5b6256e71a958ce79",
+    "payment_protocol": "x402",
+    "settlement_currency": "USDC",
+    "timestamp": "2026-05-26T14:59:42.671066+00:00"
+  },
+  {
+    "task_id": "task_046",
+    "source": "https://api.github.com/search/repositories?q=usdc+escrow+agent&sort=updated&per_page=20",
+    "keywords": [
+      "mcp-server"
+    ],
+    "weights": [
+      3
+    ],
+    "tier": "MARKET_READY",
+    "ai_scored": false,
+    "amount": 0.03,
+    "transaction_hash": "6b4ba7b6efc3b9beef634f11e0d76f4bca07839bbfe4dc262622b28a50dd9d11",
+    "public_address": "f0114f786c3b5da3c97f3c3d214638e5dddc8208779782e5b6256e71a958ce79",
+    "payment_protocol": "x402",
+    "settlement_currency": "USDC",
+    "timestamp": "2026-05-26T14:59:42.799386+00:00"
+  },
+  {
+    "task_id": "task_047",
+    "source": "https://api.github.com/search/repositories?q=mcp+server+integration&sort=updated&per_page=20",
+    "keywords": [
+      "mcp-server"
+    ],
+    "weights": [
+      3
+    ],
+    "tier": "MARKET_READY",
+    "ai_scored": false,
+    "amount": 0.03,
+    "transaction_hash": "2ccc56087fc6627cfc0cd851e94b8f2649393e2189c85140a36662de5bb1ff56",
+    "public_address": "f0114f786c3b5da3c97f3c3d214638e5dddc8208779782e5b6256e71a958ce79",
+    "payment_protocol": "x402",
+    "settlement_currency": "USDC",
+    "timestamp": "2026-05-26T14:59:42.925431+00:00"
+  },
+  {
+    "task_id": "task_048",
+    "source": "https://api.github.com/search/repositories?q=mcp-server&sort=updated&per_page=20",
+    "keywords": [
+      "mcp-server"
+    ],
+    "weights": [
+      3
+    ],
+    "tier": "MARKET_READY",
+    "ai_scored": false,
+    "amount": 0.03,
+    "transaction_hash": "00784112c4049a9a16793d0d7b6cca8c528623d4275603d65ab2ad4b30659c78",
+    "public_address": "f0114f786c3b5da3c97f3c3d214638e5dddc8208779782e5b6256e71a958ce79",
+    "payment_protocol": "x402",
+    "settlement_currency": "USDC",
+    "timestamp": "2026-05-26T15:09:50.216263+00:00"
+  },
+  {
+    "task_id": "task_049",
+    "source": "https://api.github.com/search/repositories?q=x402+payment&sort=updated&per_page=20",
+    "keywords": [
+      "mcp-server"
+    ],
+    "weights": [
+      3
+    ],
+    "tier": "MARKET_READY",
+    "ai_scored": false,
+    "amount": 0.03,
+    "transaction_hash": "d2aac4949515dc5c6d6adc87459322736a52c9e7c64f9feb80fd54e64aecfcc6",
+    "public_address": "f0114f786c3b5da3c97f3c3d214638e5dddc8208779782e5b6256e71a958ce79",
+    "payment_protocol": "x402",
+    "settlement_currency": "USDC",
+    "timestamp": "2026-05-26T15:09:50.377258+00:00"
+  },
+  {
+    "task_id": "task_050",
+    "source": "https://api.github.com/search/repositories?q=usdc+escrow+agent&sort=updated&per_page=20",
+    "keywords": [
+      "mcp-server"
+    ],
+    "weights": [
+      3
+    ],
+    "tier": "MARKET_READY",
+    "ai_scored": false,
+    "amount": 0.03,
+    "transaction_hash": "b914f6a12e5ab7610db7e461d6c0cb2dd25030d86914fd55da03c288a02b3b2a",
+    "public_address": "f0114f786c3b5da3c97f3c3d214638e5dddc8208779782e5b6256e71a958ce79",
+    "payment_protocol": "x402",
+    "settlement_currency": "USDC",
+    "timestamp": "2026-05-26T15:09:50.522816+00:00"
+  },
+  {
+    "task_id": "task_051",
+    "source": "https://api.github.com/search/repositories?q=mcp+server+integration&sort=updated&per_page=20",
+    "keywords": [
+      "mcp-server"
+    ],
+    "weights": [
+      3
+    ],
+    "tier": "MARKET_READY",
+    "ai_scored": false,
+    "amount": 0.03,
+    "transaction_hash": "27bfa1c4cf7530f5a51072f05a6d2015427244b2e02477cb9c2f62ff2bf5ef2b",
+    "public_address": "f0114f786c3b5da3c97f3c3d214638e5dddc8208779782e5b6256e71a958ce79",
+    "payment_protocol": "x402",
+    "settlement_currency": "USDC",
+    "timestamp": "2026-05-26T15:09:50.647192+00:00"
+  },
+  {
+    "task_id": "task_052",
+    "source": "https://api.github.com/search/repositories?q=mcp-server&sort=updated&per_page=20",
+    "keywords": [
+      "mcp-server"
+    ],
+    "weights": [
+      3
+    ],
+    "tier": "MARKET_READY",
+    "ai_scored": false,
+    "amount": 0.03,
+    "transaction_hash": "58bb1f2c85b4267293237deec7f68a6173670f473c00479c97cbc5da8eef8edd",
+    "public_address": "f0114f786c3b5da3c97f3c3d214638e5dddc8208779782e5b6256e71a958ce79",
+    "payment_protocol": "x402",
+    "settlement_currency": "USDC",
+    "timestamp": "2026-05-26T15:19:58.361960+00:00"
+  },
+  {
+    "task_id": "task_053",
+    "source": "https://api.github.com/search/repositories?q=agentic+automation&sort=updated&per_page=20",
+    "keywords": [
+      "mcp-server"
+    ],
+    "weights": [
+      3
+    ],
+    "tier": "MARKET_READY",
+    "ai_scored": false,
+    "amount": 0.03,
+    "transaction_hash": "1b44678bb27662b154507419fd114469891ac3a75fb7163220c14862546716db",
+    "public_address": "f0114f786c3b5da3c97f3c3d214638e5dddc8208779782e5b6256e71a958ce79",
+    "payment_protocol": "x402",
+    "settlement_currency": "USDC",
+    "timestamp": "2026-05-26T15:19:58.485665+00:00"
+  },
+  {
+    "task_id": "task_054",
+    "source": "https://api.github.com/search/repositories?q=x402+payment&sort=updated&per_page=20",
+    "keywords": [
+      "mcp-server"
+    ],
+    "weights": [
+      3
+    ],
+    "tier": "MARKET_READY",
+    "ai_scored": false,
+    "amount": 0.03,
+    "transaction_hash": "10949fb3e1ab2440fb0bd4456de432ff00ef2e9f617d978c974243f8573f8994",
+    "public_address": "f0114f786c3b5da3c97f3c3d214638e5dddc8208779782e5b6256e71a958ce79",
+    "payment_protocol": "x402",
+    "settlement_currency": "USDC",
+    "timestamp": "2026-05-26T15:19:58.617813+00:00"
+  },
+  {
+    "task_id": "task_055",
+    "source": "https://api.github.com/search/repositories?q=usdc+escrow+agent&sort=updated&per_page=20",
+    "keywords": [
+      "mcp-server"
+    ],
+    "weights": [
+      3
+    ],
+    "tier": "MARKET_READY",
+    "ai_scored": false,
+    "amount": 0.03,
+    "transaction_hash": "da1df90a5fe998b809dbd3706f7e3c7942352c1d35e5ea2e2c6cc240dc746e00",
+    "public_address": "f0114f786c3b5da3c97f3c3d214638e5dddc8208779782e5b6256e71a958ce79",
+    "payment_protocol": "x402",
+    "settlement_currency": "USDC",
+    "timestamp": "2026-05-26T15:19:58.745275+00:00"
+  },
+  {
+    "task_id": "task_056",
+    "source": "https://api.github.com/search/repositories?q=mcp+server+integration&sort=updated&per_page=20",
+    "keywords": [
+      "mcp-server"
+    ],
+    "weights": [
+      3
+    ],
+    "tier": "MARKET_READY",
+    "ai_scored": false,
+    "amount": 0.03,
+    "transaction_hash": "6f6fb607608f2ff6b7b4436b428e9bd5330d9dbe23be7f69145e67b422aac18f",
+    "public_address": "f0114f786c3b5da3c97f3c3d214638e5dddc8208779782e5b6256e71a958ce79",
+    "payment_protocol": "x402",
+    "settlement_currency": "USDC",
+    "timestamp": "2026-05-26T15:19:58.872361+00:00"
+  },
+  {
+    "task_id": "task_057",
+    "source": "https://api.github.com/search/repositories?q=mcp-server&sort=updated&per_page=20",
+    "keywords": [
+      "mcp-server"
+    ],
+    "weights": [
+      3
+    ],
+    "tier": "MARKET_READY",
+    "ai_scored": false,
+    "amount": 0.03,
+    "transaction_hash": "3f609cfa61a94e66ed01a6d761ec748eea15a9648166de460fed64d9e686e07f",
+    "public_address": "f0114f786c3b5da3c97f3c3d214638e5dddc8208779782e5b6256e71a958ce79",
+    "payment_protocol": "x402",
+    "settlement_currency": "USDC",
+    "timestamp": "2026-05-26T15:30:05.931140+00:00"
+  },
+  {
+    "task_id": "task_058",
+    "source": "https://api.github.com/search/repositories?q=agentic+automation&sort=updated&per_page=20",
+    "keywords": [
+      "mcp-server"
+    ],
+    "weights": [
+      3
+    ],
+    "tier": "MARKET_READY",
+    "ai_scored": false,
+    "amount": 0.03,
+    "transaction_hash": "57cc9511a073d9c9a51e6740c2b7fd64fd1e94a7b7bfb7936afc0485474b1128",
+    "public_address": "f0114f786c3b5da3c97f3c3d214638e5dddc8208779782e5b6256e71a958ce79",
+    "payment_protocol": "x402",
+    "settlement_currency": "USDC",
+    "timestamp": "2026-05-26T15:30:06.098026+00:00"
+  },
+  {
+    "task_id": "task_059",
+    "source": "https://api.github.com/search/repositories?q=x402+payment&sort=updated&per_page=20",
+    "keywords": [
+      "mcp-server"
+    ],
+    "weights": [
+      3
+    ],
+    "tier": "MARKET_READY",
+    "ai_scored": false,
+    "amount": 0.03,
+    "transaction_hash": "08617cf5f1d0fe623a7e706c2245982b1f84a166016e9fceb0fe68f1fde6a30a",
+    "public_address": "f0114f786c3b5da3c97f3c3d214638e5dddc8208779782e5b6256e71a958ce79",
+    "payment_protocol": "x402",
+    "settlement_currency": "USDC",
+    "timestamp": "2026-05-26T15:30:06.223870+00:00"
+  },
+  {
+    "task_id": "task_060",
+    "source": "https://api.github.com/search/repositories?q=usdc+escrow+agent&sort=updated&per_page=20",
+    "keywords": [
+      "mcp-server"
+    ],
+    "weights": [
+      3
+    ],
+    "tier": "MARKET_READY",
+    "ai_scored": false,
+    "amount": 0.03,
+    "transaction_hash": "ab59cc6f26cd34fa9412e1e5cdfcbf0746d9e9122f274c2fca3526e073a38f81",
+    "public_address": "f0114f786c3b5da3c97f3c3d214638e5dddc8208779782e5b6256e71a958ce79",
+    "payment_protocol": "x402",
+    "settlement_currency": "USDC",
+    "timestamp": "2026-05-26T15:30:06.351640+00:00"
+  },
+  {
+    "task_id": "task_061",
+    "source": "https://api.github.com/search/repositories?q=mcp+server+integration&sort=updated&per_page=20",
+    "keywords": [
+      "mcp-server"
+    ],
+    "weights": [
+      3
+    ],
+    "tier": "MARKET_READY",
+    "ai_scored": false,
+    "amount": 0.03,
+    "transaction_hash": "ed383df95d1d5b420fe5ffc23948b272d620ac8e0dd983af3ec4c128ad946a0b",
+    "public_address": "f0114f786c3b5da3c97f3c3d214638e5dddc8208779782e5b6256e71a958ce79",
+    "payment_protocol": "x402",
+    "settlement_currency": "USDC",
+    "timestamp": "2026-05-26T15:30:06.500978+00:00"
+  },
+  {
+    "task_id": "task_062",
+    "source": "https://api.github.com/search/repositories?q=mcp-server&sort=updated&per_page=20",
+    "keywords": [
+      "mcp-server"
+    ],
+    "weights": [
+      3
+    ],
+    "tier": "MARKET_READY",
+    "ai_scored": false,
+    "amount": 0.03,
+    "transaction_hash": "971cb1694d18eface34345ed5b32d59bc41fb1652acb90dcf76c287cedbc2220",
+    "public_address": "f0114f786c3b5da3c97f3c3d214638e5dddc8208779782e5b6256e71a958ce79",
+    "payment_protocol": "x402",
+    "settlement_currency": "USDC",
+    "timestamp": "2026-05-26T15:40:14.181764+00:00"
+  },
+  {
+    "task_id": "task_063",
+    "source": "https://api.github.com/search/repositories?q=agentic+automation&sort=updated&per_page=20",
+    "keywords": [
+      "mcp-server"
+    ],
+    "weights": [
+      3
+    ],
+    "tier": "MARKET_READY",
+    "ai_scored": false,
+    "amount": 0.03,
+    "transaction_hash": "77da31c623ae8f951f3835bb9aa718ad32b3c58f0b1e3ee95a6796f5940139f1",
+    "public_address": "f0114f786c3b5da3c97f3c3d214638e5dddc8208779782e5b6256e71a958ce79",
+    "payment_protocol": "x402",
+    "settlement_currency": "USDC",
+    "timestamp": "2026-05-26T15:40:14.328150+00:00"
+  },
+  {
+    "task_id": "task_064",
+    "source": "https://api.github.com/search/repositories?q=x402+payment&sort=updated&per_page=20",
+    "keywords": [
+      "mcp-server"
+    ],
+    "weights": [
+      3
+    ],
+    "tier": "MARKET_READY",
+    "ai_scored": false,
+    "amount": 0.03,
+    "transaction_hash": "cb9e7960346b7cb54a3d5cea0975239cefea5bef466a0983edcd1ec7bdfde3c8",
+    "public_address": "f0114f786c3b5da3c97f3c3d214638e5dddc8208779782e5b6256e71a958ce79",
+    "payment_protocol": "x402",
+    "settlement_currency": "USDC",
+    "timestamp": "2026-05-26T15:40:14.457941+00:00"
+  },
+  {
+    "task_id": "task_065",
+    "source": "https://api.github.com/search/repositories?q=usdc+escrow+agent&sort=updated&per_page=20",
+    "keywords": [
+      "mcp-server"
+    ],
+    "weights": [
+      3
+    ],
+    "tier": "MARKET_READY",
+    "ai_scored": false,
+    "amount": 0.03,
+    "transaction_hash": "ba40fe1116f11123f6fea969808ceb671cbb6ec09a7e7659f1499cd10eeebb32",
+    "public_address": "f0114f786c3b5da3c97f3c3d214638e5dddc8208779782e5b6256e71a958ce79",
+    "payment_protocol": "x402",
+    "settlement_currency": "USDC",
+    "timestamp": "2026-05-26T15:40:14.601302+00:00"
+  },
+  {
+    "task_id": "task_066",
+    "source": "https://api.github.com/search/repositories?q=mcp+server+integration&sort=updated&per_page=20",
+    "keywords": [
+      "mcp-server"
+    ],
+    "weights": [
+      3
+    ],
+    "tier": "MARKET_READY",
+    "ai_scored": false,
+    "amount": 0.03,
+    "transaction_hash": "6c90ba44d0cfddf20e032476e6c72a2862a696468f86ba0342da91f7d6be305c",
+    "public_address": "f0114f786c3b5da3c97f3c3d214638e5dddc8208779782e5b6256e71a958ce79",
+    "payment_protocol": "x402",
+    "settlement_currency": "USDC",
+    "timestamp": "2026-05-26T15:40:14.711620+00:00"
+  },
+  {
+    "task_id": "task_067",
+    "source": "https://api.github.com/search/repositories?q=mcp-server&sort=updated&per_page=20",
+    "keywords": [
+      "mcp-server"
+    ],
+    "weights": [
+      3
+    ],
+    "tier": "MARKET_READY",
+    "ai_scored": false,
+    "amount": 0.03,
+    "transaction_hash": "38571ed66bf6fdc07b66e32d94acf137ff0ddb802b7bc1d3dcee2cc8094e4d30",
+    "public_address": "f0114f786c3b5da3c97f3c3d214638e5dddc8208779782e5b6256e71a958ce79",
+    "payment_protocol": "x402",
+    "settlement_currency": "USDC",
+    "timestamp": "2026-05-26T15:50:23.419412+00:00"
+  },
+  {
+    "task_id": "task_068",
+    "source": "https://api.github.com/search/repositories?q=agentic+automation&sort=updated&per_page=20",
+    "keywords": [
+      "mcp-server"
+    ],
+    "weights": [
+      3
+    ],
+    "tier": "MARKET_READY",
+    "ai_scored": false,
+    "amount": 0.03,
+    "transaction_hash": "88e50154c82413ca8b877074da10080c93c821816c35a9edb1dd237f7f54e98c",
+    "public_address": "f0114f786c3b5da3c97f3c3d214638e5dddc8208779782e5b6256e71a958ce79",
+    "payment_protocol": "x402",
+    "settlement_currency": "USDC",
+    "timestamp": "2026-05-26T15:50:23.557618+00:00"
+  },
+  {
+    "task_id": "task_069",
+    "source": "https://api.github.com/search/repositories?q=x402+payment&sort=updated&per_page=20",
+    "keywords": [
+      "mcp-server"
+    ],
+    "weights": [
+      3
+    ],
+    "tier": "MARKET_READY",
+    "ai_scored": false,
+    "amount": 0.03,
+    "transaction_hash": "ead029dab75951b1bd8790e11816c789c6d1b96ea8deb52920976cbc9ff8651a",
+    "public_address": "f0114f786c3b5da3c97f3c3d214638e5dddc8208779782e5b6256e71a958ce79",
+    "payment_protocol": "x402",
+    "settlement_currency": "USDC",
+    "timestamp": "2026-05-26T15:50:23.705930+00:00"
+  },
+  {
+    "task_id": "task_070",
+    "source": "https://api.github.com/search/repositories?q=usdc+escrow+agent&sort=updated&per_page=20",
+    "keywords": [
+      "mcp-server"
+    ],
+    "weights": [
+      3
+    ],
+    "tier": "MARKET_READY",
+    "ai_scored": false,
+    "amount": 0.03,
+    "transaction_hash": "f1b60fbcd67799a658264f94abd2dae3bbce2333cc9443f8e5a78ac4004c744e",
+    "public_address": "f0114f786c3b5da3c97f3c3d214638e5dddc8208779782e5b6256e71a958ce79",
+    "payment_protocol": "x402",
+    "settlement_currency": "USDC",
+    "timestamp": "2026-05-26T15:50:23.831392+00:00"
+  },
+  {
+    "task_id": "task_071",
+    "source": "https://api.github.com/search/repositories?q=mcp+server+integration&sort=updated&per_page=20",
+    "keywords": [
+      "mcp-server"
+    ],
+    "weights": [
+      3
+    ],
+    "tier": "MARKET_READY",
+    "ai_scored": false,
+    "amount": 0.03,
+    "transaction_hash": "a56b0ffbd5597aae489e1d559462677bf3b327f7455c0e6b95d1d80c8c624350",
+    "public_address": "f0114f786c3b5da3c97f3c3d214638e5dddc8208779782e5b6256e71a958ce79",
+    "payment_protocol": "x402",
+    "settlement_currency": "USDC",
+    "timestamp": "2026-05-26T15:50:23.980315+00:00"
+  },
+  {
+    "task_id": "task_072",
+    "source": "https://api.github.com/search/repositories?q=mcp-server&sort=updated&per_page=20",
+    "keywords": [
+      "mcp-server"
+    ],
+    "weights": [
+      3
+    ],
+    "tier": "MARKET_READY",
+    "ai_scored": false,
+    "amount": 0.03,
+    "transaction_hash": "7af9fabde1c415986779ebebc5965df29045fa08c22cfbf0a944aaf7eea6b64b",
+    "public_address": "f0114f786c3b5da3c97f3c3d214638e5dddc8208779782e5b6256e71a958ce79",
+    "payment_protocol": "x402",
+    "settlement_currency": "USDC",
+    "timestamp": "2026-05-26T16:00:31.734391+00:00"
+  },
+  {
+    "task_id": "task_073",
+    "source": "https://api.github.com/search/repositories?q=x402+payment&sort=updated&per_page=20",
+    "keywords": [
+      "mcp-server"
+    ],
+    "weights": [
+      3
+    ],
+    "tier": "MARKET_READY",
+    "ai_scored": false,
+    "amount": 0.03,
+    "transaction_hash": "a4a1e13b53a27dd0105cdde0326323baf4a64c208c34593c8b94ee126a0a88ed",
+    "public_address": "f0114f786c3b5da3c97f3c3d214638e5dddc8208779782e5b6256e71a958ce79",
+    "payment_protocol": "x402",
+    "settlement_currency": "USDC",
+    "timestamp": "2026-05-26T16:00:31.891190+00:00"
+  },
+  {
+    "task_id": "task_074",
+    "source": "https://api.github.com/search/repositories?q=usdc+escrow+agent&sort=updated&per_page=20",
+    "keywords": [
+      "mcp-server"
+    ],
+    "weights": [
+      3
+    ],
+    "tier": "MARKET_READY",
+    "ai_scored": false,
+    "amount": 0.03,
+    "transaction_hash": "dbb1e1c5e564427cec878cd2edaf5102cf5dac5e3db4a3c15847c5a07dc1a4d7",
+    "public_address": "f0114f786c3b5da3c97f3c3d214638e5dddc8208779782e5b6256e71a958ce79",
+    "payment_protocol": "x402",
+    "settlement_currency": "USDC",
+    "timestamp": "2026-05-26T16:00:32.040738+00:00"
+  },
+  {
+    "task_id": "task_075",
+    "source": "https://api.github.com/search/repositories?q=mcp+server+integration&sort=updated&per_page=20",
+    "keywords": [
+      "mcp-server"
+    ],
+    "weights": [
+      3
+    ],
+    "tier": "MARKET_READY",
+    "ai_scored": false,
+    "amount": 0.03,
+    "transaction_hash": "820888fe4e9a141a7eb1fad57bdc1fbf5a2005a3c392a4cba137fe72d6556e9f",
+    "public_address": "f0114f786c3b5da3c97f3c3d214638e5dddc8208779782e5b6256e71a958ce79",
+    "payment_protocol": "x402",
+    "settlement_currency": "USDC",
+    "timestamp": "2026-05-26T16:00:32.183547+00:00"
+  },
+  {
+    "task_id": "task_076",
+    "source": "https://api.github.com/search/repositories?q=mcp-server&sort=updated&per_page=20",
+    "keywords": [
+      "mcp-server"
+    ],
+    "weights": [
+      3
+    ],
+    "tier": "MARKET_READY",
+    "ai_scored": false,
+    "amount": 0.03,
+    "transaction_hash": "30c76f19167c9e6feb0cfa03e6fe6146b677c8e0c9248f5717ddefbad05a0e0c",
+    "public_address": "f0114f786c3b5da3c97f3c3d214638e5dddc8208779782e5b6256e71a958ce79",
+    "payment_protocol": "x402",
+    "settlement_currency": "USDC",
+    "timestamp": "2026-05-26T16:10:39.837813+00:00"
+  },
+  {
+    "task_id": "task_077",
+    "source": "https://api.github.com/search/repositories?q=agentic+automation&sort=updated&per_page=20",
+    "keywords": [
+      "mcp-server"
+    ],
+    "weights": [
+      3
+    ],
+    "tier": "MARKET_READY",
+    "ai_scored": false,
+    "amount": 0.03,
+    "transaction_hash": "bcbe339af3fe27dad02e15ab86095d9584f87c1f80134235ce0d11ef939f7cad",
+    "public_address": "f0114f786c3b5da3c97f3c3d214638e5dddc8208779782e5b6256e71a958ce79",
+    "payment_protocol": "x402",
+    "settlement_currency": "USDC",
+    "timestamp": "2026-05-26T16:10:39.968507+00:00"
+  },
+  {
+    "task_id": "task_078",
+    "source": "https://api.github.com/search/repositories?q=usdc+escrow+agent&sort=updated&per_page=20",
+    "keywords": [
+      "mcp-server"
+    ],
+    "weights": [
+      3
+    ],
+    "tier": "MARKET_READY",
+    "ai_scored": false,
+    "amount": 0.03,
+    "transaction_hash": "d7cc832bd4acb981613403b47e93d39339269cc89b8c8e6de54f60494e7d7acd",
+    "public_address": "f0114f786c3b5da3c97f3c3d214638e5dddc8208779782e5b6256e71a958ce79",
+    "payment_protocol": "x402",
+    "settlement_currency": "USDC",
+    "timestamp": "2026-05-26T16:10:40.170986+00:00"
+  },
+  {
+    "task_id": "task_079",
+    "source": "https://api.github.com/search/repositories?q=mcp+server+integration&sort=updated&per_page=20",
+    "keywords": [
+      "mcp-server"
+    ],
+    "weights": [
+      3
+    ],
+    "tier": "MARKET_READY",
+    "ai_scored": false,
+    "amount": 0.03,
+    "transaction_hash": "0ef9ac8ab4ab12f2411204da462ba4b537325f37799fa55a89e1991289f2a0ae",
+    "public_address": "f0114f786c3b5da3c97f3c3d214638e5dddc8208779782e5b6256e71a958ce79",
+    "payment_protocol": "x402",
+    "settlement_currency": "USDC",
+    "timestamp": "2026-05-26T16:10:40.310568+00:00"
+  },
+  {
+    "task_id": "task_080",
+    "source": "https://api.github.com/search/repositories?q=mcp-server&sort=updated&per_page=20",
+    "keywords": [
+      "mcp-server"
+    ],
+    "weights": [
+      3
+    ],
+    "tier": "MARKET_READY",
+    "ai_scored": false,
+    "amount": 0.03,
+    "transaction_hash": "3b798030922681675be277642d445680eb43d730adbb6cf31b7767ee14346602",
+    "public_address": "f0114f786c3b5da3c97f3c3d214638e5dddc8208779782e5b6256e71a958ce79",
+    "payment_protocol": "x402",
+    "settlement_currency": "USDC",
+    "timestamp": "2026-05-26T16:20:47.705313+00:00"
+  },
+  {
+    "task_id": "task_081",
+    "source": "https://api.github.com/search/repositories?q=agentic+automation&sort=updated&per_page=20",
+    "keywords": [
+      "mcp-server"
+    ],
+    "weights": [
+      3
+    ],
+    "tier": "MARKET_READY",
+    "ai_scored": false,
+    "amount": 0.03,
+    "transaction_hash": "aa62f32e19ab445f5f7678870aebd836a97dcf2dd3a3a6ef6c526fac5d95b4c9",
+    "public_address": "f0114f786c3b5da3c97f3c3d214638e5dddc8208779782e5b6256e71a958ce79",
+    "payment_protocol": "x402",
+    "settlement_currency": "USDC",
+    "timestamp": "2026-05-26T16:20:47.818160+00:00"
+  },
+  {
+    "task_id": "task_082",
+    "source": "https://api.github.com/search/repositories?q=usdc+escrow+agent&sort=updated&per_page=20",
+    "keywords": [
+      "mcp-server"
+    ],
+    "weights": [
+      3
+    ],
+    "tier": "MARKET_READY",
+    "ai_scored": false,
+    "amount": 0.03,
+    "transaction_hash": "0dadeaac35e099c65a6214e27919e4ef944b40b9ecabf5ba23c21c6188da8b94",
+    "public_address": "f0114f786c3b5da3c97f3c3d214638e5dddc8208779782e5b6256e71a958ce79",
+    "payment_protocol": "x402",
+    "settlement_currency": "USDC",
+    "timestamp": "2026-05-26T16:20:47.944449+00:00"
+  },
+  {
+    "task_id": "task_083",
+    "source": "https://api.github.com/search/repositories?q=mcp+server+integration&sort=updated&per_page=20",
+    "keywords": [
+      "mcp-server"
+    ],
+    "weights": [
+      3
+    ],
+    "tier": "MARKET_READY",
+    "ai_scored": false,
+    "amount": 0.03,
+    "transaction_hash": "16cdcbf16a59336ad0d4195fca73dca5706f504f46e660ce6ba658ff6a616a83",
+    "public_address": "f0114f786c3b5da3c97f3c3d214638e5dddc8208779782e5b6256e71a958ce79",
+    "payment_protocol": "x402",
+    "settlement_currency": "USDC",
+    "timestamp": "2026-05-26T16:20:48.087983+00:00"
+  },
+  {
+    "task_id": "task_084",
+    "source": "https://api.github.com/search/repositories?q=mcp-server&sort=updated&per_page=20",
+    "keywords": [
+      "mcp-server"
+    ],
+    "weights": [
+      3
+    ],
+    "tier": "MARKET_READY",
+    "ai_scored": false,
+    "amount": 0.03,
+    "transaction_hash": "e2797ac222cc26229cc1863598704cc7598c8d7faf7b2c3805a28d2d877b2b5d",
+    "public_address": "f0114f786c3b5da3c97f3c3d214638e5dddc8208779782e5b6256e71a958ce79",
+    "payment_protocol": "x402",
+    "settlement_currency": "USDC",
+    "timestamp": "2026-05-26T16:30:55.701727+00:00"
+  },
+  {
+    "task_id": "task_085",
+    "source": "https://api.github.com/search/repositories?q=agentic+automation&sort=updated&per_page=20",
+    "keywords": [
+      "mcp-server"
+    ],
+    "weights": [
+      3
+    ],
+    "tier": "MARKET_READY",
+    "ai_scored": false,
+    "amount": 0.03,
+    "transaction_hash": "c2a24054011c32f61acc8691c484e3be4027aca31f963ffddfc26602ce4f0f75",
+    "public_address": "f0114f786c3b5da3c97f3c3d214638e5dddc8208779782e5b6256e71a958ce79",
+    "payment_protocol": "x402",
+    "settlement_currency": "USDC",
+    "timestamp": "2026-05-26T16:30:55.831791+00:00"
+  },
+  {
+    "task_id": "task_086",
+    "source": "https://api.github.com/search/repositories?q=usdc+escrow+agent&sort=updated&per_page=20",
+    "keywords": [
+      "mcp-server"
+    ],
+    "weights": [
+      3
+    ],
+    "tier": "MARKET_READY",
+    "ai_scored": false,
+    "amount": 0.03,
+    "transaction_hash": "ebef0126c4ed56e43140d0d2e500fcda96a6697623ae3ad8a7221b58baad762a",
+    "public_address": "f0114f786c3b5da3c97f3c3d214638e5dddc8208779782e5b6256e71a958ce79",
+    "payment_protocol": "x402",
+    "settlement_currency": "USDC",
+    "timestamp": "2026-05-26T16:30:55.962448+00:00"
+  },
+  {
+    "task_id": "task_087",
+    "source": "https://api.github.com/search/repositories?q=mcp+server+integration&sort=updated&per_page=20",
+    "keywords": [
+      "mcp-server"
+    ],
+    "weights": [
+      3
+    ],
+    "tier": "MARKET_READY",
+    "ai_scored": false,
+    "amount": 0.03,
+    "transaction_hash": "c9e436133ed501ac26fa1c514be23f0a6fc99f3eea65561c24c80328b863702f",
+    "public_address": "f0114f786c3b5da3c97f3c3d214638e5dddc8208779782e5b6256e71a958ce79",
+    "payment_protocol": "x402",
+    "settlement_currency": "USDC",
+    "timestamp": "2026-05-26T16:30:56.125328+00:00"
+  },
+  {
+    "task_id": "task_088",
+    "source": "https://api.github.com/search/repositories?q=mcp-server&sort=updated&per_page=20",
+    "keywords": [
+      "mcp-server"
+    ],
+    "weights": [
+      3
+    ],
+    "tier": "MARKET_READY",
+    "ai_scored": false,
+    "amount": 0.03,
+    "transaction_hash": "b5761de364bd600d73fb4f776e6d7b3a9b7ffa97f776f31aee288d129da49159",
+    "public_address": "f0114f786c3b5da3c97f3c3d214638e5dddc8208779782e5b6256e71a958ce79",
+    "payment_protocol": "x402",
+    "settlement_currency": "USDC",
+    "timestamp": "2026-05-26T16:41:03.705530+00:00"
+  },
+  {
+    "task_id": "task_089",
+    "source": "https://api.github.com/search/repositories?q=agentic+automation&sort=updated&per_page=20",
+    "keywords": [
+      "mcp-server"
+    ],
+    "weights": [
+      3
+    ],
+    "tier": "MARKET_READY",
+    "ai_scored": false,
+    "amount": 0.03,
+    "transaction_hash": "2aab75b28a6502e4fc6c5c19bb000f7edba63428fbc8e47a9e63a808291b0ee8",
+    "public_address": "f0114f786c3b5da3c97f3c3d214638e5dddc8208779782e5b6256e71a958ce79",
+    "payment_protocol": "x402",
+    "settlement_currency": "USDC",
+    "timestamp": "2026-05-26T16:41:03.857952+00:00"
+  },
+  {
+    "task_id": "task_090",
+    "source": "https://api.github.com/search/repositories?q=x402+payment&sort=updated&per_page=20",
+    "keywords": [
+      "mcp-server"
+    ],
+    "weights": [
+      3
+    ],
+    "tier": "MARKET_READY",
+    "ai_scored": false,
+    "amount": 0.03,
+    "transaction_hash": "8f6b6c00ff297025051c82aa9ebb46c80cca02ef7365623fabdcf2f2367e3fa2",
+    "public_address": "f0114f786c3b5da3c97f3c3d214638e5dddc8208779782e5b6256e71a958ce79",
+    "payment_protocol": "x402",
+    "settlement_currency": "USDC",
+    "timestamp": "2026-05-26T16:41:04.006808+00:00"
+  },
+  {
+    "task_id": "task_091",
+    "source": "https://api.github.com/search/repositories?q=usdc+escrow+agent&sort=updated&per_page=20",
+    "keywords": [
+      "mcp-server"
+    ],
+    "weights": [
+      3
+    ],
+    "tier": "MARKET_READY",
+    "ai_scored": false,
+    "amount": 0.03,
+    "transaction_hash": "66f6c7c7eb3b33abf19e076e3552d1b32d8363dfe8176a888d05ef7d74422303",
+    "public_address": "f0114f786c3b5da3c97f3c3d214638e5dddc8208779782e5b6256e71a958ce79",
+    "payment_protocol": "x402",
+    "settlement_currency": "USDC",
+    "timestamp": "2026-05-26T16:41:04.215852+00:00"
+  },
+  {
+    "task_id": "task_092",
+    "source": "https://api.github.com/search/repositories?q=mcp+server+integration&sort=updated&per_page=20",
+    "keywords": [
+      "mcp-server"
+    ],
+    "weights": [
+      3
+    ],
+    "tier": "MARKET_READY",
+    "ai_scored": false,
+    "amount": 0.03,
+    "transaction_hash": "633ca1b416be29b0baa6c67ebe75e6d7370fe37e92e49c57d126f176eaf02e9e",
+    "public_address": "f0114f786c3b5da3c97f3c3d214638e5dddc8208779782e5b6256e71a958ce79",
+    "payment_protocol": "x402",
+    "settlement_currency": "USDC",
+    "timestamp": "2026-05-26T16:41:04.353639+00:00"
+  },
+  {
+    "task_id": "task_093",
+    "source": "https://api.github.com/search/repositories?q=mcp-server&sort=updated&per_page=20",
+    "keywords": [
+      "mcp-server"
+    ],
+    "weights": [
+      3
+    ],
+    "tier": "MARKET_READY",
+    "ai_scored": false,
+    "amount": 0.03,
+    "transaction_hash": "58b824930f58a2ddd0d0643adc4221d5d18267f25bd3d51500ca8b032661c25b",
+    "public_address": "f0114f786c3b5da3c97f3c3d214638e5dddc8208779782e5b6256e71a958ce79",
+    "payment_protocol": "x402",
+    "settlement_currency": "USDC",
+    "timestamp": "2026-05-26T16:51:11.732030+00:00"
+  },
+  {
+    "task_id": "task_094",
+    "source": "https://api.github.com/search/repositories?q=agentic+automation&sort=updated&per_page=20",
+    "keywords": [
+      "mcp-server"
+    ],
+    "weights": [
+      3
+    ],
+    "tier": "MARKET_READY",
+    "ai_scored": false,
+    "amount": 0.03,
+    "transaction_hash": "3f18bc41a914d110178b32093d062bdbf86381be896de36b4219a0bce45ae5ec",
+    "public_address": "f0114f786c3b5da3c97f3c3d214638e5dddc8208779782e5b6256e71a958ce79",
+    "payment_protocol": "x402",
+    "settlement_currency": "USDC",
+    "timestamp": "2026-05-26T16:51:11.855619+00:00"
+  },
+  {
+    "task_id": "task_095",
+    "source": "https://api.github.com/search/repositories?q=x402+payment&sort=updated&per_page=20",
+    "keywords": [
+      "mcp-server"
+    ],
+    "weights": [
+      3
+    ],
+    "tier": "MARKET_READY",
+    "ai_scored": false,
+    "amount": 0.03,
+    "transaction_hash": "508c42110afe1fef5accc2f3cf7de0470f05fd28bbcb17a2bff79df61bafb60e",
+    "public_address": "f0114f786c3b5da3c97f3c3d214638e5dddc8208779782e5b6256e71a958ce79",
+    "payment_protocol": "x402",
+    "settlement_currency": "USDC",
+    "timestamp": "2026-05-26T16:51:11.987697+00:00"
+  },
+  {
+    "task_id": "task_096",
+    "source": "https://api.github.com/search/repositories?q=usdc+escrow+agent&sort=updated&per_page=20",
+    "keywords": [
+      "mcp-server"
+    ],
+    "weights": [
+      3
+    ],
+    "tier": "MARKET_READY",
+    "ai_scored": false,
+    "amount": 0.03,
+    "transaction_hash": "490d909a970b88a1796cc14ed35a65de0e5b6176d4947deb8b0af88a87c641b1",
+    "public_address": "f0114f786c3b5da3c97f3c3d214638e5dddc8208779782e5b6256e71a958ce79",
+    "payment_protocol": "x402",
+    "settlement_currency": "USDC",
+    "timestamp": "2026-05-26T16:51:12.148543+00:00"
+  },
+  {
+    "task_id": "task_097",
+    "source": "https://api.github.com/search/repositories?q=mcp+server+integration&sort=updated&per_page=20",
+    "keywords": [
+      "mcp-server"
+    ],
+    "weights": [
+      3
+    ],
+    "tier": "MARKET_READY",
+    "ai_scored": false,
+    "amount": 0.03,
+    "transaction_hash": "98647b5128969ae11a60a3a39c8861981aa60e0a06499dd2702a33c6383cf6b0",
+    "public_address": "f0114f786c3b5da3c97f3c3d214638e5dddc8208779782e5b6256e71a958ce79",
+    "payment_protocol": "x402",
+    "settlement_currency": "USDC",
+    "timestamp": "2026-05-26T16:51:12.332282+00:00"
+  },
+  {
+    "task_id": "task_098",
+    "source": "https://api.github.com/search/repositories?q=mcp-server&sort=updated&per_page=20",
+    "keywords": [
+      "mcp-server"
+    ],
+    "weights": [
+      3
+    ],
+    "tier": "MARKET_READY",
+    "ai_scored": false,
+    "amount": 0.03,
+    "transaction_hash": "e49bae91ab19b9275b0794c3cd123f049130085c39cf6f98e8c159fb58470b96",
+    "public_address": "f0114f786c3b5da3c97f3c3d214638e5dddc8208779782e5b6256e71a958ce79",
+    "payment_protocol": "x402",
+    "settlement_currency": "USDC",
+    "timestamp": "2026-05-26T17:01:20.191850+00:00"
+  },
+  {
+    "task_id": "task_099",
+    "source": "https://api.github.com/search/repositories?q=agentic+automation&sort=updated&per_page=20",
+    "keywords": [
+      "mcp-server"
+    ],
+    "weights": [
+      3
+    ],
+    "tier": "MARKET_READY",
+    "ai_scored": false,
+    "amount": 0.03,
+    "transaction_hash": "0b305016a3a80389e0c601bd75e17b227cbc10c24c10e9de2c81f3ccfb48be51",
+    "public_address": "f0114f786c3b5da3c97f3c3d214638e5dddc8208779782e5b6256e71a958ce79",
+    "payment_protocol": "x402",
+    "settlement_currency": "USDC",
+    "timestamp": "2026-05-26T17:01:20.367220+00:00"
+  },
+  {
+    "task_id": "task_100",
+    "source": "https://api.github.com/search/repositories?q=x402+payment&sort=updated&per_page=20",
+    "keywords": [
+      "mcp-server"
+    ],
+    "weights": [
+      3
+    ],
+    "tier": "MARKET_READY",
+    "ai_scored": false,
+    "amount": 0.03,
+    "transaction_hash": "359b3de306a4cfa9b0fd771b79a53ec96107a8646adec34ddcd7ee5f4acc2823",
+    "public_address": "f0114f786c3b5da3c97f3c3d214638e5dddc8208779782e5b6256e71a958ce79",
+    "payment_protocol": "x402",
+    "settlement_currency": "USDC",
+    "timestamp": "2026-05-26T17:01:20.497168+00:00"
+  },
+  {
+    "task_id": "task_101",
+    "source": "https://api.github.com/search/repositories?q=usdc+escrow+agent&sort=updated&per_page=20",
+    "keywords": [
+      "mcp-server"
+    ],
+    "weights": [
+      3
+    ],
+    "tier": "MARKET_READY",
+    "ai_scored": false,
+    "amount": 0.03,
+    "transaction_hash": "2c62e0e291a6fd3397072379c97aa136b9161f53af37933c43e05b5accb84070",
+    "public_address": "f0114f786c3b5da3c97f3c3d214638e5dddc8208779782e5b6256e71a958ce79",
+    "payment_protocol": "x402",
+    "settlement_currency": "USDC",
+    "timestamp": "2026-05-26T17:01:20.616879+00:00"
+  },
+  {
+    "task_id": "task_102",
+    "source": "https://api.github.com/search/repositories?q=mcp+server+integration&sort=updated&per_page=20",
+    "keywords": [
+      "mcp-server"
+    ],
+    "weights": [
+      3
+    ],
+    "tier": "MARKET_READY",
+    "ai_scored": false,
+    "amount": 0.03,
+    "transaction_hash": "1bf4cfcd5094eaabade9d8a1def8c65dfddb0c5052a79e4f72fd0a7a1714eb70",
+    "public_address": "f0114f786c3b5da3c97f3c3d214638e5dddc8208779782e5b6256e71a958ce79",
+    "payment_protocol": "x402",
+    "settlement_currency": "USDC",
+    "timestamp": "2026-05-26T17:01:20.743272+00:00"
+  },
+  {
+    "task_id": "task_103",
+    "source": "https://api.github.com/search/repositories?q=mcp-server&sort=updated&per_page=20",
+    "keywords": [
+      "mcp-server"
+    ],
+    "weights": [
+      3
+    ],
+    "tier": "MARKET_READY",
+    "ai_scored": false,
+    "amount": 0.03,
+    "transaction_hash": "e8fdfabbe26d8143db5b761c7eb81416d45be162ffc8b076bb173407ac632180",
+    "public_address": "f0114f786c3b5da3c97f3c3d214638e5dddc8208779782e5b6256e71a958ce79",
+    "payment_protocol": "x402",
+    "settlement_currency": "USDC",
+    "timestamp": "2026-05-26T17:11:28.032554+00:00"
+  },
+  {
+    "task_id": "task_104",
+    "source": "https://api.github.com/search/repositories?q=agentic+automation&sort=updated&per_page=20",
+    "keywords": [
+      "mcp-server"
+    ],
+    "weights": [
+      3
+    ],
+    "tier": "MARKET_READY",
+    "ai_scored": false,
+    "amount": 0.03,
+    "transaction_hash": "0d48be58baff6c5fb8952362c744119ab7afe694935c60be00784e9765af6308",
+    "public_address": "f0114f786c3b5da3c97f3c3d214638e5dddc8208779782e5b6256e71a958ce79",
+    "payment_protocol": "x402",
+    "settlement_currency": "USDC",
+    "timestamp": "2026-05-26T17:11:28.141860+00:00"
+  },
+  {
+    "task_id": "task_105",
+    "source": "https://api.github.com/search/repositories?q=x402+payment&sort=updated&per_page=20",
+    "keywords": [
+      "mcp-server"
+    ],
+    "weights": [
+      3
+    ],
+    "tier": "MARKET_READY",
+    "ai_scored": false,
+    "amount": 0.03,
+    "transaction_hash": "14eda067d94f1caa37c5afdcb14a98d5dff0648377efed88ce1d55e4f205dc0b",
+    "public_address": "f0114f786c3b5da3c97f3c3d214638e5dddc8208779782e5b6256e71a958ce79",
+    "payment_protocol": "x402",
+    "settlement_currency": "USDC",
+    "timestamp": "2026-05-26T17:11:28.276183+00:00"
+  },
+  {
+    "task_id": "task_106",
+    "source": "https://api.github.com/search/repositories?q=usdc+escrow+agent&sort=updated&per_page=20",
+    "keywords": [
+      "mcp-server"
+    ],
+    "weights": [
+      3
+    ],
+    "tier": "MARKET_READY",
+    "ai_scored": false,
+    "amount": 0.03,
+    "transaction_hash": "c2d75bbe90751bdd5b65f79ec4ae2a6e342fc01055133baed705b54e827c5d70",
+    "public_address": "f0114f786c3b5da3c97f3c3d214638e5dddc8208779782e5b6256e71a958ce79",
+    "payment_protocol": "x402",
+    "settlement_currency": "USDC",
+    "timestamp": "2026-05-26T17:11:28.409773+00:00"
+  },
+  {
+    "task_id": "task_107",
+    "source": "https://api.github.com/search/repositories?q=mcp+server+integration&sort=updated&per_page=20",
+    "keywords": [
+      "mcp-server"
+    ],
+    "weights": [
+      3
+    ],
+    "tier": "MARKET_READY",
+    "ai_scored": false,
+    "amount": 0.03,
+    "transaction_hash": "22dd936230f76707ce2ed9bc8854483b4e8f4eff7705873aeaabd783d1990eba",
+    "public_address": "f0114f786c3b5da3c97f3c3d214638e5dddc8208779782e5b6256e71a958ce79",
+    "payment_protocol": "x402",
+    "settlement_currency": "USDC",
+    "timestamp": "2026-05-26T17:11:28.537311+00:00"
+  },
+  {
+    "task_id": "task_108",
+    "source": "https://api.github.com/search/repositories?q=mcp-server&sort=updated&per_page=20",
+    "keywords": [
+      "mcp-server"
+    ],
+    "weights": [
+      3
+    ],
+    "tier": "MARKET_READY",
+    "ai_scored": false,
+    "amount": 0.03,
+    "transaction_hash": "ed9606ada3a7c29c84785119dc64231630b8e66707362f826d6fa0225d90f1e7",
+    "public_address": "f0114f786c3b5da3c97f3c3d214638e5dddc8208779782e5b6256e71a958ce79",
+    "payment_protocol": "x402",
+    "settlement_currency": "USDC",
+    "timestamp": "2026-05-26T17:21:35.893824+00:00"
+  },
+  {
+    "task_id": "task_109",
+    "source": "https://api.github.com/search/repositories?q=agentic+automation&sort=updated&per_page=20",
+    "keywords": [
+      "mcp-server"
+    ],
+    "weights": [
+      3
+    ],
+    "tier": "MARKET_READY",
+    "ai_scored": false,
+    "amount": 0.03,
+    "transaction_hash": "0fde9545e29796946c27474d1c66eba8ab164e7fe87ebd74ee0b29d222d48a42",
+    "public_address": "f0114f786c3b5da3c97f3c3d214638e5dddc8208779782e5b6256e71a958ce79",
+    "payment_protocol": "x402",
+    "settlement_currency": "USDC",
+    "timestamp": "2026-05-26T17:21:36.053301+00:00"
+  },
+  {
+    "task_id": "task_110",
+    "source": "https://api.github.com/search/repositories?q=x402+payment&sort=updated&per_page=20",
+    "keywords": [
+      "mcp-server"
+    ],
+    "weights": [
+      3
+    ],
+    "tier": "MARKET_READY",
+    "ai_scored": false,
+    "amount": 0.03,
+    "transaction_hash": "30845b9e1d810b1e86c41a56d39e4ba9c5ca9d75b4f525e17e5707aecc6609d6",
+    "public_address": "f0114f786c3b5da3c97f3c3d214638e5dddc8208779782e5b6256e71a958ce79",
+    "payment_protocol": "x402",
+    "settlement_currency": "USDC",
+    "timestamp": "2026-05-26T17:21:36.185448+00:00"
+  },
+  {
+    "task_id": "task_111",
+    "source": "https://api.github.com/search/repositories?q=usdc+escrow+agent&sort=updated&per_page=20",
+    "keywords": [
+      "mcp-server"
+    ],
+    "weights": [
+      3
+    ],
+    "tier": "MARKET_READY",
+    "ai_scored": false,
+    "amount": 0.03,
+    "transaction_hash": "a1f2585b019e048828a6caa494a3f2373a08e6ed3abb1694812f4a628405f766",
+    "public_address": "f0114f786c3b5da3c97f3c3d214638e5dddc8208779782e5b6256e71a958ce79",
+    "payment_protocol": "x402",
+    "settlement_currency": "USDC",
+    "timestamp": "2026-05-26T17:21:36.337263+00:00"
+  },
+  {
+    "task_id": "task_112",
+    "source": "https://api.github.com/search/repositories?q=mcp+server+integration&sort=updated&per_page=20",
+    "keywords": [
+      "mcp-server"
+    ],
+    "weights": [
+      3
+    ],
+    "tier": "MARKET_READY",
+    "ai_scored": false,
+    "amount": 0.03,
+    "transaction_hash": "975cc287387949ca64372935e98b441e040d749486fa388b3f3e81fabc624e1a",
+    "public_address": "f0114f786c3b5da3c97f3c3d214638e5dddc8208779782e5b6256e71a958ce79",
+    "payment_protocol": "x402",
+    "settlement_currency": "USDC",
+    "timestamp": "2026-05-26T17:21:36.459901+00:00"
+  },
+  {
+    "task_id": "task_113",
+    "source": "https://api.github.com/search/repositories?q=mcp-server&sort=updated&per_page=20",
+    "keywords": [
+      "mcp-server"
+    ],
+    "weights": [
+      3
+    ],
+    "tier": "MARKET_READY",
+    "ai_scored": false,
+    "amount": 0.03,
+    "transaction_hash": "9a739e2c97cb676f4c3ac488a29b13d430c8bb6576c1bb47dca7072adef03bd2",
+    "public_address": "f0114f786c3b5da3c97f3c3d214638e5dddc8208779782e5b6256e71a958ce79",
+    "payment_protocol": "x402",
+    "settlement_currency": "USDC",
+    "timestamp": "2026-05-26T17:31:40.605196+00:00"
+  },
+  {
+    "task_id": "task_114",
+    "source": "https://api.github.com/search/repositories?q=agentic+automation&sort=updated&per_page=20",
+    "keywords": [
+      "mcp-server"
+    ],
+    "weights": [
+      3
+    ],
+    "tier": "MARKET_READY",
+    "ai_scored": false,
+    "amount": 0.03,
+    "transaction_hash": "3ef13173c9e44b147deba89ff19b56189b13eb88192a1b0033b5bc9b8cb828f2",
+    "public_address": "f0114f786c3b5da3c97f3c3d214638e5dddc8208779782e5b6256e71a958ce79",
+    "payment_protocol": "x402",
+    "settlement_currency": "USDC",
+    "timestamp": "2026-05-26T17:31:40.731684+00:00"
+  },
+  {
+    "task_id": "task_115",
+    "source": "https://api.github.com/search/repositories?q=mcp-server&sort=updated&per_page=20",
+    "keywords": [
+      "mcp-server"
+    ],
+    "weights": [
+      3
+    ],
+    "tier": "MARKET_READY",
+    "ai_scored": false,
+    "amount": 0.03,
+    "transaction_hash": "648dd3f5199849173b54c98321ef32cd4a13fb4401092e987f9af3f3a01e62f5",
+    "public_address": "f0114f786c3b5da3c97f3c3d214638e5dddc8208779782e5b6256e71a958ce79",
+    "payment_protocol": "x402",
+    "settlement_currency": "USDC",
+    "timestamp": "2026-05-26T17:41:47.271264+00:00"
+  },
+  {
+    "task_id": "task_116",
+    "source": "https://api.github.com/search/repositories?q=agentic+automation&sort=updated&per_page=20",
+    "keywords": [
+      "mcp-server"
+    ],
+    "weights": [
+      3
+    ],
+    "tier": "MARKET_READY",
+    "ai_scored": false,
+    "amount": 0.03,
+    "transaction_hash": "cd66d6571f2b70dd11cd517b90e7e0cee2d9effe66b9c72029a345978d7df23a",
+    "public_address": "f0114f786c3b5da3c97f3c3d214638e5dddc8208779782e5b6256e71a958ce79",
+    "payment_protocol": "x402",
+    "settlement_currency": "USDC",
+    "timestamp": "2026-05-26T17:41:47.438113+00:00"
+  },
+  {
+    "task_id": "task_117",
+    "source": "https://api.github.com/search/repositories?q=x402+payment&sort=updated&per_page=20",
+    "keywords": [
+      "mcp-server"
+    ],
+    "weights": [
+      3
+    ],
+    "tier": "MARKET_READY",
+    "ai_scored": false,
+    "amount": 0.03,
+    "transaction_hash": "29c99e0b0ad4a3ab6fdee78ba55dce6a1626fe6b9a664ed3012fdba8b1486e0f",
+    "public_address": "f0114f786c3b5da3c97f3c3d214638e5dddc8208779782e5b6256e71a958ce79",
+    "payment_protocol": "x402",
+    "settlement_currency": "USDC",
+    "timestamp": "2026-05-26T17:41:47.582365+00:00"
+  },
+  {
+    "task_id": "task_118",
+    "source": "https://api.github.com/search/repositories?q=usdc+escrow+agent&sort=updated&per_page=20",
+    "keywords": [
+      "mcp-server"
+    ],
+    "weights": [
+      3
+    ],
+    "tier": "MARKET_READY",
+    "ai_scored": false,
+    "amount": 0.03,
+    "transaction_hash": "5d4ee234c3c88e734c1a98c9378a4e88d6c04df20194bf6c7fe84cdbeb987e7a",
+    "public_address": "f0114f786c3b5da3c97f3c3d214638e5dddc8208779782e5b6256e71a958ce79",
+    "payment_protocol": "x402",
+    "settlement_currency": "USDC",
+    "timestamp": "2026-05-26T17:41:47.718766+00:00"
+  },
+  {
+    "task_id": "task_119",
+    "source": "https://api.github.com/search/repositories?q=mcp+server+integration&sort=updated&per_page=20",
+    "keywords": [
+      "mcp-server"
+    ],
+    "weights": [
+      3
+    ],
+    "tier": "MARKET_READY",
+    "ai_scored": false,
+    "amount": 0.03,
+    "transaction_hash": "1fbeea0c623459b54bf6e17409613ef60eadc63b01c1f22e45f5dad5de641e8e",
+    "public_address": "f0114f786c3b5da3c97f3c3d214638e5dddc8208779782e5b6256e71a958ce79",
+    "payment_protocol": "x402",
+    "settlement_currency": "USDC",
+    "timestamp": "2026-05-26T17:41:47.848560+00:00"
+  },
+  {
+    "task_id": "task_120",
+    "source": "https://api.github.com/search/repositories?q=mcp-server&sort=updated&per_page=20",
+    "keywords": [
+      "mcp-server"
+    ],
+    "weights": [
+      3
+    ],
+    "tier": "MARKET_READY",
+    "ai_scored": false,
+    "amount": 0.03,
+    "transaction_hash": "897647765d07ea915817cef6f7407739db2143e20bc1aa7df7f26919350a069c",
+    "public_address": "f0114f786c3b5da3c97f3c3d214638e5dddc8208779782e5b6256e71a958ce79",
+    "payment_protocol": "x402",
+    "settlement_currency": "USDC",
+    "timestamp": "2026-05-26T17:51:54.763439+00:00"
+  },
+  {
+    "task_id": "task_121",
+    "source": "https://api.github.com/search/repositories?q=agentic+automation&sort=updated&per_page=20",
+    "keywords": [
+      "mcp-server"
+    ],
+    "weights": [
+      3
+    ],
+    "tier": "MARKET_READY",
+    "ai_scored": false,
+    "amount": 0.03,
+    "transaction_hash": "f34dbc971ff539fda5e5d91a023e9115d054fef6941b5a06f38889bc61fe7019",
+    "public_address": "f0114f786c3b5da3c97f3c3d214638e5dddc8208779782e5b6256e71a958ce79",
+    "payment_protocol": "x402",
+    "settlement_currency": "USDC",
+    "timestamp": "2026-05-26T17:51:54.896631+00:00"
+  },
+  {
+    "task_id": "task_122",
+    "source": "https://api.github.com/search/repositories?q=x402+payment&sort=updated&per_page=20",
+    "keywords": [
+      "mcp-server"
+    ],
+    "weights": [
+      3
+    ],
+    "tier": "MARKET_READY",
+    "ai_scored": false,
+    "amount": 0.03,
+    "transaction_hash": "9b910463caf347824c978f0263fc68e3f0f39603c74324a5f6b9f3e53cc48447",
+    "public_address": "f0114f786c3b5da3c97f3c3d214638e5dddc8208779782e5b6256e71a958ce79",
+    "payment_protocol": "x402",
+    "settlement_currency": "USDC",
+    "timestamp": "2026-05-26T17:51:55.070105+00:00"
+  },
+  {
+    "task_id": "task_123",
+    "source": "https://api.github.com/search/repositories?q=usdc+escrow+agent&sort=updated&per_page=20",
+    "keywords": [
+      "mcp-server"
+    ],
+    "weights": [
+      3
+    ],
+    "tier": "MARKET_READY",
+    "ai_scored": false,
+    "amount": 0.03,
+    "transaction_hash": "d01298b7296f0277c1ded53f0083d644f6fd31d9a1ebc0a8213ea87f813c6997",
+    "public_address": "f0114f786c3b5da3c97f3c3d214638e5dddc8208779782e5b6256e71a958ce79",
+    "payment_protocol": "x402",
+    "settlement_currency": "USDC",
+    "timestamp": "2026-05-26T17:51:55.197325+00:00"
+  },
+  {
+    "task_id": "task_124",
+    "source": "https://api.github.com/search/repositories?q=mcp+server+integration&sort=updated&per_page=20",
+    "keywords": [
+      "mcp-server"
+    ],
+    "weights": [
+      3
+    ],
+    "tier": "MARKET_READY",
+    "ai_scored": false,
+    "amount": 0.03,
+    "transaction_hash": "233d4625ef7a1a3266fa75981efb5fc4b778e094dbb6cfe546cb03a74a406bd5",
+    "public_address": "f0114f786c3b5da3c97f3c3d214638e5dddc8208779782e5b6256e71a958ce79",
+    "payment_protocol": "x402",
+    "settlement_currency": "USDC",
+    "timestamp": "2026-05-26T17:51:55.320331+00:00"
+  },
+  {
+    "task_id": "task_125",
+    "source": "https://api.github.com/search/repositories?q=mcp-server&sort=updated&per_page=20",
+    "keywords": [
+      "mcp-server"
+    ],
+    "weights": [
+      3
+    ],
+    "tier": "MARKET_READY",
+    "ai_scored": false,
+    "amount": 0.03,
+    "transaction_hash": "9ff937c5c3a66d8ecb47a76a52d36ef7519b737f916e726d2616327f600b354e",
+    "public_address": "f0114f786c3b5da3c97f3c3d214638e5dddc8208779782e5b6256e71a958ce79",
+    "payment_protocol": "x402",
+    "settlement_currency": "USDC",
+    "timestamp": "2026-05-26T18:02:01.709148+00:00"
+  },
+  {
+    "task_id": "task_126",
+    "source": "https://api.github.com/search/repositories?q=x402+payment&sort=updated&per_page=20",
+    "keywords": [
+      "mcp-server"
+    ],
+    "weights": [
+      3
+    ],
+    "tier": "MARKET_READY",
+    "ai_scored": false,
+    "amount": 0.03,
+    "transaction_hash": "dd84a299fb4125c8de4c6e4242b95b5401ae602af6f34abdf090c5de2cc3c102",
+    "public_address": "f0114f786c3b5da3c97f3c3d214638e5dddc8208779782e5b6256e71a958ce79",
+    "payment_protocol": "x402",
+    "settlement_currency": "USDC",
+    "timestamp": "2026-05-26T18:02:01.831561+00:00"
+  },
+  {
+    "task_id": "task_127",
+    "source": "https://api.github.com/search/repositories?q=usdc+escrow+agent&sort=updated&per_page=20",
+    "keywords": [
+      "mcp-server"
+    ],
+    "weights": [
+      3
+    ],
+    "tier": "MARKET_READY",
+    "ai_scored": false,
+    "amount": 0.03,
+    "transaction_hash": "62fdb6d39bdcf873f4689e52e2d9d488412656b1468ac7c039581c44e84317dc",
+    "public_address": "f0114f786c3b5da3c97f3c3d214638e5dddc8208779782e5b6256e71a958ce79",
+    "payment_protocol": "x402",
+    "settlement_currency": "USDC",
+    "timestamp": "2026-05-26T18:02:01.976876+00:00"
+  },
+  {
+    "task_id": "task_128",
+    "source": "https://api.github.com/search/repositories?q=mcp+server+integration&sort=updated&per_page=20",
+    "keywords": [
+      "mcp-server"
+    ],
+    "weights": [
+      3
+    ],
+    "tier": "MARKET_READY",
+    "ai_scored": false,
+    "amount": 0.03,
+    "transaction_hash": "e4a04bfe663485323dcbbe9bdff3d873ea46021db748c28857e0d0b16f24c1db",
+    "public_address": "f0114f786c3b5da3c97f3c3d214638e5dddc8208779782e5b6256e71a958ce79",
+    "payment_protocol": "x402",
+    "settlement_currency": "USDC",
+    "timestamp": "2026-05-26T18:02:02.143466+00:00"
+  },
+  {
+    "task_id": "task_129",
+    "source": "https://api.github.com/search/repositories?q=mcp-server&sort=updated&per_page=20",
+    "keywords": [
+      "mcp-server"
+    ],
+    "weights": [
+      3
+    ],
+    "tier": "MARKET_READY",
+    "ai_scored": false,
+    "amount": 0.03,
+    "transaction_hash": "40a2d8c29eaf72d44c012f82b7315582dfa251551974576840810a95afa7de6c",
+    "public_address": "f0114f786c3b5da3c97f3c3d214638e5dddc8208779782e5b6256e71a958ce79",
+    "payment_protocol": "x402",
+    "settlement_currency": "USDC",
+    "timestamp": "2026-05-26T18:12:09.976687+00:00"
+  },
+  {
+    "task_id": "task_130",
+    "source": "https://api.github.com/search/repositories?q=agentic+automation&sort=updated&per_page=20",
+    "keywords": [
+      "mcp-server"
+    ],
+    "weights": [
+      3
+    ],
+    "tier": "MARKET_READY",
+    "ai_scored": false,
+    "amount": 0.03,
+    "transaction_hash": "20057d61c49cbf90cb3f425f232141f9fed30bd154932938886e3edf099850cc",
+    "public_address": "f0114f786c3b5da3c97f3c3d214638e5dddc8208779782e5b6256e71a958ce79",
+    "payment_protocol": "x402",
+    "settlement_currency": "USDC",
+    "timestamp": "2026-05-26T18:12:10.166012+00:00"
+  },
+  {
+    "task_id": "task_131",
+    "source": "https://api.github.com/search/repositories?q=x402+payment&sort=updated&per_page=20",
+    "keywords": [
+      "mcp-server"
+    ],
+    "weights": [
+      3
+    ],
+    "tier": "MARKET_READY",
+    "ai_scored": false,
+    "amount": 0.03,
+    "transaction_hash": "ff8f7175ab43fef9c414485639c241d8190d2f41a8c68008c2981165c68d819c",
+    "public_address": "f0114f786c3b5da3c97f3c3d214638e5dddc8208779782e5b6256e71a958ce79",
+    "payment_protocol": "x402",
+    "settlement_currency": "USDC",
+    "timestamp": "2026-05-26T18:12:10.318129+00:00"
+  },
+  {
+    "task_id": "task_132",
+    "source": "https://api.github.com/search/repositories?q=usdc+escrow+agent&sort=updated&per_page=20",
+    "keywords": [
+      "mcp-server"
+    ],
+    "weights": [
+      3
+    ],
+    "tier": "MARKET_READY",
+    "ai_scored": false,
+    "amount": 0.03,
+    "transaction_hash": "f63478b6f2aa8c655583b19f642d8424b0690261ce034b04964ec85739d7eb6f",
+    "public_address": "f0114f786c3b5da3c97f3c3d214638e5dddc8208779782e5b6256e71a958ce79",
+    "payment_protocol": "x402",
+    "settlement_currency": "USDC",
+    "timestamp": "2026-05-26T18:12:10.467615+00:00"
+  },
+  {
+    "task_id": "task_133",
+    "source": "https://api.github.com/search/repositories?q=mcp+server+integration&sort=updated&per_page=20",
+    "keywords": [
+      "mcp-server"
+    ],
+    "weights": [
+      3
+    ],
+    "tier": "MARKET_READY",
+    "ai_scored": false,
+    "amount": 0.03,
+    "transaction_hash": "fafeb750dc2e4e11893aa8ee1beec2867cef44d92f596027a2f6b486f1587b9d",
+    "public_address": "f0114f786c3b5da3c97f3c3d214638e5dddc8208779782e5b6256e71a958ce79",
+    "payment_protocol": "x402",
+    "settlement_currency": "USDC",
+    "timestamp": "2026-05-26T18:12:10.612811+00:00"
+  },
+  {
+    "task_id": "task_134",
+    "source": "https://api.github.com/search/repositories?q=mcp-server&sort=updated&per_page=20",
+    "keywords": [
+      "mcp-server"
+    ],
+    "weights": [
+      3
+    ],
+    "tier": "MARKET_READY",
+    "ai_scored": false,
+    "amount": 0.03,
+    "transaction_hash": "839b7f709f17d0ecaebdec7a239c41c587510d88316110687d1ea83162993468",
+    "public_address": "f0114f786c3b5da3c97f3c3d214638e5dddc8208779782e5b6256e71a958ce79",
+    "payment_protocol": "x402",
+    "settlement_currency": "USDC",
+    "timestamp": "2026-05-26T18:22:18.093783+00:00"
+  },
+  {
+    "task_id": "task_135",
+    "source": "https://api.github.com/search/repositories?q=agentic+automation&sort=updated&per_page=20",
+    "keywords": [
+      "mcp-server"
+    ],
+    "weights": [
+      3
+    ],
+    "tier": "MARKET_READY",
+    "ai_scored": false,
+    "amount": 0.03,
+    "transaction_hash": "d986fe713ad6646021d52d4c08ee432838d09881844d0255dd09f95459aac6bf",
+    "public_address": "f0114f786c3b5da3c97f3c3d214638e5dddc8208779782e5b6256e71a958ce79",
+    "payment_protocol": "x402",
+    "settlement_currency": "USDC",
+    "timestamp": "2026-05-26T18:22:18.216596+00:00"
+  },
+  {
+    "task_id": "task_136",
+    "source": "https://api.github.com/search/repositories?q=x402+payment&sort=updated&per_page=20",
+    "keywords": [
+      "mcp-server"
+    ],
+    "weights": [
+      3
+    ],
+    "tier": "MARKET_READY",
+    "ai_scored": false,
+    "amount": 0.03,
+    "transaction_hash": "98d2ef6d7d47ad0f1f836f3cf6d49ee6c40d37ce783fb1e8705921e06b2a8c52",
+    "public_address": "f0114f786c3b5da3c97f3c3d214638e5dddc8208779782e5b6256e71a958ce79",
+    "payment_protocol": "x402",
+    "settlement_currency": "USDC",
+    "timestamp": "2026-05-26T18:22:18.363847+00:00"
+  },
+  {
+    "task_id": "task_137",
+    "source": "https://api.github.com/search/repositories?q=usdc+escrow+agent&sort=updated&per_page=20",
+    "keywords": [
+      "mcp-server"
+    ],
+    "weights": [
+      3
+    ],
+    "tier": "MARKET_READY",
+    "ai_scored": false,
+    "amount": 0.03,
+    "transaction_hash": "21803e3ca68b4563069d8962abe6924c08662ab7d6f2f1a6a7a4ecc93d804fde",
+    "public_address": "f0114f786c3b5da3c97f3c3d214638e5dddc8208779782e5b6256e71a958ce79",
+    "payment_protocol": "x402",
+    "settlement_currency": "USDC",
+    "timestamp": "2026-05-26T18:22:18.515321+00:00"
+  },
+  {
+    "task_id": "task_138",
+    "source": "https://api.github.com/search/repositories?q=mcp+server+integration&sort=updated&per_page=20",
+    "keywords": [
+      "mcp-server"
+    ],
+    "weights": [
+      3
+    ],
+    "tier": "MARKET_READY",
+    "ai_scored": false,
+    "amount": 0.03,
+    "transaction_hash": "be76770f8374259bdc99b5f3e822c53bf9a2c0ce8c07f38928473dbdf2003d2b",
+    "public_address": "f0114f786c3b5da3c97f3c3d214638e5dddc8208779782e5b6256e71a958ce79",
+    "payment_protocol": "x402",
+    "settlement_currency": "USDC",
+    "timestamp": "2026-05-26T18:22:18.644054+00:00"
+  },
+  {
+    "task_id": "task_139",
+    "source": "https://api.github.com/search/repositories?q=mcp-server&sort=updated&per_page=20",
+    "keywords": [
+      "mcp-server"
+    ],
+    "weights": [
+      3
+    ],
+    "tier": "MARKET_READY",
+    "ai_scored": false,
+    "amount": 0.03,
+    "transaction_hash": "045f1abbc597ab1a5f60b4c12ff11b011c1e5a73b191fa567972cf0513d8bb69",
+    "public_address": "f0114f786c3b5da3c97f3c3d214638e5dddc8208779782e5b6256e71a958ce79",
+    "payment_protocol": "x402",
+    "settlement_currency": "USDC",
+    "timestamp": "2026-05-26T18:32:25.278138+00:00"
+  },
+  {
+    "task_id": "task_140",
+    "source": "https://api.github.com/search/repositories?q=agentic+automation&sort=updated&per_page=20",
+    "keywords": [
+      "mcp-server"
+    ],
+    "weights": [
+      3
+    ],
+    "tier": "MARKET_READY",
+    "ai_scored": false,
+    "amount": 0.03,
+    "transaction_hash": "eb1dae23e35788b6b320e44cd31342c96ccdc598085d86daeecfa78bef4580e6",
+    "public_address": "f0114f786c3b5da3c97f3c3d214638e5dddc8208779782e5b6256e71a958ce79",
+    "payment_protocol": "x402",
+    "settlement_currency": "USDC",
+    "timestamp": "2026-05-26T18:32:25.419935+00:00"
+  },
+  {
+    "task_id": "task_141",
+    "source": "https://api.github.com/search/repositories?q=x402+payment&sort=updated&per_page=20",
+    "keywords": [
+      "mcp-server"
+    ],
+    "weights": [
+      3
+    ],
+    "tier": "MARKET_READY",
+    "ai_scored": false,
+    "amount": 0.03,
+    "transaction_hash": "c4f4142e4bcbc5b08e151191602032a76b5ae62a50a303b7814546469f7f57bd",
+    "public_address": "f0114f786c3b5da3c97f3c3d214638e5dddc8208779782e5b6256e71a958ce79",
+    "payment_protocol": "x402",
+    "settlement_currency": "USDC",
+    "timestamp": "2026-05-26T18:32:25.550044+00:00"
+  },
+  {
+    "task_id": "task_142",
+    "source": "https://api.github.com/search/repositories?q=usdc+escrow+agent&sort=updated&per_page=20",
+    "keywords": [
+      "mcp-server"
+    ],
+    "weights": [
+      3
+    ],
+    "tier": "MARKET_READY",
+    "ai_scored": false,
+    "amount": 0.03,
+    "transaction_hash": "8e887ad07f43ef477616e7ead67cbc510195e5b3766ddc4af6a57827fbb9542a",
+    "public_address": "f0114f786c3b5da3c97f3c3d214638e5dddc8208779782e5b6256e71a958ce79",
+    "payment_protocol": "x402",
+    "settlement_currency": "USDC",
+    "timestamp": "2026-05-26T18:32:25.680397+00:00"
+  },
+  {
+    "task_id": "task_143",
+    "source": "https://api.github.com/search/repositories?q=mcp+server+integration&sort=updated&per_page=20",
+    "keywords": [
+      "mcp-server"
+    ],
+    "weights": [
+      3
+    ],
+    "tier": "MARKET_READY",
+    "ai_scored": false,
+    "amount": 0.03,
+    "transaction_hash": "fac1d627e887168095baa6ebc0245b92b9c04182efbd8e5e8764f922bb508b7d",
+    "public_address": "f0114f786c3b5da3c97f3c3d214638e5dddc8208779782e5b6256e71a958ce79",
+    "payment_protocol": "x402",
+    "settlement_currency": "USDC",
+    "timestamp": "2026-05-26T18:32:25.809718+00:00"
+  },
+  {
+    "task_id": "task_144",
+    "source": "https://api.github.com/search/repositories?q=mcp-server&sort=updated&per_page=20",
+    "keywords": [
+      "mcp-server"
+    ],
+    "weights": [
+      3
+    ],
+    "tier": "MARKET_READY",
+    "ai_scored": false,
+    "amount": 0.03,
+    "transaction_hash": "3be9fdb78dcd56734264a911958171bcb5d5589ad82adefe245ffdca3cc66004",
+    "public_address": "f0114f786c3b5da3c97f3c3d214638e5dddc8208779782e5b6256e71a958ce79",
+    "payment_protocol": "x402",
+    "settlement_currency": "USDC",
+    "timestamp": "2026-05-26T18:42:28.645477+00:00"
+  },
+  {
+    "task_id": "task_145",
+    "source": "https://api.github.com/search/repositories?q=mcp-server&sort=updated&per_page=20",
+    "keywords": [
+      "mcp-server"
+    ],
+    "weights": [
+      3
+    ],
+    "tier": "MARKET_READY",
+    "ai_scored": false,
+    "amount": 0.03,
+    "transaction_hash": "73f81b985543a51a904bce7ff2c7e5a66ecc1b65dd694b369e0e2b0309e472f9",
+    "public_address": "f0114f786c3b5da3c97f3c3d214638e5dddc8208779782e5b6256e71a958ce79",
+    "payment_protocol": "x402",
+    "settlement_currency": "USDC",
+    "timestamp": "2026-05-26T18:52:31.631627+00:00"
+  },
+  {
+    "task_id": "task_146",
+    "source": "https://api.github.com/search/repositories?q=mcp-server&sort=updated&per_page=20",
+    "keywords": [
+      "mcp-server"
+    ],
+    "weights": [
+      3
+    ],
+    "tier": "MARKET_READY",
+    "ai_scored": false,
+    "amount": 0.03,
+    "transaction_hash": "5ba4c6e4fd792ddc891f61b7502ca0c58a1ee20595835c92d2c8eac88fd04ec1",
+    "public_address": "f0114f786c3b5da3c97f3c3d214638e5dddc8208779782e5b6256e71a958ce79",
+    "payment_protocol": "x402",
+    "settlement_currency": "USDC",
+    "timestamp": "2026-05-26T19:02:38.106026+00:00"
+  },
+  {
+    "task_id": "task_147",
+    "source": "https://api.github.com/search/repositories?q=x402+payment&sort=updated&per_page=20",
+    "keywords": [
+      "mcp-server"
+    ],
+    "weights": [
+      3
+    ],
+    "tier": "MARKET_READY",
+    "ai_scored": false,
+    "amount": 0.03,
+    "transaction_hash": "b3fec70067ea6482fdcb62272652322cdd227d4b5ba4444323e81d4d44081052",
+    "public_address": "f0114f786c3b5da3c97f3c3d214638e5dddc8208779782e5b6256e71a958ce79",
+    "payment_protocol": "x402",
+    "settlement_currency": "USDC",
+    "timestamp": "2026-05-26T19:02:38.243584+00:00"
+  },
+  {
+    "task_id": "task_148",
+    "source": "https://api.github.com/search/repositories?q=usdc+escrow+agent&sort=updated&per_page=20",
+    "keywords": [
+      "mcp-server"
+    ],
+    "weights": [
+      3
+    ],
+    "tier": "MARKET_READY",
+    "ai_scored": false,
+    "amount": 0.03,
+    "transaction_hash": "b9f220045276686f48f5b0f79771aff08d7d4b3f0c55cfaf2b2c31c1057593cc",
+    "public_address": "f0114f786c3b5da3c97f3c3d214638e5dddc8208779782e5b6256e71a958ce79",
+    "payment_protocol": "x402",
+    "settlement_currency": "USDC",
+    "timestamp": "2026-05-26T19:02:38.379596+00:00"
+  },
+  {
+    "task_id": "task_149",
+    "source": "https://api.github.com/search/repositories?q=mcp+server+integration&sort=updated&per_page=20",
+    "keywords": [
+      "mcp-server"
+    ],
+    "weights": [
+      3
+    ],
+    "tier": "MARKET_READY",
+    "ai_scored": false,
+    "amount": 0.03,
+    "transaction_hash": "ada2632568de3a28b946d5189655c5c9d8f0ff74f76b61beae80c6a6039f8625",
+    "public_address": "f0114f786c3b5da3c97f3c3d214638e5dddc8208779782e5b6256e71a958ce79",
+    "payment_protocol": "x402",
+    "settlement_currency": "USDC",
+    "timestamp": "2026-05-26T19:02:38.511697+00:00"
+  },
+  {
+    "task_id": "task_150",
+    "source": "https://api.github.com/search/repositories?q=mcp-server&sort=updated&per_page=20",
+    "keywords": [
+      "mcp-server"
+    ],
+    "weights": [
+      3
+    ],
+    "tier": "MARKET_READY",
+    "ai_scored": false,
+    "amount": 0.03,
+    "transaction_hash": "a1d393174577dafbf7c8059b382057b0f0433011c9cdd4eb634c5d82337556fd",
+    "public_address": "f0114f786c3b5da3c97f3c3d214638e5dddc8208779782e5b6256e71a958ce79",
+    "payment_protocol": "x402",
+    "settlement_currency": "USDC",
+    "timestamp": "2026-05-26T19:12:45.700836+00:00"
+  },
+  {
+    "task_id": "task_151",
+    "source": "https://api.github.com/search/repositories?q=agentic+automation&sort=updated&per_page=20",
+    "keywords": [
+      "mcp-server"
+    ],
+    "weights": [
+      3
+    ],
+    "tier": "MARKET_READY",
+    "ai_scored": false,
+    "amount": 0.03,
+    "transaction_hash": "9b61245ae862a079521508772e805923bd5cb753dc39df7faac6ff3a301686d3",
+    "public_address": "f0114f786c3b5da3c97f3c3d214638e5dddc8208779782e5b6256e71a958ce79",
+    "payment_protocol": "x402",
+    "settlement_currency": "USDC",
+    "timestamp": "2026-05-26T19:12:45.856283+00:00"
+  },
+  {
+    "task_id": "task_152",
+    "source": "https://api.github.com/search/repositories?q=x402+payment&sort=updated&per_page=20",
+    "keywords": [
+      "mcp-server"
+    ],
+    "weights": [
+      3
+    ],
+    "tier": "MARKET_READY",
+    "ai_scored": false,
+    "amount": 0.03,
+    "transaction_hash": "6d4a819363fe88cdf561865824edd76d26133f1aaae76d11d2d2c23a9b2fc22c",
+    "public_address": "f0114f786c3b5da3c97f3c3d214638e5dddc8208779782e5b6256e71a958ce79",
+    "payment_protocol": "x402",
+    "settlement_currency": "USDC",
+    "timestamp": "2026-05-26T19:12:46.006707+00:00"
+  },
+  {
+    "task_id": "task_153",
+    "source": "https://api.github.com/search/repositories?q=usdc+escrow+agent&sort=updated&per_page=20",
+    "keywords": [
+      "mcp-server"
+    ],
+    "weights": [
+      3
+    ],
+    "tier": "MARKET_READY",
+    "ai_scored": false,
+    "amount": 0.03,
+    "transaction_hash": "5f4550710d0315e92496b8e50f8a49b4b5986c0de15a92c2f5e1d64cc9c4fc14",
+    "public_address": "f0114f786c3b5da3c97f3c3d214638e5dddc8208779782e5b6256e71a958ce79",
+    "payment_protocol": "x402",
+    "settlement_currency": "USDC",
+    "timestamp": "2026-05-26T19:12:46.179008+00:00"
+  },
+  {
+    "task_id": "task_154",
+    "source": "https://api.github.com/search/repositories?q=mcp+server+integration&sort=updated&per_page=20",
+    "keywords": [
+      "mcp-server"
+    ],
+    "weights": [
+      3
+    ],
+    "tier": "MARKET_READY",
+    "ai_scored": false,
+    "amount": 0.03,
+    "transaction_hash": "69db847ef6fcadbee8358c5428c6646f0638496e56eb5ae0adbe835f50173a45",
+    "public_address": "f0114f786c3b5da3c97f3c3d214638e5dddc8208779782e5b6256e71a958ce79",
+    "payment_protocol": "x402",
+    "settlement_currency": "USDC",
+    "timestamp": "2026-05-26T19:12:46.247037+00:00"
+  },
+  {
+    "task_id": "task_155",
+    "source": "https://api.github.com/search/repositories?q=mcp-server&sort=updated&per_page=20",
+    "keywords": [
+      "mcp-server"
+    ],
+    "weights": [
+      3
+    ],
+    "tier": "MARKET_READY",
+    "ai_scored": false,
+    "amount": 0.03,
+    "transaction_hash": "286fc3733b1cd312d7ac07935d452d49cf81b3765d239f6634608374acb6231a",
+    "public_address": "f0114f786c3b5da3c97f3c3d214638e5dddc8208779782e5b6256e71a958ce79",
+    "payment_protocol": "x402",
+    "settlement_currency": "USDC",
+    "timestamp": "2026-05-26T19:22:53.224407+00:00"
+  },
+  {
+    "task_id": "task_156",
+    "source": "https://api.github.com/search/repositories?q=x402+payment&sort=updated&per_page=20",
+    "keywords": [
+      "mcp-server"
+    ],
+    "weights": [
+      3
+    ],
+    "tier": "MARKET_READY",
+    "ai_scored": false,
+    "amount": 0.03,
+    "transaction_hash": "97a737cc1da2ebe0aab38ae65e6b40f38c3e245bbe31de1c32679d626622343a",
+    "public_address": "f0114f786c3b5da3c97f3c3d214638e5dddc8208779782e5b6256e71a958ce79",
+    "payment_protocol": "x402",
+    "settlement_currency": "USDC",
+    "timestamp": "2026-05-26T19:22:53.371871+00:00"
+  },
+  {
+    "task_id": "task_157",
+    "source": "https://api.github.com/search/repositories?q=usdc+escrow+agent&sort=updated&per_page=20",
+    "keywords": [
+      "mcp-server"
+    ],
+    "weights": [
+      3
+    ],
+    "tier": "MARKET_READY",
+    "ai_scored": false,
+    "amount": 0.03,
+    "transaction_hash": "b95578b26bf73d41c65f45bbff599cd56ba490d1f49edfafc522d4af67282127",
+    "public_address": "f0114f786c3b5da3c97f3c3d214638e5dddc8208779782e5b6256e71a958ce79",
+    "payment_protocol": "x402",
+    "settlement_currency": "USDC",
+    "timestamp": "2026-05-26T19:22:53.515341+00:00"
+  },
+  {
+    "task_id": "task_158",
+    "source": "https://api.github.com/search/repositories?q=mcp+server+integration&sort=updated&per_page=20",
+    "keywords": [
+      "mcp-server"
+    ],
+    "weights": [
+      3
+    ],
+    "tier": "MARKET_READY",
+    "ai_scored": false,
+    "amount": 0.03,
+    "transaction_hash": "b5a9d4a87564eb0df1ae99bef79ade51150eefbaf1c1e514fdc2016c0343caa4",
+    "public_address": "f0114f786c3b5da3c97f3c3d214638e5dddc8208779782e5b6256e71a958ce79",
+    "payment_protocol": "x402",
+    "settlement_currency": "USDC",
+    "timestamp": "2026-05-26T19:22:53.672684+00:00"
+  },
+  {
+    "task_id": "task_159",
+    "source": "https://api.github.com/search/repositories?q=mcp-server&sort=updated&per_page=20",
+    "keywords": [
+      "mcp-server"
+    ],
+    "weights": [
+      3
+    ],
+    "tier": "MARKET_READY",
+    "ai_scored": false,
+    "amount": 0.03,
+    "transaction_hash": "3730cfbdfbfba0ea4c171935a9cd17f6ae822fa03730fe0b9c7e252a21d4f9cf",
+    "public_address": "f0114f786c3b5da3c97f3c3d214638e5dddc8208779782e5b6256e71a958ce79",
+    "payment_protocol": "x402",
+    "settlement_currency": "USDC",
+    "timestamp": "2026-05-26T19:33:00.415862+00:00"
+  },
+  {
+    "task_id": "task_160",
+    "source": "https://api.github.com/search/repositories?q=x402+payment&sort=updated&per_page=20",
+    "keywords": [
+      "mcp-server"
+    ],
+    "weights": [
+      3
+    ],
+    "tier": "MARKET_READY",
+    "ai_scored": false,
+    "amount": 0.03,
+    "transaction_hash": "cff0995dee95fe58e63ab6b1a7b731e9dd020f49c934a51e1b5da80599faf863",
+    "public_address": "f0114f786c3b5da3c97f3c3d214638e5dddc8208779782e5b6256e71a958ce79",
+    "payment_protocol": "x402",
+    "settlement_currency": "USDC",
+    "timestamp": "2026-05-26T19:33:00.554093+00:00"
+  },
+  {
+    "task_id": "task_161",
+    "source": "https://api.github.com/search/repositories?q=usdc+escrow+agent&sort=updated&per_page=20",
+    "keywords": [
+      "mcp-server"
+    ],
+    "weights": [
+      3
+    ],
+    "tier": "MARKET_READY",
+    "ai_scored": false,
+    "amount": 0.03,
+    "transaction_hash": "351f0dc3c02aae56dc6cb78a90e2bc0fdb5b1c4f378e273f0e6b9ff953fd7819",
+    "public_address": "f0114f786c3b5da3c97f3c3d214638e5dddc8208779782e5b6256e71a958ce79",
+    "payment_protocol": "x402",
+    "settlement_currency": "USDC",
+    "timestamp": "2026-05-26T19:33:00.704475+00:00"
+  },
+  {
+    "task_id": "task_162",
+    "source": "https://api.github.com/search/repositories?q=mcp+server+integration&sort=updated&per_page=20",
+    "keywords": [
+      "mcp-server"
+    ],
+    "weights": [
+      3
+    ],
+    "tier": "MARKET_READY",
+    "ai_scored": false,
+    "amount": 0.03,
+    "transaction_hash": "711f7dc9d2d07352c5409e578e50d429cabe6dcdf70bec325161a00cc9cd6b88",
+    "public_address": "f0114f786c3b5da3c97f3c3d214638e5dddc8208779782e5b6256e71a958ce79",
+    "payment_protocol": "x402",
+    "settlement_currency": "USDC",
+    "timestamp": "2026-05-26T19:33:00.847356+00:00"
+  },
+  {
+    "task_id": "task_163",
+    "source": "https://api.github.com/search/repositories?q=mcp-server&sort=updated&per_page=20",
+    "keywords": [
+      "mcp-server"
+    ],
+    "weights": [
+      3
+    ],
+    "tier": "MARKET_READY",
+    "ai_scored": false,
+    "amount": 0.03,
+    "transaction_hash": "31a69d6134db44cfd82a8f8134dbe8fce3620442a17a9252ab9c0f5c2d6b95a8",
+    "public_address": "f0114f786c3b5da3c97f3c3d214638e5dddc8208779782e5b6256e71a958ce79",
+    "payment_protocol": "x402",
+    "settlement_currency": "USDC",
+    "timestamp": "2026-05-26T19:43:07.696831+00:00"
+  },
+  {
+    "task_id": "task_164",
+    "source": "https://api.github.com/search/repositories?q=agentic+automation&sort=updated&per_page=20",
+    "keywords": [
+      "mcp-server"
+    ],
+    "weights": [
+      3
+    ],
+    "tier": "MARKET_READY",
+    "ai_scored": false,
+    "amount": 0.03,
+    "transaction_hash": "0ccfe9137e9c7d62f453d6526f37b16abe7b28fd738c45dc1d0f21cc758f2c89",
+    "public_address": "f0114f786c3b5da3c97f3c3d214638e5dddc8208779782e5b6256e71a958ce79",
+    "payment_protocol": "x402",
+    "settlement_currency": "USDC",
+    "timestamp": "2026-05-26T19:43:07.833718+00:00"
+  },
+  {
+    "task_id": "task_165",
+    "source": "https://api.github.com/search/repositories?q=x402+payment&sort=updated&per_page=20",
+    "keywords": [
+      "mcp-server"
+    ],
+    "weights": [
+      3
+    ],
+    "tier": "MARKET_READY",
+    "ai_scored": false,
+    "amount": 0.03,
+    "transaction_hash": "1b1e0fd349a9b06aab91dd6619fd3ae14bd0c2e163767e0b977ac075e031db69",
+    "public_address": "f0114f786c3b5da3c97f3c3d214638e5dddc8208779782e5b6256e71a958ce79",
+    "payment_protocol": "x402",
+    "settlement_currency": "USDC",
+    "timestamp": "2026-05-26T19:43:07.958816+00:00"
+  },
+  {
+    "task_id": "task_166",
+    "source": "https://api.github.com/search/repositories?q=usdc+escrow+agent&sort=updated&per_page=20",
+    "keywords": [
+      "mcp-server"
+    ],
+    "weights": [
+      3
+    ],
+    "tier": "MARKET_READY",
+    "ai_scored": false,
+    "amount": 0.03,
+    "transaction_hash": "1fe4f7049e6d9c763e525e9b9bdf0e09898ea8fc350b04c6f916ba66e1a20f70",
+    "public_address": "f0114f786c3b5da3c97f3c3d214638e5dddc8208779782e5b6256e71a958ce79",
+    "payment_protocol": "x402",
+    "settlement_currency": "USDC",
+    "timestamp": "2026-05-26T19:43:08.106283+00:00"
+  },
+  {
+    "task_id": "task_167",
+    "source": "https://api.github.com/search/repositories?q=mcp+server+integration&sort=updated&per_page=20",
+    "keywords": [
+      "mcp-server"
+    ],
+    "weights": [
+      3
+    ],
+    "tier": "MARKET_READY",
+    "ai_scored": false,
+    "amount": 0.03,
+    "transaction_hash": "f7555f22fa36fab4892861a2896cee073d5a0a2167ffd86a3a3af01c9597edb2",
+    "public_address": "f0114f786c3b5da3c97f3c3d214638e5dddc8208779782e5b6256e71a958ce79",
+    "payment_protocol": "x402",
+    "settlement_currency": "USDC",
+    "timestamp": "2026-05-26T19:43:08.250502+00:00"
+  },
+  {
+    "task_id": "task_168",
+    "source": "https://api.github.com/search/repositories?q=mcp-server&sort=updated&per_page=20",
+    "keywords": [
+      "mcp-server"
+    ],
+    "weights": [
+      3
+    ],
+    "tier": "MARKET_READY",
+    "ai_scored": false,
+    "amount": 0.03,
+    "transaction_hash": "a350241c8a3d30dec2e92d9331607ea6934ebc7d69a81cf9155c22884acda1a8",
+    "public_address": "f0114f786c3b5da3c97f3c3d214638e5dddc8208779782e5b6256e71a958ce79",
+    "payment_protocol": "x402",
+    "settlement_currency": "USDC",
+    "timestamp": "2026-05-26T19:53:15.172897+00:00"
+  },
+  {
+    "task_id": "task_169",
+    "source": "https://api.github.com/search/repositories?q=agentic+automation&sort=updated&per_page=20",
+    "keywords": [
+      "mcp-server"
+    ],
+    "weights": [
+      3
+    ],
+    "tier": "MARKET_READY",
+    "ai_scored": false,
+    "amount": 0.03,
+    "transaction_hash": "129a6ee6a0f7d12e58e76db2eba40875ecfbe7671f082c0f70d7cc836cea1f1f",
+    "public_address": "f0114f786c3b5da3c97f3c3d214638e5dddc8208779782e5b6256e71a958ce79",
+    "payment_protocol": "x402",
+    "settlement_currency": "USDC",
+    "timestamp": "2026-05-26T19:53:15.454487+00:00"
+  },
+  {
+    "task_id": "task_170",
+    "source": "https://api.github.com/search/repositories?q=x402+payment&sort=updated&per_page=20",
+    "keywords": [
+      "mcp-server"
+    ],
+    "weights": [
+      3
+    ],
+    "tier": "MARKET_READY",
+    "ai_scored": false,
+    "amount": 0.03,
+    "transaction_hash": "43f6217f3c1b169b5f9416505e14f4f1a9bd8d6d2826e91056c98279ca64f700",
+    "public_address": "f0114f786c3b5da3c97f3c3d214638e5dddc8208779782e5b6256e71a958ce79",
+    "payment_protocol": "x402",
+    "settlement_currency": "USDC",
+    "timestamp": "2026-05-26T19:53:15.687273+00:00"
+  },
+  {
+    "task_id": "task_171",
+    "source": "https://api.github.com/search/repositories?q=usdc+escrow+agent&sort=updated&per_page=20",
+    "keywords": [
+      "mcp-server"
+    ],
+    "weights": [
+      3
+    ],
+    "tier": "MARKET_READY",
+    "ai_scored": false,
+    "amount": 0.03,
+    "transaction_hash": "18afcbcf76409e23beb574cf33b6d4dca478d2c1b782aafab901086d7707ceb9",
+    "public_address": "f0114f786c3b5da3c97f3c3d214638e5dddc8208779782e5b6256e71a958ce79",
+    "payment_protocol": "x402",
+    "settlement_currency": "USDC",
+    "timestamp": "2026-05-26T19:53:15.944290+00:00"
+  },
+  {
+    "task_id": "task_172",
+    "source": "https://api.github.com/search/repositories?q=mcp+server+integration&sort=updated&per_page=20",
+    "keywords": [
+      "mcp-server"
+    ],
+    "weights": [
+      3
+    ],
+    "tier": "MARKET_READY",
+    "ai_scored": false,
+    "amount": 0.03,
+    "transaction_hash": "e4f331f02f82e6b603332fc9853caca2ca2b049d2dcebcbc5faf4db0c58dc179",
+    "public_address": "f0114f786c3b5da3c97f3c3d214638e5dddc8208779782e5b6256e71a958ce79",
+    "payment_protocol": "x402",
+    "settlement_currency": "USDC",
+    "timestamp": "2026-05-26T19:53:16.233535+00:00"
+  },
+  {
+    "task_id": "task_001",
+    "source": "https://api.github.com/search/repositories?q=mcp-server&sort=updated&per_page=20",
+    "keywords": [
+      "mcp-server"
+    ],
+    "weights": [
+      3
+    ],
+    "tier": "MARKET_READY",
+    "ai_scored": false,
+    "amount": 0.03,
+    "transaction_hash": "a30b131b4ae4f2e1006a6d28c27a986c2e8e16af627adc5d969acdf1ef56c9b7",
+    "public_address": "f0114f786c3b5da3c97f3c3d214638e5dddc8208779782e5b6256e71a958ce79",
+    "payment_protocol": "x402",
+    "settlement_currency": "USDC",
+    "timestamp": "2026-05-26T20:03:22.213363+00:00"
+  },
+  {
+    "task_id": "task_002",
+    "source": "https://api.github.com/search/repositories?q=x402+payment&sort=updated&per_page=20",
+    "keywords": [
+      "mcp-server"
+    ],
+    "weights": [
+      3
+    ],
+    "tier": "MARKET_READY",
+    "ai_scored": false,
+    "amount": 0.03,
+    "transaction_hash": "5915c8127ae18db32e9682639d82f19c181a2cd319dcc9eb6372af38804194e9",
+    "public_address": "f0114f786c3b5da3c97f3c3d214638e5dddc8208779782e5b6256e71a958ce79",
+    "payment_protocol": "x402",
+    "settlement_currency": "USDC",
+    "timestamp": "2026-05-26T20:03:22.367190+00:00"
+  },
+  {
+    "task_id": "task_003",
+    "source": "https://api.github.com/search/repositories?q=usdc+escrow+agent&sort=updated&per_page=20",
+    "keywords": [
+      "mcp-server"
+    ],
+    "weights": [
+      3
+    ],
+    "tier": "MARKET_READY",
+    "ai_scored": false,
+    "amount": 0.03,
+    "transaction_hash": "cf3f60cdc8fd3998277611a6055eb09795b36f068544c373244a5383be57c140",
+    "public_address": "f0114f786c3b5da3c97f3c3d214638e5dddc8208779782e5b6256e71a958ce79",
+    "payment_protocol": "x402",
+    "settlement_currency": "USDC",
+    "timestamp": "2026-05-26T20:03:22.510331+00:00"
+  },
+  {
+    "task_id": "task_004",
+    "source": "https://api.github.com/search/repositories?q=mcp+server+integration&sort=updated&per_page=20",
+    "keywords": [
+      "mcp-server"
+    ],
+    "weights": [
+      3
+    ],
+    "tier": "MARKET_READY",
+    "ai_scored": false,
+    "amount": 0.03,
+    "transaction_hash": "216faa71c4db362d4aa85fcf25d8ad1ee0971a7958b2263f604609e351ec9e34",
+    "public_address": "f0114f786c3b5da3c97f3c3d214638e5dddc8208779782e5b6256e71a958ce79",
+    "payment_protocol": "x402",
+    "settlement_currency": "USDC",
+    "timestamp": "2026-05-26T20:03:22.651069+00:00"
+  },
+  {
+    "task_id": "task_005",
+    "source": "ap2",
+    "keywords": [
+      "mcp-server"
+    ],
+    "amount": 0.025,
+    "transaction_hash": "ap2_test_tx_final",
+    "public_address": "f0114f786c3b5da3c97f3c3d214638e5dddc8208779782e5b6256e71a958ce79",
+    "payment_protocol": "ap2",
+    "settlement_currency": "USDC",
+    "settlement_source": "ap2_charge",
+    "timestamp": "2026-05-26T20:07:06.972262+00:00"
+  },
+  {
+    "task_id": "task_006",
+    "source": "https://api.github.com/search/repositories?q=mcp-server&sort=updated&per_page=20",
+    "keywords": [
+      "mcp-server"
+    ],
+    "weights": [
+      3
+    ],
+    "tier": "MARKET_READY",
+    "ai_scored": false,
+    "amount": 0.03,
+    "transaction_hash": "2c9cb395c18289c494be29f9f05a409f57e79364c7357a2f64892022e4212552",
+    "public_address": "f0114f786c3b5da3c97f3c3d214638e5dddc8208779782e5b6256e71a958ce79",
+    "payment_protocol": "x402",
+    "settlement_currency": "USDC",
+    "fiat_amount": 0.03,
+    "fiat_currency": "USD",
+    "timestamp": "2026-05-26T20:17:45.771253+00:00"
+  },
+  {
+    "task_id": "task_007",
+    "source": "https://api.github.com/search/repositories?q=agentic+automation&sort=updated&per_page=20",
+    "keywords": [
+      "mcp-server"
+    ],
+    "weights": [
+      3
+    ],
+    "tier": "MARKET_READY",
+    "ai_scored": false,
+    "amount": 0.03,
+    "transaction_hash": "9e185d24f849f67d6afe2360091d156ee26b6c070f683ae7b2171c3de8b2145c",
+    "public_address": "f0114f786c3b5da3c97f3c3d214638e5dddc8208779782e5b6256e71a958ce79",
+    "payment_protocol": "x402",
+    "settlement_currency": "USDC",
+    "fiat_amount": 0.03,
+    "fiat_currency": "USD",
+    "timestamp": "2026-05-26T20:17:45.903794+00:00"
+  },
+  {
+    "task_id": "task_008",
+    "source": "https://api.github.com/search/repositories?q=x402+payment&sort=updated&per_page=20",
+    "keywords": [
+      "mcp-server"
+    ],
+    "weights": [
+      3
+    ],
+    "tier": "MARKET_READY",
+    "ai_scored": false,
+    "amount": 0.03,
+    "transaction_hash": "cb10de78a478a514cfa60db98e72d1d7db3f75e61d4b4bd3dc22665d50c6b49e",
+    "public_address": "f0114f786c3b5da3c97f3c3d214638e5dddc8208779782e5b6256e71a958ce79",
+    "payment_protocol": "x402",
+    "settlement_currency": "USDC",
+    "fiat_amount": 0.03,
+    "fiat_currency": "USD",
+    "timestamp": "2026-05-26T20:17:46.058473+00:00"
+  },
+  {
+    "task_id": "task_009",
+    "source": "https://api.github.com/search/repositories?q=usdc+escrow+agent&sort=updated&per_page=20",
+    "keywords": [
+      "mcp-server"
+    ],
+    "weights": [
+      3
+    ],
+    "tier": "MARKET_READY",
+    "ai_scored": false,
+    "amount": 0.03,
+    "transaction_hash": "71272ccafef6e59da195799cf6883a6cca6aa6f5f9ab43068e43a8efaf8399d2",
+    "public_address": "f0114f786c3b5da3c97f3c3d214638e5dddc8208779782e5b6256e71a958ce79",
+    "payment_protocol": "x402",
+    "settlement_currency": "USDC",
+    "fiat_amount": 0.03,
+    "fiat_currency": "USD",
+    "timestamp": "2026-05-26T20:17:46.205264+00:00"
+  },
+  {
+    "task_id": "task_010",
+    "source": "https://api.github.com/search/repositories?q=mcp+server+integration&sort=updated&per_page=20",
+    "keywords": [
+      "mcp-server"
+    ],
+    "weights": [
+      3
+    ],
+    "tier": "MARKET_READY",
+    "ai_scored": false,
+    "amount": 0.03,
+    "transaction_hash": "d56661dbe0cfc7ffc633fdc8a037f0cbec9c6b1c11116ef6755c1cebb6e3dc2e",
+    "public_address": "f0114f786c3b5da3c97f3c3d214638e5dddc8208779782e5b6256e71a958ce79",
+    "payment_protocol": "x402",
+    "settlement_currency": "USDC",
+    "fiat_amount": 0.03,
+    "fiat_currency": "USD",
+    "timestamp": "2026-05-26T20:17:46.339643+00:00"
+  }
+]

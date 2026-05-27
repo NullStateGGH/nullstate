@@ -1,0 +1,38 @@
+---
+sidebar_position: 5
+---
+
+# Security
+
+## Non-Custodial Design
+
+NullState is **non-custodial** — private keys never leave your infrastructure.
+
+- RSA-2048 private key stored in `src/wallet/.env` (chmod 600)
+- Solana Ed25519 keypair stored alongside
+- Keys loaded at runtime, never written to logs or external services
+
+## Network Security
+
+- **HTTPS only** on port 8080 (self-signed certs — replace with Let's Encrypt)
+- **MCP port 8081** blocked externally (GCP VPC firewall)
+- **GCP firewall** restricts inbound to port 8080 only
+
+## KYA Authentication
+
+- RSA-2048 challenge/response prevents unauthorized agent access
+- Token TTL: 1 hour
+- Token cache: 5 minutes with LRU eviction (1024 entries)
+- Per-agent rate limiting: 30 req/60s
+
+## File Security
+
+- Atomic writes with `fcntl.flock(LOCK_EX)` — safe concurrent access
+- Auto-backup before every write (5 rotated)
+- Corruption recovery — auto-restore from newest valid backup
+
+## Runtime
+
+- Request body max: 64KB
+- `SIGTERM` handler for graceful shutdown
+- Subprocess timeout: 120s per child process

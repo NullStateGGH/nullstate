@@ -1,0 +1,182 @@
+[
+  {
+    "type": "lead",
+    "source": "https://api.github.com/search/repositories?q=mcp-server&sort=updated&per_page=20",
+    "keywords": [
+      "mcp-server"
+    ],
+    "weights": [
+      3
+    ],
+    "tier": "MARKET_READY",
+    "status": "completed"
+  },
+  {
+    "type": "lead",
+    "source": "https://api.github.com/search/repositories?q=x402+payment&sort=updated&per_page=20",
+    "keywords": [
+      "mcp-server"
+    ],
+    "weights": [
+      3
+    ],
+    "tier": "MARKET_READY",
+    "status": "completed"
+  },
+  {
+    "type": "lead",
+    "source": "https://api.github.com/search/repositories?q=usdc+escrow+agent&sort=updated&per_page=20",
+    "keywords": [
+      "mcp-server"
+    ],
+    "weights": [
+      3
+    ],
+    "tier": "MARKET_READY",
+    "status": "completed"
+  },
+  {
+    "type": "lead",
+    "source": "https://api.github.com/search/repositories?q=mcp+server+integration&sort=updated&per_page=20",
+    "keywords": [
+      "mcp-server"
+    ],
+    "weights": [
+      3
+    ],
+    "tier": "MARKET_READY",
+    "status": "completed"
+  },
+  {
+    "type": "lead",
+    "source": "ap2-test",
+    "keywords": [
+      "mcp-server"
+    ],
+    "weights": [
+      3
+    ],
+    "tier": "MARKET_READY",
+    "status": "completed"
+  },
+  {
+    "type": "lead",
+    "source": "https://api.github.com/search/repositories?q=mcp-server&sort=updated&per_page=20",
+    "keywords": [
+      "mcp-server"
+    ],
+    "weights": [
+      3
+    ],
+    "tier": "MARKET_READY",
+    "status": "completed"
+  },
+  {
+    "type": "lead",
+    "source": "https://api.github.com/search/repositories?q=agentic+automation&sort=updated&per_page=20",
+    "keywords": [
+      "mcp-server"
+    ],
+    "weights": [
+      3
+    ],
+    "tier": "MARKET_READY",
+    "status": "completed"
+  },
+  {
+    "type": "lead",
+    "source": "https://api.github.com/search/repositories?q=x402+payment&sort=updated&per_page=20",
+    "keywords": [
+      "mcp-server"
+    ],
+    "weights": [
+      3
+    ],
+    "tier": "MARKET_READY",
+    "status": "completed"
+  },
+  {
+    "type": "lead",
+    "source": "https://api.github.com/search/repositories?q=usdc+escrow+agent&sort=updated&per_page=20",
+    "keywords": [
+      "mcp-server"
+    ],
+    "weights": [
+      3
+    ],
+    "tier": "MARKET_READY",
+    "status": "completed"
+  },
+  {
+    "type": "lead",
+    "source": "https://api.github.com/search/repositories?q=mcp+server+integration&sort=updated&per_page=20",
+    "keywords": [
+      "mcp-server"
+    ],
+    "weights": [
+      3
+    ],
+    "tier": "MARKET_READY",
+    "status": "completed"
+  },
+  {
+    "type": "lead",
+    "source": "https://api.github.com/search/repositories?q=mcp-server&sort=updated&per_page=20",
+    "keywords": [
+      "mcp-server"
+    ],
+    "weights": [
+      3
+    ],
+    "tier": "MARKET_READY",
+    "status": "open"
+  },
+  {
+    "type": "lead",
+    "source": "https://api.github.com/search/repositories?q=agentic+automation&sort=updated&per_page=20",
+    "keywords": [
+      "mcp-server"
+    ],
+    "weights": [
+      3
+    ],
+    "tier": "MARKET_READY",
+    "status": "open"
+  },
+  {
+    "type": "lead",
+    "source": "https://api.github.com/search/repositories?q=x402+payment&sort=updated&per_page=20",
+    "keywords": [
+      "mcp-server"
+    ],
+    "weights": [
+      3
+    ],
+    "tier": "MARKET_READY",
+    "status": "open"
+  },
+  {
+    "type": "lead",
+    "source": "https://api.github.com/search/repositories?q=usdc+escrow+agent&sort=updated&per_page=20",
+    "keywords": [
+      "mcp-server"
+    ],
+    "weights": [
+      3
+    ],
+    "tier": "MARKET_READY",
+    "status": "open"
+  },
+  {
+    "type": "lead",
+    "source": "https://api.github.com/search/repositories?q=mcp+server+integration&sort=updated&per_page=20",
+    "keywords": [
+      "mcp-server"
+    ],
+    "weights": [
+      3
+    ],
+    "tier": "MARKET_READY",
+    "status": "open"
+  }
+]

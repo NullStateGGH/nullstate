@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <style>
+    body { width: 320px; padding: 16px; font-family: -apple-system, system-ui, sans-serif; background: #0d1117; color: #e6edf3; margin: 0; }
+    h1 { font-size: 18px; margin: 0 0 8px; display: flex; align-items: center; gap: 8px; }
+    h1 span { font-size: 20px; }
+    .status { padding: 12px; border-radius: 8px; margin: 12px 0; font-size: 13px; }
+    .status.ok { background: #0d3a1e; border: 1px solid #238636; }
+    .status.warn { background: #3a2e0d; border: 1px solid #d29922; }
+    .metric { display: flex; justify-content: space-between; padding: 6px 0; border-bottom: 1px solid #21262d; font-size: 13px; }
+    .metric:last-child { border-bottom: none; }
+    .btn { width: 100%; padding: 8px; background: #238636; color: white; border: none; border-radius: 6px; cursor: pointer; font-size: 13px; margin: 4px 0; }
+    .btn:hover { background: #2ea043; }
+    .btn.secondary { background: #21262d; color: #e6edf3; }
+    .btn.secondary:hover { background: #30363d; }
+    .footer { margin-top: 12px; font-size: 11px; color: #8b949e; text-align: center; }
+    .tag { background: #1f6feb; color: white; padding: 2px 8px; border-radius: 12px; font-size: 11px; }
+  </style>
+</head>
+<body>
+  <h1><span>⛓️</span> NullState</h1>
+  <div id="status" class="status ok">✓ KYA Connected — Payments Ready</div>
+
+  <div id="metrics">
+    <div class="metric"><span>KYA Token</span><span id="tokenStatus">Active</span></div>
+    <div class="metric"><span>Gateway</span><span id="gatewayUrl">loading...</span></div>
+    <div class="metric"><span>Agents Active</span><span class="tag" id="agentCount">0</span></div>
+    <div class="metric"><span>Tabs Tracked</span><span id="tabCount">0</span></div>
+  </div>
+
+  <button class="btn" id="refreshKYA">Refresh KYA Token</button>
+  <button class="btn secondary" id="openDashboard">Dashboard</button>
+  <button class="btn secondary" id="payThisTab">Pay for This Tab</button>
+
+  <div class="footer">NullState — No State, No Limits</div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+---
+sidebar_position: 3
+---
+
+# MCP Protocol
+
+Model Context Protocol integration — 5 tools, 2 resources, JSON-RPC 2.0.
+
+## MCP Server
+
+The MCP server runs on port **8081** (blocked externally via GCP VPC) and is accessible via gateway proxy at `POST /mcp`.
+
+## Tools
+
+| Tool | Description |
+|------|-------------|
+| `get_intelligence` | Market overview: tasks, ledger, balance, wallet |
+| `submit_solution` | Accept AI solution, mark completed, settle 0.025 USDC |
+| `get_ledger` | Full transaction history with running balance |
+| `get_tasks` | Filterable task queue (open/completed/all) |
+| `execute_ap2_handshake` | Full AP2 3-way handshake |
+
+## Resources
+
+- `nullstate://intelligence/summary`
+- `nullstate://ledger`
+
+## Usage
+
+```bash
+curl -k -X POST https://localhost:8080/mcp \
+  -H 'Content-Type: application/json' \
+  -d '{"jsonrpc":"2.0","id":1,"method":"tools/list","params":{}}'
+```
+
+```bash
+curl -k -X POST https://localhost:8080/mcp \
+  -H 'Content-Type: application/json' \
+  -d '{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"get_intelligence","arguments":{}}}'
+```

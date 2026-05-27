@@ -1,0 +1,38 @@
+---
+sidebar_position: 2
+---
+
+# Docker Deployment
+
+## docker-compose.yml
+
+```yaml
+services:
+  gateway:
+    build: .
+    ports: ["8080:8080"]
+    environment:
+      - PYTHONPATH=/app/src
+    volumes:
+      - delivery:/app/delivery
+      - logs:/app/logs
+  mcp:
+    build: .
+    ports: ["8081:8081"]
+    environment:
+      - PYTHONPATH=/app/src
+  daemon:
+    build: .
+    environment:
+      - PYTHONPATH=/app/src
+    volumes:
+      - delivery:/app/delivery
+```
+
+## Commands
+
+```bash
+docker compose up -d          # Start all services
+docker compose logs -f gateway # Watch gateway logs
+docker compose down            # Stop all
+```

@@ -1,0 +1,48 @@
+---
+sidebar_position: 2
+---
+
+# AP2 Protocol
+
+Enterprise agent-to-agent payment mandates with RSA-2048 dual-signature handshake.
+
+## 3-Way Handshake
+
+```
+Agent                     Gateway
+  │                         │
+  ├── IntentMandate ──────► │  POST /api/v1/ap2/checkout
+  │                         ├── signs CartMandate
+  │◄──── CartMandate ──────┤  (RSA PKCS1v15-SHA256)
+  │                         │
+  ├── PaymentMandate ─────► │  POST /api/v1/ap2/charge
+  │                         ├── verifies dual signature
+  │◄─── 200 + receipt ─────┤  settles task, records ledger
+```
+
+## Mandate Models
+
+```python
+class IntentMandate(BaseModel):
+    intent_id: str
+    caller_identity: str
+    action: str
+    resource: str
+    max_budget_usdc: Decimal = Decimal("0.025")
+
+class CartMandate(BaseModel):
+    intent_id: str
+    mandate_id: str
+    price_usdc: Decimal
+    seller_signature: str
+
+class PaymentMandate(BaseModel):
+    mandate_id: str
+    buyer_signature: str
+    tx_hash: Optional[str]
+```
+
+## Pricing
+
+- **Fixed price**: 0.025 USDC per task
+- **Payment URI**: `payment:nullstate?amount=0.025&currency=USDC`

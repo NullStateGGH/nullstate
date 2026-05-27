@@ -1,0 +1,24 @@
+---
+sidebar_position: 5
+---
+
+# Error Responses
+
+| Status | Meaning |
+|--------|---------|
+| 200 | Success |
+| 401 | Missing/expired KYA token |
+| 402 | Payment required (x402 challenge) |
+| 404 | Task or endpoint not found |
+| 413 | Request body too large (>64KB) |
+| 429 | Rate limit exceeded |
+| 500 | Internal server error |
+
+## Error Body
+
+```json
+{
+  "error": "description_of_error",
+  "details": {}
+}
+```

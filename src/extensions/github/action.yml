@@ -1,0 +1,65 @@
+# NullState GitHub Action — Settle agent work with USDC/x402/AP2
+# Usage: .github/workflows/nullstate.yml
+
+name: 'NullState Payment'
+description: 'Auto-settle agent-completed work via NullState payment layer'
+author: 'NullState'
+branding:
+  icon: 'dollar-sign'
+  color: 'green'
+
+inputs:
+  gateway_url:
+    description: 'NullState gateway URL'
+    required: false
+    default: 'https://greensol.me/nullstate'
+  agent_identity:
+    description: 'Agent identity for KYA auth'
+    required: true
+  task_id:
+    description: 'Task ID to settle'
+    required: true
+  amount:
+    description: 'Payment amount in USDC'
+    required: false
+    default: '0.025'
+  protocol:
+    description: 'Payment protocol (x402 or ap2)'
+    required: false
+    default: 'ap2'
+
+outputs:
+  settlement_hash:
+    description: 'Transaction hash of settlement'
+
+runs:
+  using: 'composite'
+  steps:
+    - name: Get KYA Challenge
+      id: kya
+      shell: bash
+      run: |
+        CHALLENGE=$(curl -sk ${{ inputs.gateway_url }}/kya/challenge)
+        echo "token=$(echo $CHALLENGE | python3 -c \"import sys,json; d=json.load(sys.stdin); print(d['challenge']+':'+d['signature'])\")" >> $GITHUB_OUTPUT
+
+    - name: Submit AP2 Payment
+      id: payment
+      shell: bash
+      run: |
+        RESULT=$(curl -sk -X POST ${{ inputs.gateway_url }}/api/v1/ap2/charge \
+          -H 'Content-Type: application/json' \
+          -H 'X-KYA-Token: ${{ steps.kya.outputs.token }}' \
+          -d '{
+            "mandate_id": "gh_${{ inputs.task_id }}_${{ github.run_id }}",
+            "buyer_signature": "github_actions_${{ github.actor }}",
+            "tx_hash": null
+          }')
+        echo "hash=$(echo $RESULT | python3 -c \"import sys,json; d=json.load(sys.stdin); print(d.get('tx_hash',''))\")" >> $GITHUB_OUTPUT
+
+    - name: Log Settlement
+      shell: bash
+      run: |
+        echo "✅ NullState: Settled ${{ inputs.task_id }} for ${{ inputs.amount }} USDC"
+        echo "   Agent: ${{ inputs.agent_identity }}"
+        echo "   Protocol: ${{ inputs.protocol }}"
+        echo "   Hash: ${{ steps.payment.outputs.settlement_hash }}"

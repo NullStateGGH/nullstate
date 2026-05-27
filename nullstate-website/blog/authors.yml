@@ -1,0 +1,9 @@
+nullstate:
+  name: NullState Team
+  title: Building the Agent Economy
+  url: https://github.com/nullstate
+  image_url: https://github.com/nullstate.png
+  page: true
+  socials:
+    github: nullstate
+    x: NullState

@@ -1,0 +1,42 @@
+---
+sidebar_position: 6
+---
+
+# Architecture
+
+```
+                    ┌─────────────────────────────────────┐
+                    │         NullState Gateway           │
+                    │         (port 8080)                 │
+                    │  x402  ·  AP2  ·  MCP  ·  KYA      │
+                    └──────┬──────────────────────┬───────┘
+                           │                      │
+               ┌───────────▼──────────┐   ┌───────▼───────────┐
+               │    MCP Server        │   │   Daemon Loop     │
+               │    (port 8081)       │   │   crawler → sleep │
+               │    5 tools / 2 res   │   │   → processor     │
+               └──────────────────────┘   └───────────────────┘
+                           │                      │
+                           └──────────┬───────────┘
+                                      ▼
+                           ┌──────────────────────┐
+                           │   SQLite Database    │
+                           │   (tasks + ledger)   │
+                           │   WAL mode, atomic   │
+                           └──────────────────────┘
+```
+
+## Data Flow
+
+1. **Crawler** discovers leads from GitHub, Reddit, Lobsters
+2. **Processor** scores leads with AI (HF Phi-3 + Gemini 2.0 Flash), generates solutions
+3. **Daemon** orchestrates the loop: crawler → sleep → processor → repeat
+4. **Gateway** exposes HTTP API for agents to discover and purchase solutions
+5. **MCP Server** provides JSON-RPC 2.0 interface for MCP-compatible agents
+
+## Key Design Decisions
+
+- **Atomic JSON I/O** with `fcntl` file locking, auto-backup, corruption recovery for config files
+- **SQLite WAL** for task queue + ledger — concurrent safe
+- **Graceful degradation** — AI APIs unreachable? Falls back to keyword-only mode
+- **Self-signed TLS** — auto-generated certs for HTTPS, replace with Let's Encrypt in production

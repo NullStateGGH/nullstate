@@ -1,0 +1,9 @@
+<svg width="180" height="36" viewBox="0 0 180 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- NullState Logo Mark: geometric null set with diagonal strike-through -->
+  <circle cx="18" cy="18" r="14" stroke="#00ff9d" stroke-width="2.5" fill="none"/>
+  <circle cx="18" cy="18" r="6" stroke="#00ff9d" stroke-width="2.5" fill="none"/>
+  <!-- Diagonal strike creates the "null/zero" feel -->
+  <line x1="6" y1="6" x2="30" y2="30" stroke="#00ff9d" stroke-width="2" stroke-linecap="round"/>
+  <!-- Wordmark -->
+  <text x="42" y="24" font-family="'Inter', 'SF Pro Display', -apple-system, sans-serif" font-size="18" font-weight="700" fill="#ffffff" letter-spacing="-0.3">NullState</text>
+</svg>

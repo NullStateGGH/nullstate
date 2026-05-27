@@ -1,0 +1,29 @@
+# NullState GitHub App — Autonomous agent payment for GitHub workflows
+# Registered at: https://github.com/settings/apps/new
+
+name: NullState
+url: https://greensol.me/nullstate
+hook_attributes:
+  url: https://greensol.me/nullstate/github/webhook
+public: true
+has_issues: true
+has_projects: false
+has_wiki: false
+
+# Events
+default_events:
+  - pull_request
+  - issues
+  - workflow_job
+  - check_run
+  - push
+
+# Permissions
+default_permissions:
+  actions: write
+  checks: write
+  contents: read
+  issues: write
+  metadata: read
+  pull_requests: write
+  workflows: write

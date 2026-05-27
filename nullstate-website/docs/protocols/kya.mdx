@@ -1,0 +1,47 @@
+---
+sidebar_position: 4
+---
+
+# KYA Protocol
+
+Know-Your-Agent — identity verification via RSA-2048 challenge/response.
+
+## How It Works
+
+1. Agent requests `GET /kya/challenge`
+2. Gateway returns signed challenge: `{"challenge", "signature", "ttl", "ts"}`
+3. Agent includes `X-KYA-Token` header on subsequent requests
+4. Gateway verifies: TTL check (1h) + result cache (5min) + per-agent rate limit (30 req/60s)
+
+## Get a Challenge
+
+```bash
+curl -k https://localhost:8080/kya/challenge
+```
+
+Response:
+```json
+{
+  "challenge": "kya:challenge:demo_agent:1712345678",
+  "signature": "abc123...512-char-hex",
+  "ttl": 3600,
+  "ts": 1712345678
+}
+```
+
+## Use KYA Token
+
+```bash
+TOKEN=$(curl -sk https://localhost:8080/kya/challenge | python3 -c "import sys,json; d=json.load(sys.stdin); print(f'{d[\"challenge\"]}:{d[\"signature\"]}')")
+
+curl -k -X POST https://localhost:8080/api/v1/ap2/checkout \
+  -H 'X-KYA-Token: '"$TOKEN" \
+  -H 'Content-Type: application/json' \
+  -d '{"intent_id": "test", "caller_identity": "demo_agent", "action": "compute", "resource": "task_001"}'
+```
+
+## Enforcement
+
+- **Enforced on**: `POST /api/v1/ap2/checkout` and `POST /api/v1/ap2/charge`
+- **Missing/expired token**: HTTP 401
+- **Rate limit exceeded**: HTTP 429

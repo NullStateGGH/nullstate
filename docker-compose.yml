@@ -1,0 +1,42 @@
+services:
+  gateway:
+    build: .
+    ports:
+      - "8080:8080"
+    environment:
+      - PYTHONPATH=/app/src
+    command: python3 -m network.gateway
+    volumes:
+      - delivery_data:/app/delivery
+      - log_data:/app/logs
+      - backup_data:/app/backups
+    restart: unless-stopped
+
+  mcp:
+    build: .
+    ports:
+      - "8081:8081"
+    environment:
+      - PYTHONPATH=/app/src
+    command: python3 -m network.mcp_server
+    volumes:
+      - delivery_data:/app/delivery
+      - log_data:/app/logs
+      - backup_data:/app/backups
+    restart: unless-stopped
+
+  daemon:
+    build: .
+    environment:
+      - PYTHONPATH=/app/src
+    command: python3 -m system.daemon_loop
+    volumes:
+      - delivery_data:/app/delivery
+      - log_data:/app/logs
+      - backup_data:/app/backups
+    restart: unless-stopped
+
+volumes:
+  delivery_data:
+  log_data:
+  backup_data:

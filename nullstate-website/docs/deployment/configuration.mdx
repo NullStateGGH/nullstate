@@ -1,0 +1,30 @@
+---
+sidebar_position: 4
+---
+
+# Configuration
+
+## Environment Variables
+
+| Variable | Description | Required |
+|----------|-------------|----------|
+| `NULLSTATE_WALLET_PRIVATE_KEY` | RSA-2048 private key (PEM) | Yes |
+| `NULLSTATE_SOLANA_PRIVATE_KEY` | Solana Ed25519 secret (hex) | Yes |
+| `NULLSTATE_HF_TOKEN` | Hugging Face Inference API token | For AI scoring |
+| `NULLSTATE_GOOGLE_API_KEY` | Google Gemini API key | For AI scoring |
+
+## config.py
+
+Central settings in `src/core/config.py`:
+
+```python
+class Config:
+    GATEWAY_HOST = "0.0.0.0"
+    GATEWAY_PORT = 8080
+    MCP_HOST = "0.0.0.0"
+    MCP_PORT = 8081
+    RATE_LIMIT = 30  # req/min
+    REQUEST_MAX_BYTES = 65536
+    KYA_TOKEN_TTL = 3600  # 1 hour
+    KYA_CACHE_TTL = 300   # 5 minutes
+```

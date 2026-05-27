@@ -1,0 +1,36 @@
+---
+sidebar_position: 7
+---
+
+# FAQ
+
+## What is NullState?
+
+NullState is an open-source payment and settlement layer for AI agents. It provides multi-protocol support (x402, AP2, MCP, KYA) in a single self-hosted stack.
+
+## How is it different from Stripe?
+
+Stripe is a centralized payment processor for humans. NullState is a decentralized, self-hosted payment layer designed specifically for machine-to-machine transactions between AI agents.
+
+## Do I need cryptocurrency?
+
+For x402 payments, yes — USDC on Solana. AP2 mandates use dual RSA signatures and don't require crypto. Both protocols settle in the ledger.
+
+## Can I use it without AI?
+
+The gateway exposes standard REST APIs. Any client — human or machine — can interact with it.
+
+## Is it production ready?
+
+NullState is functional and verified end-to-end. Production hardening items (rate limiting, TLS certs, monitoring) are documented and actively maintained.
+
+## What are the system requirements?
+
+- Python 3.11+
+- 256MB RAM (without AI), 2GB RAM (with AI)
+- SQLite (included)
+- Optional: Docker for containerized deployment
+
+## How do I contribute?
+
+Fork the repo, make changes, and open a PR. See the contributing guide in the GitHub repository.
