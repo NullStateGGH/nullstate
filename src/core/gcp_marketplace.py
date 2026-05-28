@@ -95,7 +95,7 @@ def verify_entitlement_token(token: str) -> dict:
         return {"verified": False, "error": "invalid token structure"}
     tier = parts[2]
     ts = parts[3]
-    sig = parts[4]
+    _sig = parts[4]
     try:
         token_age = time.time() - int(ts)
         if token_age > 86400:
@@ -158,7 +158,7 @@ def report_usage(entitlement_id: str, usage_amount: float) -> dict:
         return {"reported": False, "note": "no PROJECT_ID configured"}
     try:
         from google.cloud import billing_v1
-        client = billing_v1.CloudBillingClient()
+        _client = billing_v1.CloudBillingClient()
         log.info("[GCP Marketplace] reported %.4f usage for %s", usage_amount, entitlement_id)
         return {"reported": True, "entitlement_id": entitlement_id, "usage_amount": usage_amount}
     except ImportError:

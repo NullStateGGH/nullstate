@@ -191,9 +191,9 @@ def service_uptime_seconds(name: str) -> float:
                 try:
                     parsed = dt.strptime(ts_str, fmt)
                     return (datetime.now() - parsed.replace(tzinfo=None)).total_seconds()
-                except:
+                except Exception:
                     pass
-    except:
+    except Exception:
         pass
     return 0.0
 
@@ -214,7 +214,7 @@ def collect_gateway_metrics() -> Dict:
         resp2 = requests.get(f"{GATEWAY_URL}/api/v1/credits", timeout=5, verify=False)
         if resp2.status_code == 200:
             pass
-    except:
+    except Exception:
         pass
     return result
 
@@ -226,7 +226,7 @@ def collect_model_api_metrics() -> Dict:
         resp = requests.get(f"{MODEL_API_URL}/health", timeout=5)
         if resp.status_code == 200:
             result["status"] = "healthy"
-    except:
+    except Exception:
         pass
     try:
         resp = requests.post(f"{OLLAMA_HOST}/api/tags", timeout=5)
@@ -234,7 +234,7 @@ def collect_model_api_metrics() -> Dict:
             models = resp.json().get("models", [])
             result["ollama_models"] = len(models)
             result["status"] = "healthy"
-    except:
+    except Exception:
         pass
     return result
 
@@ -392,7 +392,7 @@ def run_360_report() -> Dict:
     )
 
     log.info(f"\n{'='*60}")
-    log.info(f"UNIFIED P&L:")
+    log.info("UNIFIED P&L:")
     log.info(f"  Runtime:     {total_minutes:.0f} minutes")
     log.info(f"  Total Cost:  ${total_cost:.6f} (${cost_per_min:.8f}/min)")
     log.info(f"  Total Rev:   ${total_revenue:.6f} (${revenue_per_min:.8f}/min)")
@@ -607,19 +607,19 @@ def main():
     if args.review:
         review = review_reports(report)
         print(f"\n{'='*60}")
-        print(f"AI EXECUTIVE REVIEW")
+        print("AI EXECUTIVE REVIEW")
         print(f"{'='*60}")
         print(review)
 
     print(f"\n{'='*60}")
-    print(f"UNIFIED P&L")
+    print("UNIFIED P&L")
     print(f"{'='*60}")
     u = report["unified"]
     print(f"  Runtime:     {report['runtime_minutes']:.0f} minutes")
     print(f"  Cost:        ${u['total_cost']:.6f}  (${u['cost_per_min']:.8f}/min)")
     print(f"  Revenue:     ${u['total_revenue']:.6f}  (${u['revenue_per_min']:.8f}/min)")
     print(f"  Profit:      ${u['total_profit']:.6f}  (${u['profit_per_min']:.8f}/min)")
-    print(f"  Departments: ", end="")
+    print("  Departments: ", end="")
     dept_summary = defaultdict(int)
     for d in report["departments"]:
         dept_summary[d["status"]] += 1

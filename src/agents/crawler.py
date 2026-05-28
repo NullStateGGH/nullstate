@@ -107,7 +107,7 @@ if __name__ == "__main__":
     log.info("scanning %d sources (AI-enhanced)", len(SOURCES))
     leads = crawl()
     added = append_to_queue(leads)
-    ai_count = sum(1 for l in leads if l.get("ai_scored"))
+    ai_count = sum(1 for lead in leads if lead.get("ai_scored"))
     tiers = {}
     for lead in leads:
         t = lead.get("tier", "UNKNOWN")

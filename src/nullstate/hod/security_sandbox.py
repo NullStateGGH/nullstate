@@ -48,7 +48,7 @@ CLASSIFIED_PATHS = {
             "# NullState Public Repository - Safe for open-source",
         ]
     },
-    
+
     # ── INTERNAL (proprietary, never in public repos) ──
     "internal": {
         "globs": [
@@ -94,7 +94,7 @@ CLASSIFIED_PATHS = {
             "usage.json",
         ]
     },
-    
+
     # ── RESTRICTED (keys, secrets — chmod 600, air-gapped) ──
     "restricted": {
         "globs": [
@@ -155,22 +155,22 @@ def _matches_glob(relpath: str, pattern: str) -> bool:
 def classify_file(filepath: str) -> str:
     """Classify a file as public, internal, or restricted."""
     relpath = os.path.relpath(filepath, PROJECT_ROOT)
-    
+
     # Check restricted first (highest priority)
     for pattern in CLASSIFIED_PATHS["restricted"]["globs"]:
         if _matches_glob(relpath, pattern):
             return "restricted"
-    
+
     # Check internal
     for pattern in CLASSIFIED_PATHS["internal"]["globs"]:
         if _matches_glob(relpath, pattern):
             return "internal"
-    
+
     # Check public
     for pattern in CLASSIFIED_PATHS["public"]["globs"]:
         if _matches_glob(relpath, pattern):
             return "public"
-    
+
     # Default: internal (conservative - new files are proprietary by default)
     return "internal"
 
@@ -178,23 +178,23 @@ def classify_file(filepath: str) -> str:
 def scan_for_sensitive_leaks() -> List[Dict]:
     """Scan the codebase for sensitive patterns that shouldn't be in public files."""
     leaks = []
-    
+
     # Only scan files classified as public (where leaks would matter)
     for root, dirs, files in os.walk(PROJECT_ROOT):
         # Skip hidden dirs, node_modules, etc.
         dirs[:] = [d for d in dirs if not d.startswith('.') and d not in ['node_modules', '.local', '.cache', '.npm', '.vscode-server', '.ollama', '.git', '.opencode']]
-        
+
         for fname in files:
             fpath = os.path.join(root, fname)
             if classify_file(fpath) != "public":
                 continue
-            
+
             # Check file for sensitive patterns
             relpath = os.path.relpath(fpath, PROJECT_ROOT)
             try:
                 with open(fpath, 'rb') as f:
                     content = f.read()
-                
+
                 for pattern in SENSITIVE_PATTERNS:
                     if pattern.encode() in content:
                         leaks.append({
@@ -205,7 +205,7 @@ def scan_for_sensitive_leaks() -> List[Dict]:
                         })
             except (IOError, OSError):
                 pass
-    
+
     return leaks
 
 
@@ -218,24 +218,24 @@ def generate_gitignore() -> str:
         "",
         "# ---- INTERNAL: Proprietary - DO NOT COMMIT TO PUBLIC ----",
     ]
-    
+
     for rule in CLASSIFIED_PATHS["internal"]["gitignore_rules"]:
         if rule.startswith("#"):
             lines.append(rule)
         else:
             lines.append(rule)
-    
+
     lines.extend([
         "",
         "# ---- RESTRICTED: Secrets - NEVER COMMIT ----",
     ])
-    
+
     for rule in CLASSIFIED_PATHS["restricted"]["gitignore_rules"]:
         if rule.startswith("#"):
             lines.append(rule)
         else:
             lines.append(rule)
-    
+
     lines.extend([
         "",
         "# ---- Standard ignores ----",
@@ -251,21 +251,21 @@ def generate_gitignore() -> str:
         ".docusaurus/",
         ".cache/",
     ])
-    
+
     return "\n".join(lines)
 
 
 def enforce_permissions():
     """Ensure restricted files have correct permissions (chmod 600)."""
     restricted_globs = CLASSIFIED_PATHS["restricted"]["globs"]
-    
+
     for root, dirs, files in os.walk(PROJECT_ROOT):
         dirs[:] = [d for d in dirs if not d.startswith('.') and d not in ['node_modules', '.local', '.npm', '.ollama']]
-        
+
         for fname in files:
             fpath = os.path.join(root, fname)
             relpath = os.path.relpath(fpath, PROJECT_ROOT)
-            
+
             for pattern in restricted_globs:
                 if _matches_glob(relpath, pattern):
                     try:
@@ -284,7 +284,7 @@ def validate_public_repo() -> Dict:
         "leaks": [],
         "warnings": []
     }
-    
+
     # Check git tracking — ensure internal paths are gitignored
     try:
         import subprocess
@@ -299,7 +299,7 @@ def validate_public_repo() -> Dict:
         })
     except Exception as e:
         results["warnings"].append(f"Git check failed: {e}")
-    
+
     # Scan for sensitive leaks in public files
     leaks = scan_for_sensitive_leaks()
     results["leaks"] = leaks
@@ -312,7 +312,7 @@ def validate_public_repo() -> Dict:
                 "severity": leak["severity"],
                 "action": leak["action"]
             })
-    
+
     # Check restricted file permissions
     permission_issues = []
     restricted_globs = CLASSIFIED_PATHS["restricted"]["globs"]
@@ -327,9 +327,9 @@ def validate_public_repo() -> Dict:
                         perms = oct(os.stat(fpath).st_mode)[-3:]
                         if perms != "600":
                             permission_issues.append(f"{relpath} (mode: {perms})")
-                    except:
+                    except Exception:
                         pass
-    
+
     if permission_issues:
         results["warnings"].append(f"Permission issues: {permission_issues}")
         results["checks"].append({
@@ -337,7 +337,7 @@ def validate_public_repo() -> Dict:
             "status": "WARN",
             "details": permission_issues
         })
-    
+
     return results
 
 
@@ -350,29 +350,29 @@ def main():
     parser.add_argument("--scan-leaks", action="store_true", help="Scan for sensitive leaks")
     parser.add_argument("--validate", action="store_true", help="Full validation")
     args = parser.parse_args()
-    
+
     if args.fix_permissions:
         print("Enforcing restricted file permissions...")
         enforce_permissions()
         print("Done")
-    
+
     if args.generate_gitignore:
         gitignore = generate_gitignore()
         with open(os.path.join(PROJECT_ROOT, ".gitignore"), "w") as f:
             f.write(gitignore)
         print(f"Generated .gitignore ({len(gitignore)} chars)")
-    
+
     if args.scan_leaks:
         print("Scanning for sensitive leaks in public files...")
         leaks = scan_for_sensitive_leaks()
         if leaks:
             print(f"FOUND {len(leaks)} LEAKS:")
-            for l in leaks:
-                print(f"  [{l['severity']}] {l['file']}: {l['pattern']}")
-                print(f"    Action: {l['action']}")
+            for leak in leaks:
+                print(f"  [{leak['severity']}] {leak['file']}: {leak['pattern']}")
+                print(f"    Action: {leak['action']}")
         else:
             print("No leaks found - clear")
-    
+
     if args.validate:
         results = validate_public_repo()
         print(f"\nSecurity Validation: {'PASS' if results['pass'] else 'FAIL'}")

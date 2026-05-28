@@ -77,12 +77,12 @@ def extract_body(msg):
             if ct == "text/plain" and not body_plain:
                 try:
                     body_plain = part.get_payload(decode=True).decode("utf-8", errors="replace")
-                except:
+                except Exception:
                     pass
             elif ct == "text/html" and not body_html:
                 try:
                     body_html = part.get_payload(decode=True).decode("utf-8", errors="replace")
-                except:
+                except Exception:
                     pass
     else:
         ct = msg.get_content_type()
@@ -94,7 +94,7 @@ def extract_body(msg):
                     body_html = decoded
                 else:
                     body_plain = decoded
-            except:
+            except Exception:
                 pass
     return body_plain, body_html
 
@@ -102,7 +102,7 @@ def extract_body(msg):
 def archive_email(msg, folder="INBOX", conn=None):
     if conn is None:
         conn = sqlite3.connect(DB_PATH)
-    
+
     msg_id = msg.get("Message-ID", "") or hashlib.sha256(str(msg).encode()).hexdigest()
     from_addr = decode_mime_header(msg.get("From", ""))
     to_addr = decode_mime_header(msg.get("To", ""))
@@ -113,7 +113,7 @@ def archive_email(msg, folder="INBOX", conn=None):
         p.get_content_maintype() != "text" for p in msg.walk()
     ) else 0
     archive_hash = hashlib.sha256(f"{msg_id}:{from_addr}:{subject}:{date_str}".encode()).hexdigest()
-    
+
     try:
         conn.execute(
             """INSERT OR IGNORE INTO mail_archive
@@ -135,20 +135,20 @@ def archive_email(msg, folder="INBOX", conn=None):
 
 class ZohoMailArchiver:
     """Download emails from Zoho via IMAP and archive into NullState."""
-    
+
     def __init__(self, email_addr, password):
         self.email = email_addr
         self.password = password
         self.imap = None
         self.conn = None
-    
+
     def connect(self):
         ctx = imaplib.IMAP4_SSL(ZOHO_IMAP_HOST, ZOHO_IMAP_PORT)
         ctx.login(self.email, self.password)
         self.imap = ctx
         log.info(f"Connected to Zoho IMAP as {self.email}")
         return True
-    
+
     def list_folders(self):
         result, data = self.imap.list()
         folders = []
@@ -158,24 +158,24 @@ class ZohoMailArchiver:
             if len(parts) > 1:
                 folders.append(parts[-1].strip('"'))
         return folders
-    
+
     def archive_folder(self, folder="INBOX", batch_size=100):
         if not self.imap:
             raise RuntimeError("Not connected")
-        
+
         self.imap.select(folder, readonly=True)
         result, data = self.imap.search(None, "ALL")
         if result != "OK":
             log.warning(f"No messages in {folder}")
             return 0
-        
+
         msg_ids = data[0].split()
         total = len(msg_ids)
         log.info(f"Archiving {total} messages from {folder}")
-        
+
         self.conn = init_archive_db()
         archived = 0
-        
+
         for i in range(0, total, batch_size):
             batch = msg_ids[i:i+batch_size]
             for mid in batch:
@@ -186,20 +186,20 @@ class ZohoMailArchiver:
                 msg = email.message_from_bytes(raw_email)
                 if archive_email(msg, folder, self.conn):
                     archived += 1
-            
+
             if (i + batch_size) % 500 == 0 or i + batch_size >= total:
                 log.info(f"  Archived {archived}/{total} from {folder}")
-        
+
         # Update folder stats
         self.conn.execute(
             "INSERT OR REPLACE INTO mail_archive_folders (name, total, archived, last_sync) VALUES (?,?,?,?)",
             (folder, total, archived, datetime.now(timezone.utc).isoformat())
         )
         self.conn.commit()
-        
+
         log.info(f"Done: {archived}/{total} archived from {folder}")
         return archived
-    
+
     def archive_all(self):
         folders = self.list_folders()
         log.info(f"Found folders: {folders}")
@@ -207,7 +207,7 @@ class ZohoMailArchiver:
         for folder in folders:
             total += self.archive_folder(folder)
         return total
-    
+
     def disconnect(self):
         if self.imap:
             self.imap.logout()
@@ -266,7 +266,7 @@ if __name__ == "__main__":
     parser.add_argument("--stats", action="store_true", help="Show archive stats")
     parser.add_argument("--search", help="Search archived emails")
     args = parser.parse_args()
-    
+
     if args.stats:
         stats = get_archive_stats()
         print(json.dumps(stats, indent=2))
@@ -286,4 +286,4 @@ if __name__ == "__main__":
         archiver.disconnect()
         build_search_index()
         print(f"\nDone. {total} emails archived.")
-        print(f"Run with --stats to see archive status.")
+        print("Run with --stats to see archive status.")

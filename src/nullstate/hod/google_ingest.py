@@ -59,7 +59,7 @@ def get_gcp_token() -> Optional[str]:
             headers={"Metadata-Flavor": "Google"}, timeout=5
         )
         return r.json().get("access_token") if r.status_code == 200 else None
-    except:
+    except Exception:
         return None
 
 
@@ -70,10 +70,10 @@ def discover_google_apis() -> List[Dict]:
         if r.status_code != 200:
             log.warning(f"Discovery doc returned {r.status_code}")
             return []
-        
+
         apis = r.json().get("items", [])
         relevant = []
-        
+
         for api in apis:
             name = api.get("name", "")
             if any(prefix in name for prefix in TARGET_API_PREFIXES):
@@ -85,7 +85,7 @@ def discover_google_apis() -> List[Dict]:
                     "discovery_url": api.get("discoveryRestUrl", ""),
                     "documentation": api.get("documentationLink", ""),
                 })
-        
+
         log.info(f"Found {len(relevant)} relevant Google APIs out of {len(apis)} total")
         return relevant
     except Exception as e:
@@ -97,10 +97,10 @@ def fetch_api_documentation(api: Dict) -> Optional[str]:
     """Fetch API documentation and summarize for training."""
     docs_url = api.get("documentation", "")
     discovery_url = api.get("discovery_url", "")
-    
+
     if not docs_url and not discovery_url:
         return None
-    
+
     # Try discovery doc first (machine-readable)
     if discovery_url:
         try:
@@ -122,7 +122,7 @@ def fetch_api_documentation(api: Dict) -> Optional[str]:
                 return json.dumps(summary)
         except Exception as e:
             log.debug(f"Discovery fetch failed for {api['name']}: {e}")
-    
+
     return None
 
 
@@ -135,7 +135,7 @@ API Specification: {api_data[:3000]}
 
 Generate 3 pairs of {{"instruction": "question about using this API", "response": "detailed answer"}} focusing on how AI agents would use this API in conjunction with payment systems.
 Return as JSON array."""
-        
+
         resp = requests.post(
             f"{OLLAMA_HOST}/api/generate",
             json={"model": NULLSTATE_MODEL, "prompt": prompt, "temperature": 0.3, "max_tokens": 2048, "stream": False},
@@ -154,7 +154,7 @@ Return as JSON array."""
                 return pairs
     except Exception as e:
         log.error(f"Training pair gen failed for {api_name}: {e}")
-    
+
     return []
 
 
@@ -164,10 +164,10 @@ def generate_enterprise_patterns() -> List[Dict]:
     for pattern_name, description in ENTERPRISE_PATTERNS:
         try:
             prompt = f"""Create an instruction/response training pair about: {description}
-            
+
 The response should be detailed, technical, and specific to how NullState implements this pattern.
 Focus on enterprise requirements: security, compliance, audit, scalability."""
-            
+
             resp = requests.post(
                 f"{OLLAMA_HOST}/api/generate",
                 json={"model": NULLSTATE_MODEL, "prompt": prompt, "temperature": 0.3, "max_tokens": 1024, "stream": False},
@@ -185,7 +185,7 @@ Focus on enterprise requirements: security, compliance, audit, scalability."""
                     })
         except Exception as e:
             log.error(f"Enterprise pattern gen failed for {pattern_name}: {e}")
-    
+
     return pairs
 
 
@@ -203,13 +203,13 @@ def fetch_google_trends_data() -> List[Dict]:
         "crypto micropayments AI",
         "enterprise AI agents",
     ]
-    
+
     pairs = []
     for query in trends_queries:
         try:
             # Use Gemini to analyze Google Trends data (simulated via Gemini knowledge)
             prompt = f"""Analyze the current market trend and trajectory for "{query}" in 2026.
-            
+
 Provide:
 1. Current market state
 2. Growth trajectory (1-2 year outlook)
@@ -218,13 +218,13 @@ Provide:
 5. How NullState's agent payment infrastructure is positioned to capture this market
 
 Focus on business intelligence, not technical details."""
-            
+
             url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key={GEMINI_API_KEY}"
             resp = requests.post(url, json={
                 "contents": [{"parts": [{"text": prompt}]}],
                 "generationConfig": {"temperature": 0.2, "maxOutputTokens": 800}
             }, timeout=30)
-            
+
             if resp.status_code == 200:
                 candidates = resp.json().get("candidates", [])
                 if candidates:
@@ -237,11 +237,11 @@ Focus on business intelligence, not technical details."""
                         "source": "google_trends_analysis",
                         "model": "gemini-2.0-flash"
                     })
-            
+
             time.sleep(0.5)  # Rate limit
         except Exception as e:
             log.error(f"Trends analysis failed for {query}: {e}")
-    
+
     return pairs
 
 
@@ -249,7 +249,7 @@ def store_training_pairs(pairs: List[Dict]):
     """Store generated training pairs to the training dataset."""
     if not pairs:
         return
-    
+
     # Append to existing training data
     training_file = "src/training/nullstate_training_complete.jsonl"
     existing = []
@@ -257,13 +257,13 @@ def store_training_pairs(pairs: List[Dict]):
         with open(training_file) as f:
             for line in f:
                 existing.append(json.loads(line))
-    
+
     all_pairs = existing + pairs
-    
+
     with open(training_file, "w") as f:
         for p in all_pairs:
             f.write(json.dumps(p) + "\n")
-    
+
     log.info(f"Stored {len(pairs)} new pairs (total: {len(all_pairs)})")
 
 
@@ -272,14 +272,14 @@ def run_ingestion_pipeline():
     log.info("=" * 60)
     log.info("Google SDK Knowledge Ingestion Pipeline")
     log.info("=" * 60)
-    
+
     all_pairs = []
-    
+
     # Step 1: Discover Google APIs
     log.info("\nStep 1: Discovering Google APIs...")
     apis = discover_google_apis()
     log.info(f"  Found {len(apis)} relevant APIs")
-    
+
     # Step 2: Fetch API documentation
     log.info("\nStep 2: Fetching API documentation...")
     api_docs = []
@@ -288,7 +288,7 @@ def run_ingestion_pipeline():
         if doc:
             api_docs.append((api["name"], doc))
             log.info(f"  Fetched: {api['name']} ({api['title']})")
-    
+
     # Step 3: Generate training pairs from API knowledge
     log.info("\nStep 3: Generating training pairs from APIs...")
     for api_name, doc in api_docs:
@@ -296,27 +296,27 @@ def run_ingestion_pipeline():
         all_pairs.extend(pairs)
         log.info(f"  {api_name}: {len(pairs)} pairs")
         time.sleep(1)  # Space out model calls
-    
+
     # Step 4: Generate enterprise pattern pairs
     log.info("\nStep 4: Generating enterprise/Fortune 500 patterns...")
     enterprise_pairs = generate_enterprise_patterns()
     all_pairs.extend(enterprise_pairs)
     log.info(f"  Enterprise patterns: {len(enterprise_pairs)} pairs")
-    
+
     # Step 5: Market intelligence from Google Trends
     log.info("\nStep 5: Market intelligence from Google Trends...")
     trends_pairs = fetch_google_trends_data()
     all_pairs.extend(trends_pairs)
     log.info(f"  Market intelligence: {len(trends_pairs)} pairs")
-    
+
     # Step 6: Store everything
     log.info("\nStep 6: Storing to training dataset...")
     store_training_pairs(all_pairs)
-    
+
     log.info(f"\n{'='*60}")
     log.info(f"Ingestion complete: {len(all_pairs)} new training pairs")
     log.info(f"{'='*60}")
-    
+
     return all_pairs
 
 
@@ -328,7 +328,7 @@ def main():
     parser.add_argument("--enterprise-only", action="store_true", help="Only generate enterprise patterns")
     parser.add_argument("--trends-only", action="store_true", help="Only fetch market intelligence")
     args = parser.parse_args()
-    
+
     if args.apis_only:
         apis = discover_google_apis()
         docs = []

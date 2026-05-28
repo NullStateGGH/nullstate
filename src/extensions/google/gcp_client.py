@@ -43,7 +43,7 @@ def _get_metadata(path: str) -> Optional[str]:
         )
         if r.status_code == 200:
             return r.text.strip()
-    except:
+    except Exception:
         pass
     return None
 
@@ -352,30 +352,30 @@ def verify_cloud_platform_access() -> Dict[str, bool]:
     try:
         r = _api_call("GET", f"https://monitoring.googleapis.com/v3/projects/{project}/metricDescriptors?pageSize=1")
         results["monitoring"] = r is not None
-    except:
+    except Exception:
         results["monitoring"] = False
     # Logging
     try:
         r = _api_call("POST", f"https://logging.googleapis.com/v2/projects/{project}/entries:list",
                        {"resourceNames": [f"projects/{project}"], "pageSize": 1})
         results["logging"] = r is not None
-    except:
+    except Exception:
         results["logging"] = False
     # Secret Manager
     try:
         r = _api_call("GET", f"https://secretmanager.googleapis.com/v1/projects/{project}/secrets?pageSize=1")
         results["secret_manager"] = r is not None
-    except:
+    except Exception:
         results["secret_manager"] = False
     # Trace
     try:
         results["trace"] = True
-    except:
+    except Exception:
         results["trace"] = False
     # Storage
     try:
         r = _api_call("GET", f"https://storage.googleapis.com/storage/v1/b?project={project}&maxResults=1")
         results["storage"] = r is not None
-    except:
+    except Exception:
         results["storage"] = False
     return results

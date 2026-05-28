@@ -15,18 +15,21 @@ def tmpfile():
         bak.unlink(missing_ok=True)
 
 
+@pytest.mark.unit
 def test_write_and_read_list(tmpfile):
     data = [{"a": 1}, {"b": 2}]
     atomic_write(tmpfile, data)
     assert atomic_read(tmpfile) == data
 
 
+@pytest.mark.unit
 def test_write_and_read_dict(tmpfile):
     data = {"key": "value", "num": 42}
     atomic_write(tmpfile, data)
     assert atomic_read(tmpfile) == data
 
 
+@pytest.mark.unit
 def test_atomic_write_protects(tmpfile):
     data = [1, 2, 3]
     atomic_write(tmpfile, data)
@@ -34,11 +37,13 @@ def test_atomic_write_protects(tmpfile):
     assert atomic_read(tmpfile) == [4, 5]
 
 
+@pytest.mark.unit
 def test_read_nonexistent(tmpfile):
     nonexistent = tmpfile.parent / "no_such_file.json"
     assert atomic_read(nonexistent) == []
 
 
+@pytest.mark.unit
 def test_atomic_backup_created(tmpfile):
     atomic_write(tmpfile, [1])
     atomic_write(tmpfile, [2])

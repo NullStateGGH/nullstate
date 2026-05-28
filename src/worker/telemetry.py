@@ -212,7 +212,7 @@ def run_telemetry_worker(api_key, interval_seconds=3600):
 if __name__ == "__main__":
     init_db()
     api_key = os.environ.get("NULLSTATE_GOOGLE_API_KEY", "")
-    print(f"[telemetry] Engine initialized. Scoring pending interactions...")
+    print("[telemetry] Engine initialized. Scoring pending interactions...")
     scored = score_pending_interactions(api_key)
     print(f"[telemetry] Scored {scored} interactions. Starting worker loop...")
     run_telemetry_worker(api_key, interval_seconds=3600)

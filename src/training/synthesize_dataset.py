@@ -147,7 +147,7 @@ def call_nullstate_model(prompt, temperature=0.7, max_tokens=1024):
         )
         resp.raise_for_status()
         return resp.json().get("response", "")
-    except Exception as e:
+    except Exception:
         return None
 
 def generate_response(instruction):
@@ -156,12 +156,12 @@ def generate_response(instruction):
     response = call_nullstate_model(prompt, temperature=0.3, max_tokens=1024)
     if response and len(response) > 50:
         return response.strip()
-    
+
     # Retry with higher temperature
     response = call_nullstate_model(prompt, temperature=0.5, max_tokens=1024)
     if response and len(response) > 50:
         return response.strip()
-    
+
     return None
 
 def generate_variation(base_instruction, variation_num):
@@ -184,13 +184,13 @@ def generate_single_pair(args):
     """Generate one instruction/response pair. Designed for parallel execution."""
     domain_key, base_instruction, variation_idx, seed = args
     random.seed(seed)
-    
+
     instruction = generate_variation(base_instruction, variation_idx)
     response = generate_response(instruction)
-    
+
     if not response:
         return None
-    
+
     return {
         "instruction": instruction,
         "response": response,
@@ -204,16 +204,16 @@ def generate_batch(domain_key, seed_instructions, count=500):
     """Generate a batch using parallel workers on our NullState model."""
     pairs = []
     args_list = []
-    
+
     for i in range(count):
         args_list.append((domain_key, seed_instructions[i % len(seed_instructions)], i, hash(f"{domain_key}_{i}") % (2**32)))
-    
+
     print(f"  Generating {count} pairs for {domain_key} using {MODEL_NAME}...")
-    
+
     # Process in serial to avoid overwhelming Ollama (single model, CPU)
     # But we can parallelize the API calls since Ollama queues them
     max_workers = min(args.workers if hasattr(args, 'workers') else 8, 16)
-    
+
     with concurrent.futures.ThreadPoolExecutor(max_workers=max_workers) as executor:
         futures = [executor.submit(generate_single_pair, a) for a in args_list]
         for i, future in enumerate(concurrent.futures.as_completed(futures)):
@@ -221,12 +221,12 @@ def generate_batch(domain_key, seed_instructions, count=500):
                 result = future.result(timeout=600)
                 if result:
                     pairs.append(result)
-            except Exception as e:
+            except Exception:
                 pass
-            
+
             if (len(pairs) + 1) % 50 == 0:
                 print(f"    Generated {len(pairs)}/{count} for {domain_key}")
-    
+
     return pairs
 
 def main():
@@ -237,9 +237,9 @@ def main():
     parser.add_argument("--workers", type=int, default=8, help="Parallel workers")
     global args
     args = parser.parse_args()
-    
+
     os.makedirs(OUTPUT_DIR, exist_ok=True)
-    
+
     # Verify NullState model is available
     try:
         resp = requests.get(f"{OLLAMA_HOST}/api/tags", timeout=5)
@@ -253,39 +253,39 @@ def main():
     except Exception as e:
         print(f"Cannot connect to Ollama: {e}")
         return
-    
+
     configs = DOMAIN_CONFIGS if args.domain == "all" else [d for d in DOMAIN_CONFIGS if d["key"] == args.domain]
-    
+
     all_pairs = []
     for config in configs:
         print(f"\n{'='*60}")
         print(f"Domain: {config['key']}")
         print(f"{'='*60}")
-        
+
         pairs = generate_batch(config["key"], config["seed_instructions"], args.count)
         all_pairs.extend(pairs)
-        
+
         # Save per-domain file
         domain_file = os.path.join(OUTPUT_DIR, f"{config['key']}.jsonl")
         with open(domain_file, "w") as f:
             for p in pairs:
                 f.write(json.dumps(p) + "\n")
         print(f"  Saved {len(pairs)} pairs to {domain_file}")
-    
+
     # Save combined file
     combined_file = os.path.join(OUTPUT_DIR, "all_synthetic.jsonl")
     with open(combined_file, "w") as f:
         for p in all_pairs:
             f.write(json.dumps(p) + "\n")
-    
+
     print(f"\n{'='*60}")
     print(f"Total: {len(all_pairs)} synthetic pairs from NullState model")
     print(f"Combined: {combined_file}")
-    
+
     domain_counts = Counter(p["domain"] for p in all_pairs)
     for d, c in domain_counts.most_common():
         print(f"  {d}: {c}")
-    
+
     # Merge with existing expanded dataset
     expanded = []
     expanded_file = "src/training/nullstate_training_expanded.jsonl"
@@ -293,17 +293,17 @@ def main():
         with open(expanded_file) as f:
             for line in f:
                 expanded.append(json.loads(line))
-    
+
     merged = expanded + all_pairs
     merged_file = "src/training/nullstate_training_complete.jsonl"
     with open(merged_file, "w") as f:
         for p in merged:
             f.write(json.dumps(p) + "\n")
-    
+
     print(f"\nMerged with expanded dataset: {len(merged)} total pairs")
     print(f"Complete dataset: {merged_file}")
     print(f"Size: {os.path.getsize(merged_file) / 1024:.1f} KB")
-    
+
     return all_pairs
 
 if __name__ == "__main__":

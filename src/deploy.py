@@ -28,7 +28,7 @@ def deploy_site_via_sftp():
     for p in parts:
         try:
             ftp.cwd(p)
-        except:
+        except Exception:
             ftp.mkd(p)
             ftp.cwd(p)
     total = 0
@@ -37,11 +37,11 @@ def deploy_site_via_sftp():
         target = remote + ("/" + rel.replace(os.sep, "/") if rel != "." else "")
         try:
             ftp.cwd(target)
-        except:
+        except Exception:
             for part in target.split("/"):
                 try:
                     ftp.cwd(part)
-                except:
+                except Exception:
                     ftp.mkd(part)
                     ftp.cwd(part)
         for f in files:

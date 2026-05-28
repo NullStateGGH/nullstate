@@ -156,7 +156,7 @@ def _call_ai(prompt: str, temperature: float = 0.3, max_tokens: int = 1024) -> O
                 timeout=300)
             resp.raise_for_status()
             return resp.json().get("response", "")
-        except Exception as e:
+        except Exception:
             if attempt == 0 and GEMINI_API_KEY:
                 try:
                     url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key={GEMINI_API_KEY}"
@@ -212,7 +212,7 @@ HTML excerpt:
             try:
                 scores = json.loads(result)
                 for c in AUDIT_CRITERIA:
-                    key = c.lower().replace(' ', '_')[:20]
+                    _key = c.lower().replace(' ', '_')[:20]
                     for k in scores:
                         if k[:10] == c[:10]:
                             audit["criteria_scores"][c] = int(scores[k])
@@ -278,7 +278,7 @@ def save_blog_post(content: str) -> Optional[str]:
     blog_dir = Path(WEBSITE_DIR) / "blog"
     blog_dir.mkdir(parents=True, exist_ok=True)
     date_str = datetime.now().strftime("%Y-%m-%d")
-    slug = f"feedback-{datetime.now().strftime('%Y%m%d-%H%M')}"
+    _slug = f"feedback-{datetime.now().strftime('%Y%m%d-%H%M')}"
     title_match = re.search(r'^#\s+(.+)$', content, re.MULTILINE)
     title = title_match.group(1).strip() if title_match else f"NullState Update ({date_str})"
     short_slug = title.lower().replace(' ', '-')[:40].strip('-')
@@ -358,11 +358,11 @@ def _ftp_upload_recursive(ftp, local_dir, remote_dir):
         remote = f"{remote_dir}/{rel.replace(os.sep, '/')}" if rel != "." else remote_dir
         try:
             ftp.cwd(remote)
-        except:
+        except Exception:
             for part in remote.split("/"):
                 try:
                     ftp.cwd(part)
-                except:
+                except Exception:
                     ftp.mkd(part)
                     ftp.cwd(part)
         for fname in files:

@@ -130,7 +130,7 @@ def apply_config_change(decision_id: int, decision_text: str, reasoning: str) ->
     docusaurus_config = f"{WEBSITE_DIR}/docusaurus.config.ts"
 
     if "canonical" in text and "url" in text:
-        bak = backup_file(docusaurus_config)
+        _bak = backup_file(docusaurus_config)
         with open(docusaurus_config) as f:
             content = f.read()
         if "url:" in content and "greensol.me" not in content:
@@ -138,12 +138,12 @@ def apply_config_change(decision_id: int, decision_text: str, reasoning: str) ->
             content = re.sub(r'baseUrl:\s*["\'].*?["\']', 'baseUrl: \'/\'', content)
             with open(docusaurus_config, 'w') as f:
                 f.write(content)
-            log.info(f"Applied canonical URL fix")
-            mark_applied(decision_id, f"Fixed canonical URL in docusaurus.config.ts", [docusaurus_config])
+            log.info("Applied canonical URL fix")
+            mark_applied(decision_id, "Fixed canonical URL in docusaurus.config.ts", [docusaurus_config])
             return True
 
     if "title" in text or "meta" in text or "description" in text:
-        bak = backup_file(docusaurus_config)
+        _bak = backup_file(docusaurus_config)
         with open(docusaurus_config) as f:
             content = f.read()
         if "title:" in content and "NullState" not in content:
@@ -151,8 +151,8 @@ def apply_config_change(decision_id: int, decision_text: str, reasoning: str) ->
             content = re.sub(r'tagline:\s*["\'].*?["\']', 'tagline: \'Open-source payment/settlement infrastructure for autonomous AI agents\'', content)
             with open(docusaurus_config, 'w') as f:
                 f.write(content)
-            log.info(f"Applied SEO title fix")
-            mark_applied(decision_id, f"Fixed meta titles", [docusaurus_config])
+            log.info("Applied SEO title fix")
+            mark_applied(decision_id, "Fixed meta titles", [docusaurus_config])
             return True
 
     if "footer" in text or "link" in text or "social" in text:
@@ -161,14 +161,14 @@ def apply_config_change(decision_id: int, decision_text: str, reasoning: str) ->
         return False
 
     if "baseurl" in text or "base" in text:
-        bak = backup_file(docusaurus_config)
+        _bak = backup_file(docusaurus_config)
         with open(docusaurus_config) as f:
             content = f.read()
         content = re.sub(r'baseUrl:\s*["\'].*?["\']', 'baseUrl: \'/nullstate/\'', content)
         with open(docusaurus_config, 'w') as f:
             f.write(content)
-        log.info(f"Applied baseUrl fix")
-        mark_applied(decision_id, f"Fixed baseUrl", [docusaurus_config])
+        log.info("Applied baseUrl fix")
+        mark_applied(decision_id, "Fixed baseUrl", [docusaurus_config])
         return True
 
     mark_requires_review(decision_id, f"Unrecognized config change pattern: {decision_text[:80]}")
@@ -252,7 +252,7 @@ Provide actionable insights and recommendations. Max 300 words."""
 def execute_adaptation_cycle() -> Dict:
     """Run one complete adaptation cycle — process all pending decisions."""
     log.info(f"\n{'='*60}")
-    log.info(f"Adaptation Cycle — checking for pending decisions")
+    log.info("Adaptation Cycle — checking for pending decisions")
     log.info(f"{'='*60}")
 
     pending = get_pending_decisions(20)
@@ -357,7 +357,7 @@ def get_unfair_advantage_summary() -> str:
     try:
         report_path.parent.mkdir(parents=True, exist_ok=True)
         report_path.write_text(report)
-        log.info(f"Unfair advantage report saved")
+        log.info("Unfair advantage report saved")
     except Exception:
         pass
     return report

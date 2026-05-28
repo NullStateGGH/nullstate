@@ -20,8 +20,8 @@ sys.path.insert(0, os.path.join(os.path.dirname(__file__), "../.."))
 def setup_metric_descriptors(gcp):
     """Create all NullState custom metric descriptors."""
     log.info("Creating metric descriptors...")
-    project = gcp.get_project_id()
-    
+    _project = gcp.get_project_id()
+
     metrics = [
         {
             "metric_type": "custom.googleapis.com/nullstate/tasks/processed",
@@ -137,7 +137,7 @@ def setup_metric_descriptors(gcp):
             ]
         },
     ]
-    
+
     created = 0
     existing = 0
     for m in metrics:
@@ -150,7 +150,7 @@ def setup_metric_descriptors(gcp):
                 existing += 1
             else:
                 log.warning(f"  Metric {m['metric_type']}: {e}")
-    
+
     log.info(f"Metrics: {created} created, {existing} already exist")
     return created
 
@@ -159,14 +159,14 @@ def setup_dashboards(gcp):
     """Create Cloud Monitoring dashboards for NullState."""
     log.info("Creating dashboards...")
     project = gcp.get_project_id()
-    
+
     # Check if dashboard already exists
     existing = gcp.list_dashboards()
     for d in existing:
         if "NullState" in d.get("displayName", ""):
             log.info(f"  Dashboard already exists: {d['displayName']}")
             return
-    
+
     # NullState Operations Dashboard
     dash = {
         "nullstate_overview": {
@@ -330,7 +330,7 @@ def setup_dashboards(gcp):
             ]
         }
     }
-    
+
     for dash_key, dash_config in dash.items():
         try:
             result = gcp.create_dashboard(dash_config["displayName"], dash_config["widgets"])
@@ -354,12 +354,12 @@ def setup_secret_manager(gcp):
     """Migrate .env secrets to Secret Manager (in addition to local)."""
     log.info("Setting up Secret Manager...")
     project = gcp.get_project_id()
-    
+
     env_path = "src/wallet/.env"
     if not os.path.exists(env_path):
         log.warning(f"  .env not found at {env_path}")
         return
-    
+
     with open(env_path) as f:
         for line in f:
             line = line.strip()
@@ -377,7 +377,7 @@ def setup_secret_manager(gcp):
                             pass
                         else:
                             log.debug(f"  Secret {secret_id}: {e}")
-    
+
     log.info(f"  Secrets viewable at: https://console.cloud.google.com/security/secret-manager?project={project}")
 
 
@@ -386,34 +386,34 @@ def main():
     log.info("=" * 60)
     log.info("NullState GCP Infrastructure Setup")
     log.info("=" * 60)
-    
+
     try:
         from extensions.google import gcp_client as gcp
     except ImportError:
         log.error("Cannot import gcp_client — run from project root with PYTHONPATH=src")
         return
-    
+
     # Verify access
     log.info("\nVerifying GCP access...")
     project = gcp.get_project_id()
     log.info(f"  Project: {project}")
-    
+
     # Step 1: Metric descriptors
     log.info("\n[Step 1] Creating metric descriptors...")
     setup_metric_descriptors(gcp)
-    
+
     # Step 2: Dashboards
     log.info("\n[Step 2] Creating dashboards...")
     setup_dashboards(gcp)
-    
+
     # Step 3: Log sinks
     log.info("\n[Step 3] Setting up log buckets...")
     setup_log_sinks(gcp)
-    
+
     # Step 4: Secret Manager
     log.info("\n[Step 4] Setting up Secret Manager...")
     setup_secret_manager(gcp)
-    
+
     log.info("\n" + "=" * 60)
     log.info("GCP Setup Complete")
     log.info(f"  Dashboard: https://console.cloud.google.com/monitoring/dashboards?project={project}")

@@ -92,7 +92,7 @@ class GitHubAppHandler(BaseHTTPRequestHandler):
         """Auto-settle when a workflow job completes."""
         action = event.get("action", "")
         job = event.get("workflow_job", {})
-        status = job.get("status", "")
+        _status = job.get("status", "")
         conclusion = job.get("conclusion", "")
         job_name = job.get("name", "unknown")
 
@@ -124,8 +124,8 @@ class GitHubAppHandler(BaseHTTPRequestHandler):
         """Create tasks from opened issues with bounty labels."""
         action = event.get("action", "")
         issue = event.get("issue", {})
-        labels = [l["name"] for l in issue.get("labels", [])]
-        if action == "opened" and any("bounty" in l.lower() or "payment" in l.lower() for l in labels):
+        labels = [label["name"] for label in issue.get("labels", [])]
+        if action == "opened" and any("bounty" in label.lower() or "payment" in label.lower() for label in labels):
             task_id = f"github_issue_{event['repository']['full_name']}_{issue['number']}"
             print(f"[GitHub] Bounty issue: {task_id} — {issue.get('title', '')}")
 
@@ -155,7 +155,7 @@ class GitHubAppHandler(BaseHTTPRequestHandler):
 
 
 def main():
-    print(f"⛓️  NullState GitHub App — v0.1.0")
+    print("⛓️  NullState GitHub App — v0.1.0")
     print(f"[GitHub] Gateway: {GATEWAY_URL}")
     print(f"[GitHub] Port: {PORT}")
     server = HTTPServer(("0.0.0.0", PORT), GitHubAppHandler)

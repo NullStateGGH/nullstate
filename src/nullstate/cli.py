@@ -7,23 +7,23 @@ import argparse
 def main():
     parser = argparse.ArgumentParser(description="NullState — Agent Payment Infrastructure")
     parser.add_argument("--version", action="version", version="NullState 0.2.0")
-    
+
     sub = parser.add_subparsers(dest="command")
-    
+
     # Status
-    p_status = sub.add_parser("status", help="Check gateway health")
-    
+    _p_status = sub.add_parser("status", help="Check gateway health")
+
     # Serve model API
     p_serve = sub.add_parser("serve", help="Start model inference API")
     p_serve.add_argument("--port", type=int, default=8082)
     p_serve.add_argument("--host", default="0.0.0.0")
-    
+
     # Train / generate synthetic data
     p_synth = sub.add_parser("synth", help="Generate synthetic training data")
     p_synth.add_argument("--count", type=int, default=500)
     p_synth.add_argument("--domain", default="all")
     p_synth.add_argument("--workers", type=int, default=8)
-    
+
     # Email server
     p_email = sub.add_parser("email", help="Start NullState email server")
     p_email.add_argument("--smtp-port", type=int, default=2525)
@@ -35,7 +35,7 @@ def main():
     p_email_create.add_argument("--forward", default="")
     p_email_create.add_argument("--catch-all", action="store_true")
 
-    p_email_list = sub.add_parser("email-list", help="List mail accounts")
+    _p_email_list = sub.add_parser("email-list", help="List mail accounts")
 
     p_email_send = sub.add_parser("email-send", help="Send an email")
     p_email_send.add_argument("--to", required=True)
@@ -45,15 +45,15 @@ def main():
     p_email_archive = sub.add_parser("email-archive", help="Email archive tasks")
     p_email_archive.add_argument("--stats", action="store_true", help="Show archive stats")
     p_email_archive.add_argument("--search", help="Search archived emails")
-    
+
     # Dataset
     sub.add_parser("dataset", help="Build training dataset from production data")
-    
+
     # KYA
     sub.add_parser("kya", help="Get KYA authentication token")
-    
+
     args = parser.parse_args()
-    
+
     if args.command == "serve":
         from nullstate.api.model_api import main as serve_main
         os.environ["MODEL_API_PORT"] = str(args.port)
@@ -65,7 +65,6 @@ def main():
         synth_main()
     elif args.command == "email":
         from nullstate.mail.server import main as email_main
-        import sys
         sys.argv = ["nullstate-email", "serve",
                      "--smtp-port", str(args.smtp_port),
                      "--api-port", str(args.api_port)]
@@ -82,7 +81,8 @@ def main():
     elif args.command == "email-archive":
         if args.stats:
             from nullstate.mail.archive import get_archive_stats
-            import json; print(json.dumps(get_archive_stats(), indent=2))
+            import json
+            print(json.dumps(get_archive_stats(), indent=2))
         elif args.search:
             from nullstate.mail.archive import search_archive
             results = search_archive(args.search)

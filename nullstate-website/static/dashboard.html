@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NullState — Live Dashboard</title>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { background:#030303; color:#e6edf3; font-family:'Inter',system-ui,sans-serif; padding:2rem; }
+  .container { max-width:1200px; margin:0 auto; }
+  h1 { font-size:2rem; font-weight:700; margin-bottom:0.5rem; color:#00ff9d; }
+  h1 small { font-size:1rem; color:#666; font-weight:400; }
+  .subtitle { color:#666; margin-bottom:2rem; font-size:0.9rem; }
+  .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:1rem; margin-bottom:2rem; }
+  .card { background:#080808; border:1px solid #1a1a1a; border-radius:12px; padding:1.5rem; }
+  .card .label { font-size:0.75rem; text-transform:uppercase; letter-spacing:0.1em; color:#666; margin-bottom:0.5rem; }
+  .card .value { font-size:2rem; font-weight:700; color:#e6edf3; }
+  .card .value.green { color:#00ff9d; }
+  table { width:100%; border-collapse:collapse; }
+  th { text-align:left; font-size:0.75rem; text-transform:uppercase; letter-spacing:0.1em; color:#666; padding:0.75rem 0.5rem; border-bottom:1px solid #1a1a1a; }
+  td { padding:0.75rem 0.5rem; border-bottom:1px solid #111; font-size:0.85rem; }
+  .ok { color:#00ff9d; }
+  .fail { color:#ff4444; }
+  footer { margin-top:3rem; padding-top:1.5rem; border-top:1px solid #1a1a1a; color:#666; font-size:0.8rem; }
+  .updated { color:#00ff9d; font-size:0.75rem; }
+</style>
+</head>
+<body>
+<div class="container">
+  <h1>/dashboard <small>⚡</small></h1>
+  <div class="subtitle">NullState Gateway — Live Telemetry &amp; Metrics</div>
+  
+  <div class="grid">
+    <div class="card">
+      <div class="label">Tasks Processed</div>
+      <div class="value green">2179</div>
+    </div>
+    <div class="card">
+      <div class="label">Ledger Entries</div>
+      <div class="value green">2338</div>
+    </div>
+    <div class="card">
+      <div class="label">Balance (USDC)</div>
+      <div class="value green">$90.16</div>
+    </div>
+    <div class="card">
+      <div class="label">Interactions Recorded</div>
+      <div class="value green">0</div>
+    </div>
+    <div class="card">
+      <div class="label">Quality Scored</div>
+      <div class="value">0</div>
+    </div>
+    <div class="card">
+      <div class="label">Avg Quality Score</div>
+      <div class="value">0.0/5</div>
+    </div>
+  </div>
+  
+  <h2 style="font-size:1.2rem; margin-bottom:1rem; color:#e6edf3;">Recent Interactions</h2>
+  <table>
+    <thead>
+      <tr><th>Action</th><th>Model</th><th>Latency</th><th>Status</th><th>Revenue</th><th>Protocol</th><th>Time</th></tr>
+    </thead>
+    <tbody>
+    </tbody>
+  </table>
+  
+  <footer>
+    <span class="updated">● live</span> — Last updated: 2026-05-28 18:30:01 UTC<br>
+    <a href="https://greensol.me/nullstate" style="color:#00ff9d;">← back to NullState</a>
+  </footer>
+</div>
+</body>
+</html>

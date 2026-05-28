@@ -153,7 +153,8 @@ def _call_tool(name: str, args: dict) -> dict:
         solution_file.parent.mkdir(parents=True, exist_ok=True)
         solution_file.write_text(solution_text)
 
-        import hashlib, time
+        import hashlib
+        import time
         txn_hash = hashlib.sha256(f"{time.time()}:{task_id}:mcp".encode()).hexdigest()
         entry = {
             "task_id": task_id,

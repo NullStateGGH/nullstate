@@ -183,7 +183,7 @@ def scan_hacker_news() -> List[Dict]:
     signals = []
     try:
         story_ids = requests.get(f"{HN_API_BASE}/topstories.json", timeout=10).json()[:50]
-        batch = requests.post(f"{HN_API_BASE}/items.json", json=story_ids, timeout=10).json() if False else []
+        _batch = requests.post(f"{HN_API_BASE}/items.json", json=story_ids, timeout=10).json() if False else []
         for sid in story_ids[:30]:
             try:
                 item = requests.get(f"{HN_API_BASE}/item/{sid}.json", timeout=5).json()
@@ -468,7 +468,7 @@ def check_package_registries() -> List[Dict]:
             if resp.status_code == 200:
                 data = resp.json()
                 info = data.get("info", {})
-                downloads = data.get("urls", [])
+                _downloads = data.get("urls", [])
                 signals.append({
                     "source": "pypi",
                     "type": "package_stats",
@@ -502,7 +502,7 @@ def check_website_seo() -> List[Dict]:
     """Check website SEO health and search engine presence."""
     signals = []
     checks = [
-        ("Google Index", f"https://www.google.com/search?q=site:greensol.me+nullstate"),
+        ("Google Index", "https://www.google.com/search?q=site:greensol.me+nullstate"),
         ("Sitemap", "https://greensol.me/nullstate/sitemap.xml"),
         ("Robots", "https://greensol.me/nullstate/robots.txt"),
         ("LLMs.txt", "https://greensol.me/nullstate/llms.txt"),
@@ -596,9 +596,9 @@ def generate_market_report(signals: List[Dict]) -> str:
         summary_data[s.get("source", "unknown")].append(s)
 
     report_sections = []
-    report_sections.append(f"# NullState Ecosystem Intelligence Report")
+    report_sections.append("# NullState Ecosystem Intelligence Report")
     report_sections.append(f"*Generated: {datetime.now(timezone.utc).isoformat()}*\n")
-    report_sections.append(f"## Overview")
+    report_sections.append("## Overview")
     report_sections.append(f"Total signals collected: {len(signals)}")
     report_sections.append(f"Sources: {', '.join(sorted(summary_data.keys()))}\n")
 
@@ -867,7 +867,7 @@ def main():
         return
 
     result = run_global_feedback_cycle()
-    print(f"\nGlobal Feedback Cycle complete:")
+    print("\nGlobal Feedback Cycle complete:")
     print(f"  Signals: {result['signals_collected']}")
     print(f"  Decisions: {result['decisions_generated']}")
     print(f"  Opportunities: {result['opportunities_found']}")

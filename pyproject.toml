@@ -67,6 +67,8 @@ markers = [
 [tool.ruff]
 line-length = 120
 target-version = "py313"
+
+[tool.ruff.lint]
 ignore = ["E501", "E402", "F401", "E731", "F403"]
 select = ["E", "F", "W"]
 

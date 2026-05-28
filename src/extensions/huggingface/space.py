@@ -84,7 +84,7 @@ def submit_solution(task_id: str, solution: str) -> str:
 with gr.Blocks(theme=gr.themes.Soft(), title="NullState — HF Payment Gateway") as demo:
     gr.Markdown("""
     # ⛓️ NullState — Hugging Face Payment Gateway
-    
+
     Pay for HF Inference API calls with USDC via x402. Agent-native.
     """)
 

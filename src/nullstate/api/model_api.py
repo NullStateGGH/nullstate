@@ -194,17 +194,17 @@ def verify_api_key(request: Request):
         key = auth[7:]
     else:
         key = auth
-    
+
     # Demo key always works
     if key == API_KEY or key == "ns_key_demo":
         return key
-    
+
     # Check free tier
     if key and len(key) > 8:
         usage = get_daily_usage(key)
         if usage < FREE_TIER_LIMIT:
             return key
-    
+
     raise HTTPException(status_code=401, detail="Invalid or expired API key. Get access at greensol.me/nullstate/pricing")
 
 # ─── FastAPI App ─────────────────────────────────────────────────────
@@ -259,19 +259,19 @@ async def list_models(request: Request):
 async def chat_completions(request: Request, body: ChatRequest):
     api_key = verify_api_key(request)
     client_ip = request.client.host if request.client else "unknown"
-    
+
     prompt = format_messages(body.messages)
     model_to_use = body.model if body.model in [MODEL_NAME, "nullstate-v1"] else MODEL_NAME
-    
+
     # Count input tokens (approximate)
     tokens_in = len(prompt.split())
-    
+
     # Check free tier
     daily_usage = get_daily_usage(api_key)
     if daily_usage >= FREE_TIER_LIMIT and api_key not in [API_KEY, "ns_key_demo"]:
         estimated_tokens = tokens_in + 200  # estimate ~200 out tokens
         cost_for_request = (estimated_tokens / 1000) * TOKEN_PRICE
-        
+
         # Check prepaid credits
         credits = get_credits(api_key)
         if credits >= cost_for_request:
@@ -287,13 +287,13 @@ async def chat_completions(request: Request, body: ChatRequest):
                 status_code=402,
                 detail=billing_challenge(api_key, "model_inference", cost_for_request)
             )
-    
+
     if body.stream:
         async def generate():
             cost_per_token = TOKEN_PRICE / 1000
             tokens_out = 0
             first_chunk = True
-            
+
             for raw_line in call_ollama_stream(prompt, model_to_use, body.temperature, body.max_tokens):
                 if isinstance(raw_line, bytes):
                     raw_line = raw_line.decode()
@@ -313,7 +313,7 @@ async def chat_completions(request: Request, body: ChatRequest):
                             }
                             yield f"data: {json.dumps(first_chunk_data)}\n\n"
                             first_chunk = False
-                        
+
                         yield f"data: {json.dumps({
                             'id': chunk_id if not first_chunk else f'chatcmpl-{uuid.uuid4().hex[:12]}',
                             'object': 'chat.completion.chunk',
@@ -321,7 +321,7 @@ async def chat_completions(request: Request, body: ChatRequest):
                             'model': model_to_use,
                             'choices': [{'delta': {'content': chunk}, 'index': 0, 'finish_reason': None}]
                         })}\n\n"
-                    
+
                     if data.get("done"):
                         yield f"data: {json.dumps({
                             'id': chunk_id if not first_chunk else f'chatcmpl-{uuid.uuid4().hex[:12]}',
@@ -330,10 +330,10 @@ async def chat_completions(request: Request, body: ChatRequest):
                             'model': model_to_use,
                             'choices': [{'delta': {}, 'index': 0, 'finish_reason': 'stop'}]
                         })}\n\ndata: [DONE]\n"
-                        
+
                         cost = (tokens_in + tokens_out) * cost_per_token
                         record_usage(api_key, tokens_in, tokens_out, cost, "/v1/chat/completions", model_to_use, client_ip)
-                        
+
                         try:
                             from extensions.google.telemetry import record_model_call
                             record_model_call(tokens_in + tokens_out, 0)
@@ -344,15 +344,15 @@ async def chat_completions(request: Request, body: ChatRequest):
                             pass
                 except json.JSONDecodeError:
                     continue
-        
+
         return StreamingResponse(generate(), media_type="text/event-stream")
-    
+
     else:
         result = call_ollama(prompt, model_to_use, body.temperature, body.max_tokens)
         response_text = result.get("response", "")
         tokens_out = len(response_text.split())
         cost = (tokens_in + tokens_out) * (TOKEN_PRICE / 1000)
-        
+
         record_usage(api_key, tokens_in, tokens_out, cost, "/v1/chat/completions", model_to_use, client_ip)
         try:
             from extensions.google.telemetry import record_model_call, record_revenue
@@ -361,7 +361,7 @@ async def chat_completions(request: Request, body: ChatRequest):
                 record_revenue(float(cost), "model_api")
         except Exception:
             pass
-        
+
         return {
             "id": f"chatcmpl-{uuid.uuid4().hex[:12]}",
             "object": "chat.completion",
@@ -384,9 +384,9 @@ async def chat_completions(request: Request, body: ChatRequest):
 async def completions(request: Request, body: CompletionRequest):
     api_key = verify_api_key(request)
     client_ip = request.client.host if request.client else "unknown"
-    
+
     tokens_in = len(body.prompt.split())
-    
+
     daily_usage = get_daily_usage(api_key)
     if daily_usage >= FREE_TIER_LIMIT and api_key not in [API_KEY, "ns_key_demo"]:
         raise HTTPException(
@@ -397,9 +397,9 @@ async def completions(request: Request, body: CompletionRequest):
                 "payment_url": "https://greensol.me/nullstate/pricing"
             }
         )
-    
+
     result = call_ollama(body.prompt, body.model, body.temperature, body.max_tokens, body.stream)
-    
+
     if body.stream:
         async def generate():
             for raw_line in call_ollama_stream(body.prompt, body.model, body.temperature, body.max_tokens):
@@ -408,13 +408,13 @@ async def completions(request: Request, body: CompletionRequest):
                 yield f"data: {raw_line}\n\n"
             yield "data: [DONE]\n"
         return StreamingResponse(generate(), media_type="text/event-stream")
-    
+
     response_text = result.get("response", "")
     tokens_out = len(response_text.split())
     cost = (tokens_in + tokens_out) * (TOKEN_PRICE / 1000)
-    
+
     record_usage(api_key, tokens_in, tokens_out, cost, "/v1/completions", body.model, client_ip)
-    
+
     return {
         "id": f"cmpl-{uuid.uuid4().hex[:12]}",
         "object": "text_completion",
@@ -435,7 +435,7 @@ async def get_usage(request: Request):
     api_key = verify_api_key(request)
     daily = get_daily_usage(api_key)
     remaining = max(0, FREE_TIER_LIMIT - daily) if api_key not in [API_KEY, "ns_key_demo"] else -1
-    
+
     return {
         "api_key": api_key[:8] + "...",
         "daily_tokens_used": daily,
@@ -457,7 +457,7 @@ async def health():
     except Exception:
         models = []
         model_available = False
-    
+
     return {
         "status": "ok",
         "model": MODEL_NAME,

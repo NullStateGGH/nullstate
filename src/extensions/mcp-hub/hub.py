@@ -229,7 +229,7 @@ def continuous_discovery(interval: int = 300):
 
 
 def main():
-    print(f"⛓️  NullState MCP Hub — v0.1.0")
+    print("⛓️  NullState MCP Hub — v0.1.0")
     print(f"[Hub] Gateway: {GATEWAY_URL}")
     print(f"[Hub] Port: {HUB_PORT}")
 
@@ -245,7 +245,7 @@ def main():
     # Start HTTP server
     server = HTTPServer(("0.0.0.0", HUB_PORT), HubHandler)
     print(f"[Hub] Listening on :{HUB_PORT}")
-    print(f"[Hub] Endpoints: /hub/servers, /hub/connected, /hub/health, /hub/connect, /hub/discover")
+    print("[Hub] Endpoints: /hub/servers, /hub/connected, /hub/health, /hub/connect, /hub/discover")
     print("[Hub] No limits. No state. Everywhere.")
     try:
         server.serve_forever()

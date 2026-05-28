@@ -3,6 +3,7 @@ import json
 import mimetypes
 import os
 import re
+import sqlite3
 import ssl
 import subprocess
 import sys
@@ -569,7 +570,7 @@ class GatewayHandler(BaseHTTPRequestHandler):
 
         # Fall back to usage tier
         record_request(agent)
-        tier = get_tier(agent)
+        _tier = get_tier(agent)
         remaining = remaining_requests(agent)
         if remaining > 0:
             task_id = task_ids[0]
@@ -1016,6 +1017,7 @@ class GatewayHandler(BaseHTTPRequestHandler):
         task_id = str(payload.get("task_id", ""))
         tx_hash = str(payload.get("tx_hash", ""))
         expected_amount = payload.get("expected_amount")
+        agent_id = str(payload.get("agent_id", "anonymous"))
 
         if not re.match(r"^task_\d+$", task_id):
             self._respond(400, json.dumps({"error": "Invalid task_id"}))
@@ -1038,7 +1040,7 @@ class GatewayHandler(BaseHTTPRequestHandler):
             log.warning("tx verification error: %s — allowing pass-through", e)
 
         # Also credit the agent's prepaid balance
-        add_credits(agent, expected_amount or 0.015, tx_hash)
+        add_credits(agent_id, expected_amount or 0.015, tx_hash)
 
         idx = int(task_id.split("_")[1]) - 1
         db = get_db()
@@ -1066,7 +1068,7 @@ class GatewayHandler(BaseHTTPRequestHandler):
             "keywords": task_ref.get("keywords", []),
             "amount": expected_amount or 0.015,
             "transaction_hash": tx_hash,
-            "public_address": agent,
+            "public_address": agent_id,
             "payment_protocol": "x402",
             "settlement_currency": "USDC",
             "settlement_source": "onchain_verified",
@@ -1121,15 +1123,16 @@ def main():
     ctx = ssl.SSLContext(ssl.PROTOCOL_TLS_SERVER)
     ctx.load_cert_chain(cert_path, key_path)
     server.socket = ctx.wrap_socket(server.socket)
-    
+
     # Initialize GCP telemetry
     try:
-        import os; os.environ["NULLSTATE_SERVICE"] = "gateway"
+        import os
+        os.environ["NULLSTATE_SERVICE"] = "gateway"
         from extensions.google import telemetry as ns_telemetry
         ns_telemetry.init()
     except Exception:
         pass
-    
+
     log.info("NullState Gateway v5 live on port %d (HTTPS)", config.GATEWAY_PORT)
     log.info("Solana settlement: enabled | devnet")
     log.info("Serving on %s", config.PUBLIC_HOST)

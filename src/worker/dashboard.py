@@ -24,52 +24,59 @@ def get_db(db_path):
 
 def generate_dashboard():
     """Generate static dashboard HTML from telemetry data."""
-    
+
     # Get gateway stats
     gw = get_db(GATEWAY_DB)
     task_count = 0
     ledger_count = 0
     balance = 0.0
-    
+
     if gw:
         try:
             task_count = gw.execute("SELECT COUNT(*) as c FROM tasks").fetchone()["c"]
-        except: pass
+        except Exception:
+            pass
         try:
             ledger_count = gw.execute("SELECT COUNT(*) as c FROM ledger").fetchone()["c"]
-        except: pass
+        except Exception:
+            pass
         try:
             balance = gw.execute("SELECT COALESCE(SUM(amount),0) as s FROM ledger").fetchone()["s"]
-        except: pass
+        except Exception:
+            pass
         gw.close()
-    
+
     # Get telemetry stats
     tel = get_db(TELEMETRY_DB)
     interactions = 0
     avg_score = 0.0
     scored = 0
     recent = []
-    
+
     if tel:
         try:
             interactions = tel.execute("SELECT COUNT(*) as c FROM interactions").fetchone()["c"]
-        except: pass
+        except Exception:
+            pass
         try:
             row = tel.execute("SELECT COALESCE(AVG(score),0) as s FROM quality_scores").fetchone()
             avg_score = row["s"]
-        except: pass
+        except Exception:
+            pass
         try:
             scored = tel.execute("SELECT COUNT(*) as c FROM quality_scores").fetchone()["c"]
-        except: pass
+        except Exception:
+            pass
         try:
             rows = tel.execute(
                 "SELECT action, model_used, latency_ms, success, revenue_stream, amount_usdc, protocol, created_at "
                 "FROM interactions ORDER BY created_at DESC LIMIT 10"
             ).fetchall()
             recent = [dict(r) for r in rows]
-        except: pass
+        except Exception:
+            pass
         tel.close()
-    
+
     html = f"""<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -101,7 +108,7 @@ def generate_dashboard():
 <div class="container">
   <h1>/dashboard <small>⚡</small></h1>
   <div class="subtitle">NullState Gateway — Live Telemetry &amp; Metrics</div>
-  
+
   <div class="grid">
     <div class="card">
       <div class="label">Tasks Processed</div>
@@ -128,7 +135,7 @@ def generate_dashboard():
       <div class="value">{avg_score:.1f}/5</div>
     </div>
   </div>
-  
+
   <h2 style="font-size:1.2rem; margin-bottom:1rem; color:#e6edf3;">Recent Interactions</h2>
   <table>
     <thead>
@@ -139,11 +146,11 @@ def generate_dashboard():
     for r in recent:
         status = '<span class="ok">✓</span>' if r.get("success") else '<span class="fail">✗</span>'
         html += f"      <tr><td>{r.get('action','')[:30]}</td><td>{r.get('model_used','')[:20]}</td><td>{r.get('latency_ms',0)}ms</td><td>{status}</td><td>${r.get('amount_usdc',0):.4f}</td><td>{r.get('protocol','')[:10]}</td><td>{str(r.get('created_at',''))[:19]}</td></tr>\n"
-    
+
     now = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M:%S UTC")
     html += f"""    </tbody>
   </table>
-  
+
   <footer>
     <span class="updated">● live</span> — Last updated: {now}<br>
     <a href="https://greensol.me/nullstate" style="color:#00ff9d;">← back to NullState</a>
@@ -151,7 +158,7 @@ def generate_dashboard():
 </div>
 </body>
 </html>"""
-    
+
     DASHBOARD_PATH.write_text(html)
     print(f"[dashboard] Generated at {DASHBOARD_PATH}")
     return html

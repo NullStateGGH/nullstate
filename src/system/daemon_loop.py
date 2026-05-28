@@ -182,7 +182,7 @@ def auto_backup():
     """Auto-backup database and state files."""
     import shutil
     from core.store import atomic_read, atomic_write
-    db = get_db()
+    _db = get_db()
     ts = datetime.now(timezone.utc).strftime("%Y%m%d_%H%M%S")
     backup_dir = config.PATHS["backups"]
     try:

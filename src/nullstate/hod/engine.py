@@ -368,7 +368,7 @@ class HODEngine:
         cycle_id = f"cycle_{self.cycle_count}_{uuid.uuid4().hex[:4]}"
         log.info(f"\n{'='*60}\nHOD v2 Cycle {cycle_id}\n{'='*60}")
 
-        infra_cost = self.record_infra_cost(1.0)
+        _infra_cost = self.record_infra_cost(1.0)
         needs = self.assess_system()
         log.info(f"Assessment: {len(needs)} tasks")
         for n in needs:

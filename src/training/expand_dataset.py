@@ -61,7 +61,7 @@ def ledger_to_instruction(entry):
             "source": "production_ledger"
         },
         {
-            "instruction": f"What does the x402 payment protocol look like in practice? Show a real transaction example.",
+            "instruction": "What does the x402 payment protocol look like in practice? Show a real transaction example.",
             "response": f"x402 Protocol Transaction Example:\n"
                        f"- Amount: {entry['amount']} {entry['settlement_currency']}\n"
                        f"- Source: {entry['source']}\n"
@@ -74,7 +74,7 @@ def ledger_to_instruction(entry):
             "source": "production_ledger"
         },
         {
-            "instruction": f"How does the AP2 3-way handshake settle payments? Provide a real ledger example.",
+            "instruction": "How does the AP2 3-way handshake settle payments? Provide a real ledger example.",
             "response": f"AP2 Handshake Settlement Example:\n"
                        f"- Settlement: {entry['amount']} {entry['settlement_currency']}\n"
                        f"- Protocol: {entry['payment_protocol']}\n"
@@ -218,27 +218,27 @@ def build():
     db = get_db()
     tasks = db.execute("SELECT * FROM tasks").fetchall()
     ledger = db.execute("SELECT * FROM ledger").fetchall()
-    
+
     all_pairs = []
-    
+
     # Production task pairs
     for task in tasks:
         pairs = task_to_instruction(task)
         all_pairs.extend(pairs)
-    
+
     # Production ledger pairs
     for entry in ledger:
         pairs = ledger_to_instruction(entry)
         all_pairs.extend(pairs)
-    
+
     # Synthetic protocol knowledge pairs
     all_pairs.extend(generate_synthetic_pairs())
-    
+
     # Write output
     with open("src/training/nullstate_training_expanded.jsonl", "w") as f:
         for pair in all_pairs:
             f.write(json.dumps(pair) + "\n")
-    
+
     print(f"Generated {len(all_pairs)} training pairs:")
     domains = {}
     for p in all_pairs:
