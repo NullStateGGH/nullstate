@@ -797,6 +797,23 @@ class GatewayHandler(BaseHTTPRequestHandler):
             self._respond(200, json.dumps({"response": resp_text}))
             return
 
+        if parsed.path == "/a2a":
+            from network.a2a_handler import handle_a2a_task
+            raw = self._read_body()
+            if not raw:
+                self._respond(400, json.dumps({"error": "Empty body"}))
+                return
+            code, resp = handle_a2a_task(raw, dict(self.headers))
+            if code == 402:
+                self.send_response(402)
+                self.send_header("Content-Type", "application/json")
+                self.send_header("X-A2A-Extensions", "https://github.com/google-a2a/a2a-x402/v0.1")
+                self.end_headers()
+                self.wfile.write(resp.encode())
+            else:
+                self._respond(code, resp)
+            return
+
         if parsed.path == "/api/v1/ap2/checkout":
             kya_code = self._require_kya()
             if kya_code:
@@ -1152,6 +1169,7 @@ def main():
     log.info("POST /api/v1/ap2/checkout|charge (AP2 mandates w/ Google Pay / GCP Marketplace)")
     log.info("GET  /api/v1/gcp-marketplace/listing (GCP Marketplace product metadata)")
     log.info("POST /api/v1/gcp-marketplace/webhook (GCP Marketplace Pub/Sub notifications)")
+    log.info("POST /a2a                 (A2A x402 Agent-to-Agent protocol)")
     log.info("POST /mcp                 (MCP JSON-RPC proxy)")
     server.serve_forever()
 
