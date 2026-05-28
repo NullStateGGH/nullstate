@@ -1,0 +1,15 @@
+[Unit]
+Description=NullState Autonomous Enterprise Loop v2 — self-orchestrating, self-healing
+After=network.target
+
+[Service]
+Type=simple
+ExecStartPre=/usr/bin/python3 /home/Nullstate-linux-vm/src/core/config.py
+ExecStart=/usr/bin/python3 /home/Nullstate-linux-vm/src/system/daemon_loop.py
+User=amjad
+Restart=always
+RestartSec=10
+Environment=PYTHONPATH=/home/Nullstate-linux-vm/src
+
+[Install]
+WantedBy=multi-user.target

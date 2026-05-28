@@ -1,4 +1,5 @@
 import os
+import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent.parent
@@ -6,10 +7,32 @@ SRC = ROOT / "src"
 
 ENV_PATH = SRC / "wallet" / ".env"
 if ENV_PATH.exists():
-    for line in ENV_PATH.read_text().splitlines():
+    content = ENV_PATH.read_text()
+    current_key = None
+    current_val = []
+    for line in content.splitlines():
         if "=" in line and not line.startswith("-----"):
-            k, v = line.split("=", 1)
-            os.environ.setdefault(k.strip(), v.strip())
+            if current_key:
+                os.environ.setdefault(current_key, "\n".join(current_val))
+            current_key, v = line.split("=", 1)
+            current_key = current_key.strip()
+            current_val = [v.strip()]
+        elif current_key and line.startswith("-----"):
+            current_val.append(line)
+        elif current_key:
+            current_val.append(line)
+    if current_key:
+        os.environ.setdefault(current_key, "\n".join(current_val))
+
+CRITICAL_ENV_VARS = [
+    "NULLSTATE_SOLANA_PUBKEY",
+    "NULLSTATE_SOLANA_PRIVATE_KEY",
+    "NULLSTATE_WALLET_PRIVATE_KEY",
+]
+
+MISSING = [v for v in CRITICAL_ENV_VARS if not os.environ.get(v)]
+if MISSING:
+    print(f"WARNING: Missing critical env vars (in .env or environment): {', '.join(MISSING)}", file=sys.stderr)
 
 PATHS = {
     "tasks": SRC / "core" / "tasks.json",
@@ -42,7 +65,12 @@ HF_MODEL = "microsoft/Phi-3-mini-4k-instruct"
 HF_API_URL = "https://api-inference.huggingface.co/models/" + HF_MODEL
 GOOGLE_API_URL = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent"
 
-SOLANA_RPC_URL = os.environ.get("NULLSTATE_SOLANA_RPC", "https://api.mainnet-beta.solana.com")
+SOLANA_NETWORK = os.environ.get("NULLSTATE_SOLANA_NETWORK", "devnet")
+IS_MAINNET = SOLANA_NETWORK == "mainnet"
+if IS_MAINNET:
+    SOLANA_RPC_URL = os.environ.get("NULLSTATE_SOLANA_RPC", "https://api.mainnet-beta.solana.com")
+else:
+    SOLANA_RPC_URL = os.environ.get("NULLSTATE_SOLANA_RPC", "https://api.devnet.solana.com")
 SOLANA_PUBKEY = os.environ.get("NULLSTATE_SOLANA_PUBKEY", "")
 USDC_MINT = "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v"
 
@@ -52,7 +80,7 @@ PRICING = {
     "pro": {"requests_per_month": 5000, "price_usdc": 200, "label": "Pro"},
     "enterprise": {"requests_per_month": 99999, "price_usdc": 500, "label": "Enterprise"},
 }
-PUBLIC_HOST = "34.41.139.70"
+PUBLIC_HOST = "greensol.me"
 
 KEYWORD_WEIGHTS = {
     "mcp-server": 3,

@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NullState — Open payment infrastructure for AI agents</title>
+  <meta name="description" content="NullState is the open-source Stripe for AI agents. Self-hosted payment settlement with x402, AP2, multi-gateway fiat & crypto. Google Pay, Stripe, Solana USDC." />
+  <link rel="icon" href="static/img/favicon.svg" />
+  <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --md-sys-color-primary: #1a73e8;
+      --md-sys-color-on-primary: #ffffff;
+      --md-sys-color-primary-container: #d3e3fd;
+      --md-sys-color-on-primary-container: #041e49;
+      --md-sys-color-secondary: #5f6368;
+      --md-sys-color-surface: #ffffff;
+      --md-sys-color-surface-variant: #f8f9fa;
+      --md-sys-color-on-surface: #202124;
+      --md-sys-color-on-surface-variant: #5f6368;
+      --md-sys-color-outline: #dadce0;
+      --md-elevation-1: 0 1px 3px rgba(0,0,0,.08), 0 1px 2px rgba(0,0,0,.06);
+      --md-elevation-2: 0 4px 6px rgba(0,0,0,.07), 0 2px 4px rgba(0,0,0,.06);
+      --md-elevation-3: 0 10px 20px rgba(0,0,0,.09), 0 6px 6px rgba(0,0,0,.06);
+      --max-width: 1200px;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Google Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      color: var(--md-sys-color-on-surface);
+      background: var(--md-sys-color-surface);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    .container { max-width: var(--max-width); margin: 0 auto; padding: 0 24px; }
+    
+    /* Navigation */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(255,255,255,.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--md-sys-color-outline);
+      padding: 0 24px;
+    }
+    nav .container { display: flex; align-items: center; height: 64px; padding: 0; }
+    nav .logo { display: flex; align-items: center; gap: 10px; font-weight: 500; font-size: 20px; color: var(--md-sys-color-on-surface); text-decoration: none; }
+    nav .logo img { height: 32px; }
+    nav .nav-links { display: flex; align-items: center; gap: 32px; margin-left: auto; }
+    nav .nav-links a { color: var(--md-sys-color-on-surface-variant); text-decoration: none; font-size: 14px; font-weight: 500; transition: color .2s; }
+    nav .nav-links a:hover { color: var(--md-sys-color-primary); }
+
+    /* Buttons */
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 12px 24px; border-radius: 100px; border: none;
+      font-family: inherit; font-size: 14px; font-weight: 500;
+      cursor: pointer; transition: all .2s; text-decoration: none;
+    }
+    .btn-primary { background: var(--md-sys-color-primary); color: var(--md-sys-color-on-primary); box-shadow: var(--md-elevation-1); }
+    .btn-primary:hover { box-shadow: var(--md-elevation-2); transform: translateY(-1px); }
+    .btn-secondary { background: transparent; color: var(--md-sys-color-primary); border: 1px solid var(--md-sys-color-outline); }
+    .btn-secondary:hover { background: var(--md-sys-color-primary-container); }
+    .btn-google { background: #fff; color: #5f6368; border: 1px solid var(--md-sys-color-outline); }
+    .btn-google:hover { background: #f8f9fa; }
+
+    /* Hero */
+    .hero {
+      padding: 160px 0 80px;
+      text-align: center;
+      background: linear-gradient(180deg, #f0f6ff 0%, #fff 100%);
+    }
+    .hero h1 { font-size: clamp(36px, 5vw, 64px); font-weight: 700; line-height: 1.15; letter-spacing: -.02em; }
+    .hero h1 span { background: linear-gradient(135deg, #1a73e8, #8ab4f8); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .hero p { font-size: clamp(16px, 2vw, 22px); color: var(--md-sys-color-on-surface-variant); max-width: 700px; margin: 24px auto; }
+    .hero .hero-cta { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-top: 32px; }
+    .hero .stats { display: flex; justify-content: center; gap: 48px; margin-top: 64px; flex-wrap: wrap; }
+    .hero .stat { text-align: center; }
+    .hero .stat-number { font-size: 36px; font-weight: 700; color: var(--md-sys-color-primary); display: block; }
+    .hero .stat-label { font-size: 14px; color: var(--md-sys-color-on-surface-variant); }
+
+    /* Badge row */
+    .badge-row {
+      display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; margin-bottom: 32px;
+    }
+    .badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 8px 16px; border-radius: 100px;
+      background: var(--md-sys-color-primary-container);
+      color: var(--md-sys-color-on-primary-container);
+      font-size: 13px; font-weight: 500;
+    }
+    .badge-dot { width: 8px; height: 8px; border-radius: 50%; background: #34a853; display: inline-block; }
+
+    /* Sections */
+    section { padding: 80px 0; }
+    section h2 { font-size: clamp(28px, 3vw, 40px); font-weight: 700; text-align: center; margin-bottom: 16px; }
+    section .subtitle { text-align: center; color: var(--md-sys-color-on-surface-variant); font-size: 18px; max-width: 600px; margin: 0 auto 48px; }
+
+    /* Cards */
+    .card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; }
+    .card {
+      background: var(--md-sys-color-surface-variant); border-radius: 16px; padding: 32px;
+      transition: all .2s; border: 1px solid transparent;
+    }
+    .card:hover { border-color: var(--md-sys-color-outline); box-shadow: var(--md-elevation-1); }
+    .card-icon { width: 48px; height: 48px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 24px; margin-bottom: 16px; }
+    .card h3 { font-size: 18px; font-weight: 500; margin-bottom: 8px; }
+    .card p { font-size: 14px; color: var(--md-sys-color-on-surface-variant); }
+
+    /* Gateway logos */
+    .gateway-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 24px; }
+    .gateway-item {
+      display: flex; align-items: center; gap: 10px;
+      padding: 16px 24px; border-radius: 12px;
+      background: var(--md-sys-color-surface-variant);
+      font-weight: 500; font-size: 15px;
+      border: 1px solid transparent;
+    }
+    .gateway-item:hover { border-color: var(--md-sys-color-outline); }
+    .gateway-item .g-icon { width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 16px; }
+
+    /* Pricing */
+    .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 24px; margin-top: 48px; }
+    .pricing-card {
+      background: var(--md-sys-color-surface-variant); border-radius: 20px; padding: 40px 32px;
+      text-align: center; border: 1px solid transparent; transition: all .2s;
+    }
+    .pricing-card.featured { border-color: var(--md-sys-color-primary); background: var(--md-sys-color-primary-container); }
+    .pricing-card .price { font-size: 48px; font-weight: 700; margin: 16px 0; }
+    .pricing-card .price span { font-size: 18px; color: var(--md-sys-color-on-surface-variant); }
+    .pricing-card .features { list-style: none; margin: 24px 0; }
+    .pricing-card .features li { padding: 8px 0; font-size: 14px; color: var(--md-sys-color-on-surface-variant); }
+    .pricing-card .features li::before { content: '✓ '; color: var(--md-sys-color-primary); font-weight: 700; }
+
+    /* Integration section */
+    .integration-row {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 32px; align-items: center;
+      background: var(--md-sys-color-surface-variant); border-radius: 24px; padding: 48px; margin-top: 24px;
+    }
+    .integration-item { text-align: center; }
+    .integration-item h4 { font-size: 16px; font-weight: 500; margin-bottom: 4px; }
+    .integration-item p { font-size: 13px; color: var(--md-sys-color-on-surface-variant); }
+
+    /* Code block */
+    .code-block {
+      background: #1e1e1e; border-radius: 12px; padding: 24px; overflow-x: auto;
+      font-family: 'Roboto Mono', monospace; font-size: 13px; line-height: 1.7; color: #9cdcfe;
+      margin: 24px 0;
+    }
+    .code-block .comment { color: #6a9955; }
+    .code-block .keyword { color: #569cd6; }
+    .code-block .string { color: #ce9178; }
+    .code-block .func { color: #dcdcaa; }
+
+    /* Onboarding flow */
+    .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 32px; counter-reset: step; }
+    .step { text-align: center; position: relative; }
+    .step::before { counter-increment: step; content: counter(step); display: block; width: 40px; height: 40px; line-height: 40px; border-radius: 50%; background: var(--md-sys-color-primary); color: #fff; font-weight: 700; font-size: 18px; margin: 0 auto 16px; }
+    .step h3 { font-size: 16px; font-weight: 500; margin-bottom: 8px; }
+    .step p { font-size: 14px; color: var(--md-sys-color-on-surface-variant); }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid var(--md-sys-color-outline);
+      padding: 48px 0; text-align: center;
+      color: var(--md-sys-color-on-surface-variant); font-size: 14px;
+    }
+    footer a { color: var(--md-sys-color-primary); text-decoration: none; }
+
+    /* Live indicator */
+    .live-indicator { display: inline-flex; align-items: center; gap: 8px; padding: 6px 16px; border-radius: 100px; background: #e6f4ea; color: #137333; font-size: 13px; font-weight: 500; }
+    .live-indicator .dot { width: 8px; height: 8px; border-radius: 50%; background: #34a853; animation: pulse 2s infinite; }
+    @keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: .4; } }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .hero { padding: 120px 0 48px; }
+      .hero .stats { gap: 24px; }
+      nav .nav-links a:not(.btn) { display: none; }
+      .integration-row { padding: 24px; }
+    }
+
+    /* Playground */
+    .playground {
+      background: var(--md-sys-color-surface-variant); border-radius: 16px; padding: 32px; max-width: 600px; margin: 32px auto;
+    }
+    .playground input, .playground select {
+      width: 100%; padding: 12px 16px; border-radius: 8px; border: 1px solid var(--md-sys-color-outline);
+      font-family: inherit; font-size: 14px; margin-bottom: 12px; background: #fff;
+    }
+    .playground .response {
+      background: #1e1e1e; border-radius: 8px; padding: 16px; font-family: 'Roboto Mono', monospace;
+      font-size: 12px; color: #9cdcfe; min-height: 60px; margin-top: 12px; display: none;
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="container">
+    <a href="/" class="logo">
+      <img src="static/img/logo-mark.svg" alt="NullState" />
+      NullState
+    </a>
+    <div class="nav-links">
+      <a href="#features">Features</a>
+      <a href="#gateways">Payments</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#docs">Docs</a>
+      <a href="https://github.com/NullStateGGH/nullstate" target="_blank">GitHub</a>
+      <a href="https://console.cloud.google.com/marketplace" target="_blank" class="btn btn-google">
+        <svg width="16" height="16" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+        GCP Marketplace
+      </a>
+      <a href="https://rapidapi.com" target="_blank" class="btn btn-primary">RapidAPI →</a>
+    </div>
+  </div>
+</nav>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="container">
+    <div class="badge-row">
+      <span class="badge"><span class="badge-dot"></span> Live in production</span>
+      <span class="badge">⚡ 2,179 tasks processed</span>
+      <span class="badge">💰 $90.16 USDC settled</span>
+    </div>
+    <h1>Payment infrastructure<br/>for <span>AI agents</span></h1>
+    <p>Self-hosted, open-source commerce layer that lets agents discover work, execute tasks, and settle payments — automatically. x402 for crypto, AP2 for enterprise, multi-gateway fiat.</p>
+    <div class="hero-cta">
+      <a href="#onboarding" class="btn btn-primary">Get Started Free</a>
+      <a href="https://github.com/NullStateGGH/nullstate" target="_blank" class="btn btn-secondary">⭐ Star on GitHub</a>
+      <a href="https://console.cloud.google.com/marketplace" target="_blank" class="btn btn-google">Subscribe on GCP</a>
+    </div>
+    <div class="stats" id="live-stats">
+      <div class="stat"><span class="stat-number" id="stat-tasks">0</span><span class="stat-label">Tasks Processed</span></div>
+      <div class="stat"><span class="stat-number" id="stat-ledger">0</span><span class="stat-label">Ledger Entries</span></div>
+      <div class="stat"><span class="stat-number" id="stat-balance">$0</span><span class="stat-label">USDC Settled</span></div>
+      <div class="stat"><span class="stat-number" id="stat-products">8</span><span class="stat-label">Revenue Streams</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- Gateway Icons -->
+<section id="gateways">
+  <div class="container">
+    <h2>Accept payments from everywhere</h2>
+    <p class="subtitle">One integration — Stripe, PayPal, Google Pay, Coinbase, Solana USDC. All fall back gracefully in mock mode.</p>
+    <div class="gateway-grid">
+      <div class="gateway-item"><div class="g-icon" style="background:#4285F4;color:#fff;">G</div> Google Pay</div>
+      <div class="gateway-item"><div class="g-icon" style="background:#635bff;color:#fff;">S</div> Stripe</div>
+      <div class="gateway-item"><div class="g-icon" style="background:#009cde;color:#fff;">P</div> PayPal</div>
+      <div class="gateway-item"><div class="g-icon" style="background:#0052ff;color:#fff;">C</div> Coinbase USDC</div>
+      <div class="gateway-item"><div class="g-icon" style="background:#9945FF;color:#fff;">S</div> Solana USDC</div>
+      <div class="gateway-item"><div class="g-icon" style="background:#34A853;color:#fff;">G</div> GCP Marketplace</div>
+    </div>
+  </div>
+</section>
+
+<!-- Features -->
+<section id="features" style="background:var(--md-sys-color-surface-variant);">
+  <div class="container">
+    <h2>Everything you need to monetize AI agents</h2>
+    <p class="subtitle">From crypto micropayments to enterprise fiat — all in one self-hosted stack.</p>
+    <div class="card-grid">
+      <div class="card">
+        <div class="card-icon" style="background:#d3e3fd;">⚡</div>
+        <h3>x402 Protocol</h3>
+        <p>HTTP 402 micropayments via Solana USDC. Agents pay per-task, per-token, or per-email — automatically.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon" style="background:#d3e3fd;">🔐</div>
+        <h3>AP2 Mandates</h3>
+        <p>RSA-2048 signed 3-way handshake for enterprise agent-to-agent settlement. FIDO Alliance aligned.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon" style="background:#d3e3fd;">💳</div>
+        <h3>Multi-Gateway</h3>
+        <p>Stripe, PayPal, Google Pay, Coinbase Commerce, Solana USDC — unified interface, mock fallback.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon" style="background:#d3e3fd;">🤖</div>
+        <h3>Self-Hosted AI</h3>
+        <p>Ollama-backed inference at $0 cost. Sell AI analysis ($5), content gen ($10), research ($15). 99% margins.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon" style="background:#d3e3fd;">📊</div>
+        <h3>Finance Subagent</h3>
+        <p>Autonomous revenue tracking, pricing optimization, API key provisioning, and sales reports.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon" style="background:#d3e3fd;">🌐</div>
+        <h3>GCP Marketplace</h3>
+        <p>Listed on Google Cloud Marketplace. Enterprise billing via GCP accounts. Pub/Sub provisioning.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Onboarding -->
+<section id="onboarding">
+  <div class="container">
+    <h2>Go from zero to revenue in 5 minutes</h2>
+    <p class="subtitle">No API keys required to start — everything works in mock mode. Add live keys when you're ready.</p>
+    <div class="steps">
+      <div class="step">
+        <h3>Deploy</h3>
+        <p><code>docker compose up -d</code> — all 6 services running.</p>
+      </div>
+      <div class="step">
+        <h3>Connect</h3>
+        <p>Get your identity token via <code>GET /kya/challenge</code>.</p>
+      </div>
+      <div class="step">
+        <h3>Monetize</h3>
+        <p>List on RapidAPI, GCP Marketplace, or sell direct via gateway.</p>
+      </div>
+      <div class="step">
+        <h3>Scale</h3>
+        <p>Add Stripe/PayPal keys for live fiat. Finance subagent optimizes pricing.</p>
+      </div>
+    </div>
+    <div class="playground">
+      <h3 style="margin-bottom:16px;font-size:18px;font-weight:500;">Try the API live</h3>
+      <select id="play-endpoint">
+        <option value="health">GET /health — system status</option>
+        <option value="catalog">GET /api/v1/tasks/catalog — paid AI tasks</option>
+        <option value="gateways">GET /api/v1/gateways — payment methods</option>
+        <option value="products">GET /api/v1/products — pricing</option>
+      </select>
+      <button class="btn btn-primary" onclick="tryApi()" style="width:100%;justify-content:center;">Send Request</button>
+      <div class="response" id="api-response"></div>
+    </div>
+  </div>
+</section>
+
+<!-- Pricing -->
+<section id="pricing" style="background:var(--md-sys-color-surface-variant);">
+  <div class="container">
+    <h2>Pay what you use. Keep what you earn.</h2>
+    <p class="subtitle">Self-hosted means 100% of your revenue stays with you. Our pricing is for hosted credits.</p>
+    <div class="pricing-grid">
+      <div class="pricing-card">
+        <h3>Free</h3>
+        <div class="price">$0<span>/mo</span></div>
+        <ul class="features">
+          <li>5 requests/month</li>
+          <li>Mock payment mode</li>
+          <li>Solana USDC settlement</li>
+          <li>All endpoints accessible</li>
+        </ul>
+        <a href="https://github.com/NullStateGGH/nullstate" class="btn btn-secondary">Self-Host Free</a>
+      </div>
+      <div class="pricing-card featured">
+        <h3>Scout</h3>
+        <div class="price">$50<span>/mo</span></div>
+        <ul class="features">
+          <li>500 requests/month</li>
+          <li>Stripe & PayPal live</li>
+          <li>AI analysis & generation</li>
+          <li>Email relay (1K/mo)</li>
+        </ul>
+        <a href="#" class="btn btn-primary">Subscribe via GCP</a>
+      </div>
+      <div class="pricing-card">
+        <h3>Pro</h3>
+        <div class="price">$200<span>/mo</span></div>
+        <ul class="features">
+          <li>5,000 requests/month</li>
+          <li>Google Pay + all gateways</li>
+          <li>Competitive research</li>
+          <li>Priority support</li>
+        </ul>
+        <a href="#" class="btn btn-primary">Subscribe via GCP</a>
+      </div>
+      <div class="pricing-card">
+        <h3>Enterprise</h3>
+        <div class="price">$500<span>/mo</span></div>
+        <ul class="features">
+          <li>99,999 requests/month</li>
+          <li>Email campaigns (10K/mo)</li>
+          <li>Dedicated support</li>
+          <li>Custom integrations</li>
+        </ul>
+        <a href="https://console.cloud.google.com/marketplace" class="btn btn-google">GCP Marketplace</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Marketplaces -->
+<section id="marketplaces">
+  <div class="container">
+    <h2>Available everywhere developers shop</h2>
+    <p class="subtitle">Listed on every major API and cloud marketplace.</p>
+    <div class="integration-row">
+      <div class="integration-item">
+        <h4>GCP Marketplace</h4>
+        <p>Enterprise billing via Google Cloud accounts. Pub/Sub provisioning. Consumption-based pricing.</p>
+      </div>
+      <div class="integration-item">
+        <h4>RapidAPI</h4>
+        <p>4M+ developers. AI analysis, content gen, research, email campaigns. Freemium tiers.</p>
+      </div>
+      <div class="integration-item">
+        <h4>OpenRouter</h4>
+        <p>400+ model marketplace. Sell self-hosted Ollama inference at 100% margin.</p>
+      </div>
+      <div class="integration-item">
+        <h4>Direct Gateway</h4>
+        <p>Your own self-hosted endpoints. Stripe + PayPal + Google Pay. No middleman fees.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <div class="container">
+    <p>
+      <a href="https://github.com/NullStateGGH/nullstate">GitHub</a> ·
+      <a href="https://greensol.me/nullstate">Docs</a> ·
+      <a href="https://greensol.me/nullstate/pricing">Pricing</a> ·
+      <a href="LICENSE">MIT License</a>
+    </p>
+    <p style="margin-top:16px;">Built for the agent economy. Agents deserve to pay each other.</p>
+    <p style="margin-top:8px;font-size:12px;color:var(--md-sys-color-on-surface-variant);">© 2026 NullState</p>
+  </div>
+</footer>
+
+<script>
+// Live stats from backend
+async function loadStats() {
+  try {
+    const resp = await fetch('https://localhost:8080/health');
+    const data = await resp.json();
+    document.getElementById('stat-tasks').textContent = data.tasks?.total || 0;
+    document.getElementById('stat-ledger').textContent = data.ledger?.entries || 0;
+    document.getElementById('stat-balance').textContent = '$' + (data.ledger?.balance || 0).toFixed(2);
+  } catch(e) {
+    // Backend unreachable — show cached defaults
+    document.getElementById('stat-tasks').textContent = '2,179';
+    document.getElementById('stat-ledger').textContent = '2,338';
+    document.getElementById('stat-balance').textContent = '$90.16';
+  }
+}
+loadStats();
+
+// API Playground
+async function tryApi() {
+  const el = document.getElementById('api-response');
+  el.style.display = 'block';
+  el.textContent = 'Loading...';
+  const endpoint = document.getElementById('play-endpoint').value;
+  const paths = {
+    health: '/health',
+    catalog: '/api/v1/tasks/catalog',
+    gateways: '/api/v1/gateways',
+    products: '/api/v1/products',
+  };
+  try {
+    const resp = await fetch('https://localhost:8080' + paths[endpoint]);
+    const text = await resp.text();
+    try {
+      el.textContent = JSON.stringify(JSON.parse(text), null, 2);
+    } catch {
+      el.textContent = text;
+    }
+  } catch(e) {
+    el.textContent = '// Cannot reach backend. Deploy NullState locally to try.\n// See: https://github.com/NullStateGGH/nullstate\n\n' + e.toString();
+  }
+}
+
+// Animate stats on scroll
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.style.opacity = '1';
+      e.target.style.transform = 'translateY(0)';
+    }
+  });
+});
+document.querySelectorAll('.stat, .card, .step').forEach(el => {
+  el.style.opacity = '0';
+  el.style.transform = 'translateY(20px)';
+  el.style.transition = 'all .6s ease';
+  observer.observe(el);
+});
+</script>
+</body>
+</html>

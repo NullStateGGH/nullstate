@@ -228,6 +228,22 @@ def revenue_harvest():
     return streams
 
 
+def _harvest_instant_revenue():
+    """Harvest from instant income streams: billing credits, model API, email relay."""
+    try:
+        from core.billing import get_credits, list_products
+        total_credits = 0.0
+        conn = get_db().conn
+        rows = conn.execute("SELECT agent_id, balance_usdc FROM credits").fetchall()
+        for r in rows:
+            total_credits += r["balance_usdc"]
+        model_usage = conn.execute("SELECT COALESCE(SUM(cost), 0) FROM api_usage").fetchone()[0] or 0.0
+        log.info("instant revenue — credits: $%.4f | model api: $%.4f | total_ledger: $%.4f",
+                 total_credits, model_usage, total_revenue())
+    except Exception as e:
+        log.warning("instant revenue harvest error: %s", e)
+
+
 def heartbeat():
     """Log health metrics to system."""
     _health["tasks_processed"] = sum(
@@ -256,28 +272,16 @@ def immortal_loop() -> None:
         _health["cycle"] = cycle
         log.info("=== CYCLE %d ===", cycle)
 
-        # 1. Self-heal long-running services
+        # 1. Self-heal income-generating services
         self_heal("gateway", GATEWAY)
         self_heal("mcp", MCP)
         self_heal("hub", HUB)
 
-        # 2. AI orchestration decision
-        decision = ai_orchestrate()
-
-        # 3. Crawl if needed
-        if decision["should_crawl"]:
-            log.info("crawling (%s priority)...", decision.get("crawl_priority", "medium"))
-            ok = run_script(CRAWLER, "crawler", timeout=60)
-            _health["crawler_ok"] = ok
-            _health["last_crawl"] = datetime.now(timezone.utc).isoformat()
-            if ok:
-                log.info("crawl completed")
-
-        # 4. Process queue if tasks exist
+        # 2. Process existing tasks only (no new crawling)
         open_tasks = open_count()
         if open_tasks > 0:
-            adaptive_sleep = max(5, min(60, 60 - ai_scored_count() * 5))
-            log.info("%d open tasks — processing in %ds (adaptive)", open_tasks, adaptive_sleep)
+            adaptive_sleep = max(5, min(30, 30 - ai_scored_count() * 3))
+            log.info("%d open tasks — processing in %ds", open_tasks, adaptive_sleep)
             _interruptible_sleep(adaptive_sleep)
             if not _running:
                 break
@@ -285,33 +289,34 @@ def immortal_loop() -> None:
             _health["processor_ok"] = ok
             _health["last_process"] = datetime.now(timezone.utc).isoformat()
         else:
-            log.info("0 open tasks — skipping process")
+            log.info("0 pending tasks — no processing needed")
 
-        # 5. Auto-backup (every 10 cycles)
-        if cycle - last_backup >= 10:
+        # 3. Auto-backup (every 20 cycles)
+        if cycle - last_backup >= 20:
             auto_backup()
             last_backup = cycle
 
-        # 6. Telemetry cycle
+        # 4. Telemetry cycle
         telemetry_cycle()
 
-        # 7. Revenue harvest
-        revenue_harvest()
+        # 5. Finance/BDM subagent cycle
+        try:
+            from finance_bdm.subagent import cycle as finance_cycle
+            finance_cycle()
+        except Exception as e:
+            log.warning("finance subagent error: %s", e)
 
-        # 8. Heartbeat
+        # 6. Revenue harvest & growth
+        revenue_harvest()
+        _harvest_instant_revenue()
+
+        # 6. Heartbeat
         if time.time() - last_heartbeat >= heartbeat_interval:
             heartbeat()
             last_heartbeat = time.time()
 
-        # 9. Adaptive sleep
-        tasks_pending = open_count()
-        if tasks_pending > 10:
-            sleep_time = 30
-        elif tasks_pending > 0:
-            sleep_time = 60
-        else:
-            sleep_time = config.DAEMON_CRAWL_SLEEP
-
+        # 7. Adaptive sleep (revenue-focused cycle)
+        sleep_time = 120  # 2min cycle — fast revenue check
         log.info("cycle %d complete — sleeping %ds", cycle, sleep_time)
         _interruptible_sleep(sleep_time)
 
@@ -324,9 +329,6 @@ def _interruptible_sleep(seconds: int) -> None:
             break
         time.sleep(1)
 
-
-if __name__ == "__main__":
-    immortal_loop()
 
 # ─── Telemetry Integration ───────────────────────────────────────────────
 from worker.telemetry import (
@@ -386,3 +388,7 @@ def telemetry_cycle():
             _last_telemetry_export = now
         except Exception as e:
             log.warning("[telemetry] export error: %s", e)
+
+
+if __name__ == "__main__":
+    immortal_loop()

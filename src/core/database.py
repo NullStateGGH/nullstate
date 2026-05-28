@@ -16,6 +16,36 @@ class Database:
 
     def _init_tables(self):
         self.conn.executescript("""
+            CREATE TABLE IF NOT EXISTS analytics_events (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                event_type TEXT,
+                page_path TEXT,
+                agent_id TEXT,
+                referrer TEXT,
+                user_agent TEXT,
+                session_id TEXT,
+                duration_sec REAL,
+                bounced INTEGER DEFAULT 1,
+                timestamp TEXT DEFAULT (datetime('now'))
+            );
+            CREATE TABLE IF NOT EXISTS audit_reports (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                overall_score REAL,
+                criteria_scores TEXT,
+                issues_found TEXT,
+                recommendations TEXT,
+                auditor_version TEXT,
+                timestamp TEXT DEFAULT (datetime('now'))
+            );
+            CREATE TABLE IF NOT EXISTS feedback_actions (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                action_type TEXT,
+                description TEXT,
+                file_changed TEXT,
+                status TEXT DEFAULT 'applied',
+                deploy_batch TEXT,
+                timestamp TEXT DEFAULT (datetime('now'))
+            );
             CREATE TABLE IF NOT EXISTS tasks (
                 id INTEGER PRIMARY KEY AUTOINCREMENT,
                 type TEXT DEFAULT 'lead',

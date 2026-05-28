@@ -1,0 +1,4 @@
+FROM nullstate:latest
+PARAMETER num_ctx 32768
+PARAMETER num_predict 4096
+PARAMETER num_thread 8

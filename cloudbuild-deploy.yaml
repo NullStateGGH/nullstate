@@ -1,0 +1,62 @@
+options:
+  logging: CLOUD_LOGGING_ONLY
+steps:
+- name: gcr.io/cloud-builders/gsutil
+  args:
+  - -m
+  - rsync
+  - -r
+  - gs://nullstate-website
+  - /workspace/build
+- name: python:3.13
+  entrypoint: python3
+  args:
+  - -c
+  - |
+    import ftplib, os, time
+    
+    print("Connecting to FTP...")
+    ftp = ftplib.FTP('server26.shared.spaceship.host', 'admin@greensol.me', 'V8sHRwRF#p^o', timeout=60)
+    print(f"Logged in. PWD: {ftp.pwd()}")
+    
+    ftp.cwd('public_html')
+    try:
+      ftp.cwd('nullstate')
+    except:
+      ftp.mkd('nullstate')
+    ftp.cwd('nullstate')
+    
+    base = '/workspace/build'
+    uploaded = 0
+    
+    for root, dirs, files in os.walk(base):
+      for f in files:
+        local = os.path.join(root, f)
+        rel = os.path.relpath(local, base)
+        remote_dir = os.path.dirname(rel)
+        
+        if remote_dir:
+          parts = remote_dir.split('/')
+          for i in range(len(parts)):
+            d = '/'.join(parts[:i+1])
+            try:
+              ftp.cwd(ftp.pwd().rstrip('/') + '/' + d)
+            except:
+              ftp.mkd(d)
+              ftp.cwd(d)
+          # Go back to nullstate base
+          while ftp.pwd() != '/public_html/nullstate':
+            ftp.cwd('..')
+          for p in parts:
+            ftp.cwd(p)
+        
+        with open(local, 'rb') as fh:
+          ftp.storbinary(f'STOR {os.path.basename(local)}', fh)
+        uploaded += 1
+        if uploaded % 20 == 0:
+          print(f"Uploaded {uploaded} files...")
+    
+    ftp.quit()
+    print(f"DEPLOY COMPLETE: {uploaded} files uploaded")
+  timeout: 120s
+timeout: 180s

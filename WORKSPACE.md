@@ -1,6 +1,6 @@
 # WORKSPACE.md — Development Ledger
 
-*Generated: 2026-05-26T09:45 UTC*
+*Generated: 2026-05-27T03:30 UTC*
 
 ## Behavioral Rule
 
@@ -1026,3 +1026,93 @@ All 6 revenue streams built, running on automated daemon cycle:
 | Demo script end-to-end | All 4 steps succeeded |
 | SSL cert auto-generation | `.ssl/cert.pem` + `.ssl/key.pem` created, chmod 600 on key |
 | Gateway service restart | active (running) |
+
+## Phase 1 — Security & Sanitization (2026-05-27)
+
+- **Health endpoint sanitized** — removed `solana_wallet`, `solana_usdc_balance`, `mcp_port`, `public_host` from `/health` response (lines 205-212)
+- **/balance endpoint preserves `solana_wallet`** — intentional, only returns on explicit balance request (line 231)
+- **Devnet/mainnet switch** — `SOLANA_NETWORK` env var in `.env` (devnet|mainnet-beta), `IS_MAINNET` derived bool in `config.py`
+- **Rate limiting** on model API — per-IP 60 req/60s, thread-safe `_rl_lock`, `_request_counts` dict in `model_api.py`
+- **Footer links fixed** — removed 6 broken extension doc links from `docusaurus.config.ts`, added working GitHub/HF Space + CLI page
+- **.env validation** — warns on boot if `NULLSTATE_SOLANA_PUBKEY`, `NULLSTATE_SOLANA_PRIVATE_KEY`, or `NULLSTATE_WALLET_PRIVATE_KEY` missing (in `config.py`)
+- **HOD revenue now real** — removed all `revenue_estimate: 50.0` → `0.0`, removed fake `_execute_task` revenue fabrication, `query_real_revenue()` sums verified ledger + API usage from DB
+- **PUBLIC_HOST** changed from `34.41.139.70` to `greensol.me` in `config.py`
+- **MCP server sanitized** — removed `public_endpoint`, `gateway` from health/info responses in `mcp_server.py`
+
+## Billing Engine (src/core/billing.py) — 2026-05-27
+
+- SQLite `credits` table: agent_id, balance_usdc, total_purchased, total_spent, created_at, updated_at
+- 3 products: `solution_api` ($0.025/req), `model_inference` ($0.0005/1K tokens), `email_relay` ($5/1000 emails)
+- Functions: `get_credits()`, `add_credits()`, `deduct_credits()`, `make_x402_challenge()`
+- Gateway endpoints: `GET /api/v1/credits`, `GET /api/v1/products`, `POST /api/v1/credits/add`, `POST /api/v1/credits/deduct`
+- `/get_solution` checks prepaid credits first, then free tier, then x402 challenge
+- Webhook settlement also credits prepaid balance
+- Model API free tier (1000 tokens/day) → prepaid credits → x402 challenge
+
+## HOD v2 Engine (src/nullstate/hod/engine.py) — 2026-05-27
+
+- Revenue Engine: `query_real_revenue()` from DB, real P&L reporting
+- Growth Engine: `generate_blog_post` task (auto blog via Ollama), `deploy_website` task (FTP auto-deploy every 6th cycle), Google knowledge ingestion every 8th cycle
+- Self-Healing v2: `check_service_health()` (response time + active status), `check_disk_usage()` (auto-cleanup at 85%), `check_response_times()` (latency monitoring)
+- Emergency Mode: `check_revenue_health()` — auto-triggers backup if revenue drops >$0.50 between cycles
+- Auto-deploy: website rebuild + FTP push every 6 cycles
+- Merged dataset pipeline, HF push, synthetic data generation scheduled by priority
+
+## Website Agentic Feedback Loop (src/nullstate/hod/feedback_loop.py) — 2026-05-27
+
+- GA4-style local analytics DB: `analytics_events`, `audit_reports`, `feedback_actions` tables
+- `track_pageview()` / `get_analytics_summary(days=7)` — total views, unique visitors, top pages, daily trend, bounce rate, session duration
+- AI Website Auditor: scores 12 criteria via Ollama + Gemini, checks config, generates recommendations
+- SEO blog post generator: weekly topics, 500-word posts with target keywords + CTA
+- Auto-fix: applies known config corrections (baseUrl, canonical URL, GitHub org)
+- Auto-build + FTP deploy cycle with `run_feedback_cycle()`
+- CLI modes: `--track`, `--audit-only`, `--deploy-only`, `--blog-only`, `--analytics`
+- Service: `nullstate-feedback.service` (oneshot), timer: `nullstate-feedback.timer` (every 3 hours)
+
+## Client-Side Analytics — 2026-05-27
+
+- `nullstate-website/static/js/analytics.js` — self-hosted beacon-based tracking
+- Tracks pageviews, session duration, referrer, viewport via `navigator.sendBeacon`
+- `GET /api/v1/analytics/track` endpoint added to gateway (writes to `analytics_events` table)
+- Google Analytics gtag script placeholder (`G-XXXXXXXX`) in `docusaurus.config.ts`
+- Google site verification meta tag added
+- Table creation moved to `database.py` for automatic migration
+
+## Landing Page Chatbot — 2026-05-27
+
+- `POST /chat` endpoint on gateway: keyword-routed for instant FAQ, background Gemini/AI enrichment
+- `static/chatbot/chatbot.js` — structured 5-path onboarding: deploy / integrate / learn / build / explore → service catalog → tasks → completion
+- Conversation storage in `chatbot_conversations` table → feeds into `ecosystem_signals` as agentic training data
+- DB migration: `database.py` now creates `chatbot_conversations` + `ecosystem_signals` tables
+
+## Global Ecosystem Feedback — 2026-05-27
+
+- `src/nullstate/hod/global_feedback.py` — scans 10+ sources (HN, GitHub, Reddit, AI directories, news, MCP hub, competitors)
+- Sources table in DB (`ecosystem_sources`), signals stored in `ecosystem_signals`
+- Gemini/Ollama analysis → `adaptation_decisions` table
+- Service: `nullstate-global-feedback.service` (oneshot), timer every 12h
+- Merges chatbot conversations + website analytics into dataset → adapted behavior
+
+## 360-Degree HOD Reporting — 2026-05-27
+
+- `src/nullstate/hod/reporting.py` — per-minute P&L for 11 departments
+- Cost model: $0.01070000/min ($0.642/h, $15.41/day)
+- Revenue depts: Gateway ($0.242200), Billing ($10.00) — net loss ~$0.00666333/min subsidized
+- SQL query from ledger + tasks tables for real revenue
+- CLI: `python3 -m nullstate.hod.reporting --report`
+- Service: `nullstate-reporting.service` (run by HOD engine cycle)
+
+## Adaptation Engine — 2026-05-27
+
+- `src/nullstate/hod/adaptation.py` — reads `adaptation_decisions` table
+- Auto-applies config changes, blog/content creation, FTP deploy actions
+- `requires_review` fallback for risky changes (dependency swaps, API key rotation)
+- Service: `nullstate-adaptation.service` — HOD cycle executor
+
+## Website Rebuild + FTP Deploy — 2026-05-27
+
+- Website rebuilt with chatbot integration (Docusaurus build)
+- FTP credentials: admin@greensol.me / V8sHRwRF#p^o → server26.shared.spaceship.host
+- Deploy target: `/nullstate/` (public web root: greensol.me)
+- Verfied: Gateway health ok (307 tasks, 480 ledger), chatbot responds, 360 report generates
+- All 8 systemd services + 2 timers active

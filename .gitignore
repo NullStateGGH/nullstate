@@ -1,32 +1,59 @@
 # Secrets
 src/wallet/.env
-.ssl/
+credentials/
+.env
+.env.*
+*.pem
 *.key
+*.keystore
+
+# Databases
+*.db
+*.db-shm
+*.db-wal
+src/core/*.db*
+
+# Backups & logs
+backups/
+logs/
+deployments/
+delivery/
+usage.json
 
 # Python
 __pycache__/
 *.pyc
 *.pyo
-.env
+*.egg-info/
+dist/
+build/
+.ruff_cache/
 
-# Node
-node_modules/
-.npm/
+# Node / website build
+nullstate-website/build/
+nullstate-website/node_modules/
 
-# IDEs
+# OS / IDE / dotfiles
+.vscode/
 .vscode-server/
-.opencode/
-
-# Local configs
 .config/
 .local/
 .cache/
-
-# OS
-.DS_Store
+.ssh/
+.gsutil/
+.ollama/
+.npm/
+.copilot/
+.openclaw/
+.opencode/
+.bash_history
+.bashrc
+.bash_logout
+.msmtprc
 Thumbs.db
+.DS_Store
 
-# Database locks
-*.db-shm
-*.db-wal
-*.db-journal
+# Temp
+*.swp
+*.swo
+*~

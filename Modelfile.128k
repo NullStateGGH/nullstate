@@ -1,0 +1,5 @@
+FROM nullstate:latest
+PARAMETER num_ctx 131072
+PARAMETER num_predict 4096
+PARAMETER temperature 0.2
+PARAMETER top_p 0.95

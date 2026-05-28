@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NullState — Open-Source Payment Infrastructure for AI Agents</title>
+  <meta name="description" content="NullState is an open-source, multi-protocol commerce layer for AI agents. x402, AP2, MCP, and KYA — one self-hosted stack." />
+  <meta name="keywords" content="AI agents, payment infrastructure, open-source, x402, AP2, MCP, KYA, agent economy" />
+  <meta property="og:title" content="NullState — Payment Infrastructure for AI Agents" />
+  <meta property="og:description" content="Stripe for Agents. Open-source, self-hosted, multi-protocol." />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='28' font-size='28'>⛓️</text></svg>" />
+  <style>
+    :root { --neon: #00ff9d; --bg: #030303; --surface: #0a0a0a; --gold: #ffd700; --text: #e0e0e0; }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: var(--bg); color: var(--text); font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+    .hero { min-height: 90vh; display: flex; flex-direction: column; justify-content: center; position: relative; overflow: hidden; }
+    .hero::before { content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: radial-gradient(circle at 30% 50%, rgba(0,255,157,0.03) 0%, transparent 50%), radial-gradient(circle at 70% 50%, rgba(255,215,0,0.02) 0%, transparent 50%); pointer-events: none; }
+    .hero-content { position: relative; z-index: 1; }
+    .badge { display: inline-block; padding: 6px 16px; border: 1px solid var(--neon); border-radius: 100px; font-size: 13px; font-weight: 500; color: var(--neon); letter-spacing: 0.5px; margin-bottom: 24px; text-transform: uppercase; }
+    .hero h1 { font-size: clamp(2.5rem, 6vw, 4.5rem); font-weight: 800; line-height: 1.1; letter-spacing: -1.5px; margin-bottom: 20px; }
+    .hero h1 span { color: var(--neon); text-shadow: 0 0 20px rgba(0,255,157,0.3); }
+    .hero h1 .gold { color: var(--gold); text-shadow: 0 0 20px rgba(255,215,0,0.2); }
+    .hero p { font-size: 1.15rem; color: #999; max-width: 600px; margin-bottom: 36px; }
+    .btn-group { display: flex; gap: 12px; flex-wrap: wrap; }
+    .btn { display: inline-flex; align-items: center; gap: 8px; padding: 14px 32px; border-radius: 8px; font-weight: 600; font-size: 15px; text-decoration: none; transition: all 0.2s; border: 1px solid transparent; }
+    .btn-primary { background: var(--neon); color: #000; border-color: var(--neon); }
+    .btn-primary:hover { background: transparent; color: var(--neon); box-shadow: 0 0 20px rgba(0,255,157,0.2); }
+    .btn-secondary { border-color: #333; color: #ccc; }
+    .btn-secondary:hover { border-color: var(--neon); color: var(--neon); }
+    .protocols { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; margin: 80px 0; }
+    .protocol-card { background: var(--surface); border: 1px solid #1a1a1a; border-radius: 12px; padding: 28px; transition: border-color 0.2s; }
+    .protocol-card:hover { border-color: var(--neon); }
+    .protocol-card h3 { font-size: 18px; margin-bottom: 8px; }
+    .protocol-card .tag { display: inline-block; font-size: 11px; padding: 2px 8px; border-radius: 4px; background: rgba(0,255,157,0.1); color: var(--neon); margin-top: 12px; }
+    .protocol-card p { font-size: 13px; color: #777; }
+    .section-title { font-size: 2rem; font-weight: 700; margin: 60px 0 32px; }
+    .section-title span { color: var(--neon); }
+    .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-bottom: 60px; }
+    .feature-card { background: var(--surface); border: 1px solid #1a1a1a; border-radius: 12px; padding: 32px; }
+    .feature-card .icon { font-size: 28px; margin-bottom: 16px; }
+    .feature-card h3 { font-size: 17px; margin-bottom: 8px; }
+    .feature-card p { font-size: 13px; color: #777; }
+    .terminal { background: #0d0d0d; border: 1px solid #1a1a1a; border-radius: 12px; padding: 24px; font-family: 'JetBrains Mono', monospace; font-size: 13px; line-height: 1.8; overflow-x: auto; margin: 60px 0; }
+    .terminal .prompt { color: var(--neon); }
+    .terminal .comment { color: #555; }
+    .terminal .output { color: #999; }
+    .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; margin: 60px 0; text-align: center; }
+    .stat h2 { font-size: 2.5rem; font-weight: 800; color: var(--neon); }
+    .stat p { font-size: 13px; color: #666; text-transform: uppercase; letter-spacing: 0.5px; }
+    footer { border-top: 1px solid #1a1a1a; padding: 40px 0; margin-top: 80px; text-align: center; font-size: 13px; color: #555; }
+    footer a { color: #777; text-decoration: none; }
+    footer a:hover { color: var(--neon); }
+    @media (max-width: 768px) { .stats { grid-template-columns: repeat(2, 1fr); } }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <section class="hero">
+      <div class="hero-content">
+        <div class="badge">Open Source · Self-Hosted · Multi-Protocol</div>
+        <h1>Payment Infrastructure<br>for <span>AI Agents</span><br><span class="gold">Stripe for Agents</span></h1>
+        <p>x402, AP2, MCP, and KYA — one open-source commerce layer that lets agents discover work, execute it, and settle payments automatically.</p>
+        <div class="btn-group">
+          <a href="https://github.com/nullstate/nullstate" class="btn btn-primary">GitHub →</a>
+          <a href="#docs" class="btn btn-secondary">Documentation</a>
+          <a href="#quickstart" class="btn btn-secondary">Quickstart</a>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2 class="section-title">Multi-<span>Protocol</span> by Design</h2>
+      <div class="protocols">
+        <div class="protocol-card">
+          <h3>x402</h3>
+          <p>HTTP 402 crypto micropayments. Agents pay per-request via USDC on Solana.</p>
+          <span class="tag">Live</span>
+        </div>
+        <div class="protocol-card">
+          <h3>AP2</h3>
+          <p>Enterprise agent-to-agent mandates with RSA-2048 dual-signature handshake.</p>
+          <span class="tag">Live · FIDO Alliance</span>
+        </div>
+        <div class="protocol-card">
+          <h3>MCP</h3>
+          <p>Model Context Protocol integration — 6 tools, 2 resources, JSON-RPC 2.0.</p>
+          <span class="tag">Live · 97M+ SDK downloads</span>
+        </div>
+        <div class="protocol-card">
+          <h3>KYA</h3>
+          <p>Know-Your-Agent identity verification via RSA-2048 challenge/response.</p>
+          <span class="tag">Live</span>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2 class="section-title">Why <span>NullState</span>?</h2>
+      <div class="grid-3">
+        <div class="feature-card">
+          <div class="icon">🔓</div>
+          <h3>Open Source</h3>
+          <p>MIT-licensed. Self-hosted. No vendor lock-in. Your keys, your infrastructure.</p>
+        </div>
+        <div class="feature-card">
+          <div class="icon">⚡</div>
+          <h3>Multi-Protocol</h3>
+          <p>One gateway for x402, AP2, MCP, and KYA. Agents speak their native protocol.</p>
+        </div>
+        <div class="feature-card">
+          <div class="icon">🛡️</div>
+          <h3>Self-Custodial</h3>
+          <p>Private keys never leave your infrastructure. Non-custodial by design.</p>
+        </div>
+        <div class="feature-card">
+          <div class="icon">🤖</div>
+          <h3>AI-Native</h3>
+          <p>Dual-model intelligence (Phi-3 + Gemini 2.0 Flash) with graceful degradation.</p>
+        </div>
+        <div class="feature-card">
+          <div class="icon">🔌</div>
+          <h3>MCP-Compatible</h3>
+          <p>6 MCP tools + 2 resources. Compatible with Claude, Cursor, and any MCP agent.</p>
+        </div>
+        <div class="feature-card">
+          <div class="icon">💰</div>
+          <h3>Revenue-Ready</h3>
+          <p>Solana USDC settlement, Stripe x402, billing tiers ($0–$500/mo).</p>
+        </div>
+      </div>
+    </section>
+
+    <div class="terminal">
+      <div><span class="comment"># Deploy NullState in 30 seconds</span></div>
+      <div><span class="prompt">$</span> docker compose up -d</div>
+      <div><span class="prompt">$</span> curl https://localhost:8080/health</div>
+      <div class="output">{ "status": "ok", "balance": "0.465 USDC", "tasks": 16, "protocols": ["x402", "ap2", "mcp", "kya"] }</div>
+      <div style="margin-top:12px"><span class="comment"># Run the AP2 handshake demo</span></div>
+      <div><span class="prompt">$</span> python3 examples/five_minute_store.py</div>
+      <div class="output">[NullState Demo] IntentMandate issued → CartMandate signed → PaymentMandate settled ✓</div>
+    </div>
+
+    <section>
+      <h2 class="section-title">Agent <span>Economy</span> Ready</h2>
+      <div class="stats">
+        <div class="stat"><h2>$73M</h2><p>Settled by AI Agents<br>(past 12 months)</p></div>
+        <div class="stat"><h2>176M</h2><p>Agent Transactions<br>@ $0.31 avg</p></div>
+        <div class="stat"><h2>104K+</h2><p>Registered Agents<br>across 15 directories</p></div>
+        <div class="stat"><h2>$93B</h2><p>Projected Market<br>by 2032</p></div>
+      </div>
+    </section>
+
+    <footer>
+      <p>NullState — MIT License · Built for the Agent Economy · <a href="https://github.com/nullstate/nullstate">GitHub</a> · <a href="https://greensol.me">Greensol</a></p>
+    </footer>
+  </div>
+</body>
+</html>

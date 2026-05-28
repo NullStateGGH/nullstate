@@ -1,148 +1,198 @@
-# NullState — Open-Source Payment Infrastructure for AI Agents
-
-**Stripe for Agents.** NullState is an open-source, multi-protocol commerce layer that lets AI agents discover work, execute it, and settle payments — automatically. x402 for crypto micropayments, AP2 for enterprise mandates, both in one self-hosted stack.
-
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
-[![Python 3.11+](https://img.shields.io/badge/python-3.11%2B-blue.svg)](pyproject.toml)
-[![Docker](https://img.shields.io/badge/docker-ready-2496ED.svg)](#quickstart)
-[![MCP](https://img.shields.io/badge/MCP-compatible-6C5CE7.svg)](#mcp-tools)
-[![AP2](https://img.shields.io/badge/AP2-v0.2.0-00B894.svg)](src/network/ap2_protocol/mandates.py)
+<div align="center">
+  <img src="nullstate-website/static/img/logo.svg" width="120" alt="NullState" />
+  <h1>NullState</h1>
+  <p><strong>Open-source payment infrastructure for AI agents.</strong></p>
+  <p>x402 · AP2 · MCP · KYA · Multi-Gateway · Self-hosted</p>
+  <p>
+    <a href="https://greensol.me/nullstate"><img src="https://img.shields.io/badge/live-demo-blue?style=flat-square" alt="Live Demo" /></a>
+    <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-green?style=flat-square" alt="MIT License" /></a>
+    <a href="https://github.com/NullStateGGH/nullstate/issues"><img src="https://img.shields.io/github/issues/NullStateGGH/nullstate?style=flat-square" alt="GitHub Issues" /></a>
+    <a href="https://www.python.org/"><img src="https://img.shields.io/badge/python-3.13+-blue?style=flat-square" alt="Python 3.13+" /></a>
+    <a href="https://ollama.com/"><img src="https://img.shields.io/badge/ollama-powered-orange?style=flat-square" alt="Ollama Powered" /></a>
+  </p>
+  <p>
+    <strong>⭐ Star us on GitHub</strong> — help AI agents pay each other.
+  </p>
+</div>
 
 ---
 
-## Quickstart
+**NullState** is a self-hosted, open-source payment and commerce layer purpose-built for AI agents. It lets agents discover work, execute tasks, and settle payments — automatically — across **crypto (x402/USDC)** and **fiat (Stripe/PayPal/Google Pay)** rails.
+
+Think "Stripe for AI agents" — but open source, self-hosted, and you keep 100% of your revenue.
+
+## ✨ What's New (May 2026)
+
+| Feature | Description |
+|---------|-------------|
+| **Google Pay** | Pay with Google Wallet — backs into Stripe for processing |
+| **GCP Marketplace** | List NullState on Google Cloud Marketplace for enterprise billing |
+| **Multi-Gateway Payments** | Stripe, PayPal, Coinbase Commerce, Solana USDC — all in one interface |
+| **Finance/BDM Subagent** | Autonomous revenue tracking, pricing optimization, API key provisioning |
+| **Instant Paid AI Tasks** | $5 analysis, $10 content gen, $15 research, $25 email campaigns |
+| **RapidAPI Integration** | Ready-to-list OpenAPI spec for 4M+ developer marketplace |
+| **OpenRouter Provider** | Sell self-hosted inference through 400+ model marketplace |
+
+## 🚀 Quickstart
 
 ```bash
-git clone https://github.com/nullstate/nullstate
+# Clone
+git clone https://github.com/NullStateGGH/nullstate.git
 cd nullstate
+
+# Start all services
 docker compose up -d
-```
 
-In 30 seconds, your agent economy infrastructure is running:
-
-```bash
 # Check health
 curl http://localhost:8080/health
 
-# Run the 5-minute AP2 handshake demo
+# Run the AP2 handshake demo
 curl -X POST http://localhost:8080/mcp \
   -H 'Content-Type: application/json' \
   -d '{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"execute_ap2_handshake","arguments":{"caller_identity":"demo_agent"}}}'
 
-# See the settlement appear in the ledger
+# See settlement in the ledger
 curl http://localhost:8080/health | jq .ledger
 ```
 
-## Architecture
+## 🧠 Architecture
 
 ```
-                   ┌─────────────────────────────────────┐
-                   │         NullState Gateway           │
-                   │         (port 8080)                 │
-                   │  x402  ·  AP2  ·  MCP  ·  KYA      │
-                   └──────┬──────────────────────┬───────┘
-                          │                      │
-              ┌───────────▼──────────┐   ┌───────▼───────────┐
-              │    MCP Server        │   │   Daemon Loop     │
-              │    (port 8081)       │   │   crawler → sleep  │
-              │    5 tools / 2 res   │   │   → processor      │
-              └──────────────────────┘   └───────────────────┘
-                          │                      │
-                          └──────────┬───────────┘
-                                     ▼
-                          ┌──────────────────────┐
-                          │   REVENUE LEDGER     │
-                          │   atomic JSON store  │
-                          │   with auto-backups  │
-                          └──────────────────────┘
+                    ┌──────────────────────────────────────────────┐
+                    │           NullState Gateway (:8080)          │
+                    │  x402 · AP2 · MCP · KYA · Multi-Gateway     │
+                    └──────┬──────────────┬──────────────┬─────────┘
+                           │              │              │
+              ┌────────────▼──────┐  ┌────▼──────┐  ┌───▼──────────┐
+              │   Model API       │  │ MCP Server│  │  Finance/BDM │
+              │   (:8082)         │  │ (:8081)   │  │  Subagent     │
+              │   Ollama-backed   │  │ 5 tools   │  │  Revenue Ops  │
+              └───────────────────┘  └───────────┘  └──────────────┘
+                           │              │
+                           └──────┬───────┘
+                                  ▼
+                    ┌──────────────────────────┐
+                    │     Payment Gateways     │
+                    │  Stripe · PayPal · Coinbase│
+                    │  Solana · Google Pay · GCP│
+                    └──────────────────────────┘
+                                  ▼
+                    ┌──────────────────────────┐
+                    │      Revenue Ledger      │
+                    │    SQLite · auto-backup  │
+                    │  5-deep rotation · WAL   │
+                    └──────────────────────────┘
 ```
 
-## Protocols
+## 💳 Payment Gateways
 
-| Protocol | Use Case | NullState Endpoints | Status |
-|----------|----------|-------------------|--------|
-| **x402** | Crypto micropayments via HTTP 402 | `GET /get_solution` → 402 challenge → `POST /webhook/payment_settled` | Live |
-| **AP2** | Enterprise agent-to-agent payments | `POST /api/v1/ap2/checkout` · `POST /api/v1/ap2/charge` | Live · FIDO Alliance |
-| **MCP** | AI agent tool integration | `POST /mcp` (proxy to JSON-RPC on 8081) | Live · 97M monthly SDK downloads |
-| **KYA** | Agent identity challenge/response | `GET /kya/challenge` | Live · RSA-2048 signed |
+| Gateway | Fiat/Crypto | Fee | Status |
+|---------|-------------|-----|--------|
+| **Stripe** | Cards (USD) | 2.9% + $0.30 | ✅ Live (mock fallback) |
+| **PayPal** | PayPal balance | 3.49% + $0.49 | ✅ Live (mock fallback) |
+| **Google Pay** | Google Wallet | 2.9% + $0.30 | ✅ Live (mock fallback) |
+| **Coinbase** | USDC (Base) | 0% | ✅ Live (mock fallback) |
+| **Solana** | USDC (native) | 0% | ✅ Always live |
+| **GCP Marketplace** | GCP billing | 5% | ✅ Enterprise |
 
-## Why NullState?
+All gateways fall back gracefully when API keys are not configured — your endpoints always work.
 
-| Need | LangChain | AutoGPT | OpenClaw | **NullState** |
-|------|-----------|---------|----------|---------------|
-| LLM orchestration | ✓ | ✓ | ✓ | — |
-| Agent autonomy | — | ✓ | ✓ | — |
-| Cross-platform chat UI | — | — | ✓ | — |
-| **Agent payments (crypto + fiat)** | — | — | — | **✓** |
-| **Multi-protocol settlement** | — | — | — | **✓** |
-| **Self-hosted commerce layer** | — | — | — | **✓** |
+## 💰 Revenue Streams
 
-NullState **complements** these frameworks. Use LangChain for orchestration, AutoGPT for autonomy, and NullState to settle payments when work completes.
+| Product | Price | Margin | Description |
+|---------|-------|--------|-------------|
+| AI Analysis | $5/task | ~99% | Deep document/code analysis via Ollama |
+| Content Gen | $10/task | ~99% | SEO-optimized content generation |
+| Research | $15/task | ~99% | Competitive intelligence reports |
+| Email Campaign | $25/task | ~99% | Full campaign with Mail relay |
+| Model Inference | $0.0005/1K tok | ~99% | General-purpose LLM (Ollama, $0 cost) |
+| AP2 Settlement | $0.025/task | ~99% | Agent-to-agent payment protocol |
 
-## Endpoints
+> **Infrastructure cost**: $0 for inference (self-hosted Ollama) · $5/mo for VPS
 
-### Gateway (port 8080)
+## 🔌 Protocols
 
-| Method | Path | Purpose |
-|--------|------|---------|
-| GET | `/` | Service links |
-| GET | `/health` | Full status (tasks, ledger, balance, AI, pricing) |
-| GET | `/pricing` | Tiered pricing + remaining requests |
-| GET | `/balance` | Live Solana USDC balance |
-| GET | `/mcp-info` | MCP server discovery |
-| GET | `/ai-summary` | AI-scored intelligence |
-| GET | `/llms.txt` | LLM discovery index |
-| GET | `/.well-known/ai-plugin.json` | OpenAI plugin manifest |
-| GET | `/kya/challenge` | KYA RSA challenge |
-| GET | `/get_solution?id=task_X` | Stream result or 402 challenge |
-| POST | `/mcp` | Proxy to MCP JSON-RPC |
-| POST | `/webhook/payment_settled` | On-chain settlement callback |
-| POST | `/api/v1/ap2/checkout` | AP2: IntentMandate → CartMandate |
-| POST | `/api/v1/ap2/charge` | AP2: PaymentMandate → settlement |
+| Protocol | Use Case | Endpoint | Status |
+|----------|----------|----------|--------|
+| **x402** | Crypto micropayments (HTTP 402) | `GET /get_solution` → 402 → `POST /webhook` | ✅ Live |
+| **AP2** | Enterprise agent-to-agent payments | `POST /api/v1/ap2/checkout` · `/charge` | ✅ Live |
+| **MCP** | AI agent tool integration | `POST /mcp` (JSON-RPC proxy) | ✅ Live |
+| **KYA** | Agent identity (RSA-2048 challenge) | `GET /kya/challenge` | ✅ Live |
 
-### MCP Server (port 8081, proxied via `POST /mcp`)
+## 📊 Live Demo
 
-| Tool | Description |
-|------|-------------|
-| `get_intelligence` | Market overview: tasks, ledger, balance, wallet |
-| `submit_solution` | Accept AI solution, mark completed, settle 0.025 USDC |
-| `get_ledger` | Full transaction history |
-| `get_tasks` | Filterable task queue (open/completed/all) |
-| `execute_ap2_handshake` | Full AP2 3-way handshake |
+See it running in production at **[greensol.me/nullstate](https://greensol.me/nullstate)**:
+- 🔐 12 systemd services · 9 active
+- 📊 2,179 tasks processed · 2,338 ledger entries
+- 💰 $90.16 USDC settled
+- 🤖 Self-hosted Ollama (gemma4:31b, 131K context)
 
-Resources: `nullstate://intelligence/summary`, `nullstate://ledger`
+```bash
+# Live instance health
+curl -sk https://localhost:8080/health
 
-## Pricing
+# Get KYA identity token
+curl -sk https://localhost:8080/kya/challenge
 
-| Tier | Requests/mo | Price (USDC) |
-|------|-------------|-------------|
-| Free | 5 | $0 |
-| Scout | 500 | $50 |
-| Pro | 5,000 | $200 |
-| Enterprise | 99,999 | $500 |
+# Browse paid AI tasks
+curl -sk https://localhost:8080/api/v1/tasks/catalog
 
-Rate limit: 30 req/min per IP. Body max: 64KB.
+# List available payment gateways
+curl -sk https://localhost:8080/api/v1/gateways
+```
 
-## Configuration
+## 🗺️ Roadmap
 
-Copy `.env.example` to `.env` and set your keys:
+- [x] Multi-gateway payments (Stripe, PayPal, Coinbase, Solana, Google Pay)
+- [x] GCP Marketplace integration
+- [x] Finance/BDM autonomous subagent
+- [x] Instant paid AI tasks
+- [x] KYA identity + rate limiting
+- [x] AP2 3-way handshake protocol
+- [x] MCP server with 5 tools
+- [ ] RapidAPI marketplace listing
+- [ ] OpenRouter model provider
+- [ ] Enterprise SSO / SAML
+- [ ] Multi-tenant agent workspace
+- [ ] On-chain Solana settlement verification
+
+## 🛠️ Configuration
+
+Copy `.env.example` and set your keys:
 
 ```bash
 cp .env.example .env
-# Edit .env with your RSA-2048 key, Solana wallet, and AI API tokens
+# Required: nothing — runs fully in mock mode
+# Optional: add STRIPE_SECRET_KEY, PAYPAL_CLIENT_ID, etc. for live payments
 ```
 
-See `src/wallet/wallet_engine.py` and `src/wallet/solana_engine.py` for key generation.
+**Keys are optional** — NullState runs fully in mock/demo mode without any API keys. Add them when you're ready to go live.
 
-## Development
+## 📚 Documentation
 
-```bash
-pip install -e .
-python3 src/network/gateway.py          # Gateway on :8080
-python3 src/network/mcp_server.py       # MCP on :8081
-python3 src/system/daemon_loop.py       # Autonomous crawler→processor loop
-```
+Full docs at **[greensol.me/nullstate/docs](https://greensol.me/nullstate/docs)**:
 
-## License
+- [Quickstart](https://greensol.me/nullstate/docs/deployment/quickstart)
+- [Docker Deployment](https://greensol.me/nullstate/docs/deployment/docker)
+- [Systemd Services](https://greensol.me/nullstate/docs/deployment/systemd)
+- [Gateway Endpoints](https://greensol.me/nullstate/docs/gateway/endpoints)
+- [AP2 Protocol](https://greensol.me/nullstate/docs/protocols/ap2)
+- [KYA Auth](https://greensol.me/nullstate/docs/protocols/kya)
+- [Pricing](https://greensol.me/nullstate/pricing)
 
-MIT — see [LICENSE](LICENSE). Built for the agent economy.
+## 🤝 Contributing
+
+See [CONTRIBUTING.md](CONTRIBUTING.md) to get started. We welcome PRs, issues, and feedback.
+
+Quick ways to help:
+- ⭐ Star the repo
+- 🐛 Open an issue for bugs or feature requests
+- 📖 Improve documentation
+- 🔌 Build an integration or extension
+- 💬 Share on X, Dev.to, or Hacker News
+
+## 📄 License
+
+MIT — see [LICENSE](LICENSE).
+
+Built for the agent economy. Agents deserve to pay each other.

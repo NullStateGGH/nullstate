@@ -318,8 +318,6 @@ class MCPHandler(BaseHTTPRequestHandler):
                 "description": "Autonomous business pipeline — task discovery, solution generation, x402 settlement",
                 "tools": list(TOOLS.keys()),
                 "resources": list(RESOURCES.keys()),
-                "public_endpoint": f"http://{config.PUBLIC_HOST}:{config.MCP_PORT}",
-                "gateway": f"http://{config.PUBLIC_HOST}:{config.GATEWAY_PORT}",
                 "protocol": "JSON-RPC 2.0",
                 "serverInfo": {"name": "NullState-MCP", "version": "1.0.0"},
             }, indent=2))
@@ -329,7 +327,6 @@ class MCPHandler(BaseHTTPRequestHandler):
                 "status": "ok",
                 "server": "NullState MCP",
                 "tools": len(TOOLS),
-                "public_endpoint": f"http://{config.PUBLIC_HOST}:{config.MCP_PORT}",
             }))
             return
         if parsed.path == "/mcp/v1/tools":

@@ -1,0 +1,15 @@
+[Unit]
+Description=NullState x402 Payment Gateway
+After=network.target
+Wants=nullstate.service
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/python3 /home/Nullstate-linux-vm/src/network/gateway.py
+User=amjad
+Restart=always
+RestartSec=5
+Environment=PYTHONPATH=/home/Nullstate-linux-vm/src
+
+[Install]
+WantedBy=multi-user.target
