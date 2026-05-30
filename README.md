@@ -17,6 +17,18 @@
 
 ---
 
+## 💖 Sponsor
+
+NullState is open-source (MIT) and self-hosted. Support independent AI infrastructure:
+
+- **GitHub Sponsors**: [github.com/sponsors/NullStateGGH](https://github.com/sponsors/NullStateGGH)
+- **Direct USDC**: x402 to `34.173.171.16:8080`
+- **Star the repo** — helps us get discovered
+
+All sponsor funds go toward GCP server costs ($30/mo) and free-tier AI inference for indie devs.
+
+---
+
 **NullState** is a self-hosted, open-source payment and commerce layer purpose-built for AI agents. It lets agents discover work, execute tasks, and settle payments — automatically — across **crypto (x402/USDC)** and **fiat (Stripe/PayPal/Google Pay)** rails.
 
 Think "Stripe for AI agents" — but open source, self-hosted, and you keep 100% of your revenue.
